@@ -33,8 +33,8 @@
     <style name="Base.Widget.AppCompat.Button.Colored">
     </style>
     <style name="Base.Widget.AppCompat.EditText">
-        <item name="?0x10104dd">@null</item>
-        <item name="?0x10104de">@null</item>
+        <item name="android:hyphenationFrequency">none</item>
+        <item name="android:breakStrategy">simple</item>
     </style>
     <style name="Base.Widget.AppCompat.RatingBar.Indicator">
     </style>
@@ -43,11 +43,11 @@
     <style name="Base.Widget.AppCompat.Spinner.Underlined">
     </style>
     <style name="Base.Widget.AppCompat.TextView">
-        <item name="?0x10104dd">1</item>
-        <item name="?0x10104de">@null</item>
+        <item name="android:hyphenationFrequency">none</item>
+        <item name="android:breakStrategy">high_quality</item>
     </style>
     <style name="CardView">
-        <item name="cardBackgroundColor">?unknown_attr_ref: 10104e2</item>
+        <item name="cardBackgroundColor">?android:attr/colorBackgroundFloating</item>
     </style>
     <style name="Widget.MaterialComponents.PopupMenu.ContextMenu">
         <item name="android:popupBackground">@drawable/mtrl_popupmenu_background</item>

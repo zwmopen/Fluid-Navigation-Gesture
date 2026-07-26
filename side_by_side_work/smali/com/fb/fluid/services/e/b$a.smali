@@ -1,0 +1,58 @@
+.class final Lcom/fb/fluid/services/e/b$a;
+.super Ljava/lang/Object;
+.source ""
+
+# interfaces
+.implements Landroid/view/View$OnTouchListener;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/fb/fluid/services/e/b;-><init>(Landroid/content/Context;)V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x18
+    name = null
+.end annotation
+
+
+# instance fields
+.field final synthetic f:Lcom/fb/fluid/services/e/b;
+
+
+# direct methods
+.method constructor <init>(Lcom/fb/fluid/services/e/b;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/fb/fluid/services/e/b$a;->f:Lcom/fb/fluid/services/e/b;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
+    .locals 0
+
+    const-string p1, "event"
+
+    invoke-static {p2, p1}, Lkotlin/x/d/k;->a(Ljava/lang/Object;Ljava/lang/String;)V
+
+    invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
+
+    move-result p1
+
+    if-nez p1, :cond_0
+
+    iget-object p1, p0, Lcom/fb/fluid/services/e/b$a;->f:Lcom/fb/fluid/services/e/b;
+
+    invoke-virtual {p1}, Lcom/fb/fluid/services/e/b;->dismiss()V
+
+    :cond_0
+    const/4 p1, 0x0
+
+    return p1
+.end method

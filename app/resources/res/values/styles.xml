@@ -1270,7 +1270,7 @@
         <item name="android:paddingLeft">@dimen/abc_action_bar_default_padding_start_material</item>
         <item name="android:paddingRight">@dimen/abc_action_bar_default_padding_end_material</item>
         <item name="android:minHeight">?attr/actionBarSize</item>
-        <item name="buttonGravity">30</item>
+        <item name="buttonGravity">top</item>
         <item name="collapseContentDescription">@string/abc_toolbar_collapse_description</item>
         <item name="collapseIcon">?attr/homeAsUpIndicator</item>
         <item name="contentInsetStart">16dp</item>
@@ -1290,7 +1290,7 @@
         <item name="contentInsetEnd">@dimen/abc_action_bar_content_inset_material</item>
         <item name="contentInsetStart">@dimen/abc_action_bar_content_inset_material</item>
         <item name="contentInsetStartWithNavigation">@dimen/abc_action_bar_content_inset_with_nav</item>
-        <item name="displayOptions">8</item>
+        <item name="displayOptions">showTitle</item>
         <item name="divider">?attr/dividerVertical</item>
         <item name="elevation">@dimen/abc_action_bar_elevation_material</item>
         <item name="height">?attr/actionBarSize</item>
@@ -1306,7 +1306,7 @@
     <style name="Base.Widget.AppCompat.ActionBar.TabBar">
         <item name="divider">?attr/actionBarDivider</item>
         <item name="dividerPadding">8dp</item>
-        <item name="showDividers">2</item>
+        <item name="showDividers">middle</item>
     </style>
     <style name="Base.Widget.AppCompat.ActionBar.TabText">
     </style>
@@ -1334,7 +1334,7 @@
         <item name="android:background">@drawable/abc_ab_share_pack_mtrl_alpha</item>
         <item name="divider">?attr/dividerVertical</item>
         <item name="dividerPadding">6dp</item>
-        <item name="showDividers">2</item>
+        <item name="showDividers">middle</item>
     </style>
     <style name="Base.Widget.AppCompat.AutoCompleteTextView">
         <item name="android:background">?attr/editTextBackground</item>
@@ -1588,7 +1588,7 @@
     <style name="Base.Widget.MaterialComponents.TextInputLayout">
         <item name="android:textColorHint">@color/mtrl_indicator_text_color</item>
         <item name="boxBackgroundColor">@null</item>
-        <item name="boxBackgroundMode">2</item>
+        <item name="boxBackgroundMode">outline</item>
         <item name="boxCollapsedPaddingTop">0dp</item>
         <item name="boxStrokeColor">@color/mtrl_outlined_stroke_color</item>
         <item name="boxStrokeWidth">@dimen/mtrl_textinput_box_stroke_width_default</item>
@@ -1989,10 +1989,10 @@
         <item name="cornerSizeBottomLeft">20px</item>
     </style>
     <style name="ShapeAppearanceOverlay.BottomRightCut">
-        <item name="cornerFamilyBottomRight">1</item>
+        <item name="cornerFamilyBottomRight">cut</item>
     </style>
     <style name="ShapeAppearanceOverlay.Cut">
-        <item name="cornerFamily">1</item>
+        <item name="cornerFamily">cut</item>
     </style>
     <style name="ShapeAppearanceOverlay.DifferentCornerSize">
         <item name="cornerSize">20px</item>
@@ -2021,7 +2021,7 @@
         <item name="cornerSizeBottomRight">@dimen/mtrl_textinput_box_corner_radius_small</item>
     </style>
     <style name="ShapeAppearanceOverlay.TopLeftCut">
-        <item name="cornerFamilyTopLeft">1</item>
+        <item name="cornerFamilyTopLeft">cut</item>
     </style>
     <style name="ShapeAppearanceOverlay.TopRightDifferentCornerSize">
         <item name="cornerSizeTopRight">20px</item>
@@ -2638,10 +2638,10 @@
     <style name="ThemeOverlay.MaterialComponents.MaterialAlertDialog.Picker.Date.Calendar">
         <item name="android:datePickerStyle">@style/MaterialAlertDialog.MaterialComponents.Picker.Date.Calendar</item>
     </style>
-    <style name="ThemeOverlay.MaterialComponents.MaterialAlertDialog.Picker.Date.Header.Text">
+    <style name="ThemeOverlay.MaterialComponents.MaterialAlertDialog.Picker.Date.Header.Text" parent="TextAppearance.MaterialComponents.Headline6">
         <item name="android:textColor">?attr/colorOnPrimary</item>
     </style>
-    <style name="ThemeOverlay.MaterialComponents.MaterialAlertDialog.Picker.Date.Header.Text.Day">
+    <style name="ThemeOverlay.MaterialComponents.MaterialAlertDialog.Picker.Date.Header.Text.Day" parent="TextAppearance.MaterialComponents.Headline1">
         <item name="android:textColor">?attr/colorOnPrimary</item>
     </style>
     <style name="ThemeOverlay.MaterialComponents.MaterialAlertDialog.Picker.Date.Spinner">
@@ -2855,14 +2855,14 @@
         <item name="itemBackground">?attr/selectableItemBackgroundBorderless</item>
         <item name="itemHorizontalTranslationEnabled">true</item>
         <item name="itemIconSize">@dimen/design_bottom_navigation_icon_size</item>
-        <item name="labelVisibilityMode">-1</item>
+        <item name="labelVisibilityMode">auto</item>
     </style>
     <style name="Widget.Design.BottomSheet.Modal">
         <item name="android:background">?android:attr/colorBackground</item>
         <item name="android:elevation">@dimen/design_bottom_sheet_modal_elevation</item>
         <item name="backgroundTint">?android:attr/colorBackground</item>
         <item name="behavior_hideable">true</item>
-        <item name="behavior_peekHeight">-1</item>
+        <item name="behavior_peekHeight">auto</item>
         <item name="behavior_skipCollapsed">false</item>
         <item name="enforceMaterialTheme">false</item>
         <item name="shapeAppearance">@null</item>
@@ -2879,7 +2879,7 @@
         <item name="backgroundTint">?attr/colorAccent</item>
         <item name="borderWidth">@dimen/design_fab_border_width</item>
         <item name="elevation">@dimen/design_fab_elevation</item>
-        <item name="fabSize">-1</item>
+        <item name="fabSize">auto</item>
         <item name="hideMotionSpec">@animator/design_fab_hide_motion_spec</item>
         <item name="hoveredFocusedTranslationZ">@dimen/design_fab_translation_z_hovered_focused</item>
         <item name="maxImageSize">@dimen/design_fab_image_size</item>
@@ -2912,7 +2912,7 @@
     <style name="Widget.Design.TabLayout">
         <item name="tabGravity">@null</item>
         <item name="tabIndicatorFullWidth">true</item>
-        <item name="tabMode">1</item>
+        <item name="tabMode">fixed</item>
     </style>
     <style name="Widget.Design.TextInputLayout">
         <item name="boxBackgroundMode">@null</item>
@@ -3275,7 +3275,7 @@
         <item name="android:maxLines">@integer/mtrl_calendar_selection_text_lines</item>
         <item name="autoSizeMaxTextSize">34sp</item>
         <item name="autoSizeMinTextSize">2sp</item>
-        <item name="autoSizeTextType">1</item>
+        <item name="autoSizeTextType">uniform</item>
     </style>
     <style name="Widget.MaterialComponents.MaterialCalendar.HeaderSelection.Fullscreen">
         <item name="android:textAppearance">?attr/textAppearanceHeadline6</item>
@@ -3289,7 +3289,7 @@
         <item name="android:maxLines">1</item>
         <item name="autoSizeMaxTextSize">10sp</item>
         <item name="autoSizeMinTextSize">2sp</item>
-        <item name="autoSizeTextType">1</item>
+        <item name="autoSizeTextType">uniform</item>
     </style>
     <style name="Widget.MaterialComponents.MaterialCalendar.HeaderToggleButton">
         <item name="android:background">?attr/actionBarItemBackground</item>
@@ -3361,7 +3361,7 @@
         <item name="android:background">@null</item>
         <item name="android:layout_margin">@dimen/mtrl_snackbar_margin</item>
         <item name="actionTextColorAlpha">@dimen/mtrl_snackbar_action_text_color_alpha</item>
-        <item name="animationMode">1</item>
+        <item name="animationMode">fade</item>
         <item name="backgroundOverlayColorAlpha">@dimen/mtrl_snackbar_background_overlay_color_alpha</item>
     </style>
     <style name="Widget.MaterialComponents.Snackbar.FullWidth">
@@ -3405,7 +3405,7 @@
     </style>
     <style name="Widget.MaterialComponents.TextInputLayout.FilledBox">
         <item name="boxBackgroundColor">@color/mtrl_filled_background_color</item>
-        <item name="boxBackgroundMode">1</item>
+        <item name="boxBackgroundMode">filled</item>
         <item name="boxCollapsedPaddingTop">12dp</item>
         <item name="boxStrokeColor">@color/mtrl_filled_stroke_color</item>
         <item name="endIconTint">@color/mtrl_filled_icon_tint</item>
@@ -3418,11 +3418,11 @@
         <item name="materialThemeOverlay">@style/ThemeOverlay.MaterialComponents.TextInputEditText.FilledBox.Dense</item>
     </style>
     <style name="Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu">
-        <item name="endIconMode">3</item>
+        <item name="endIconMode">dropdown_menu</item>
         <item name="materialThemeOverlay">@style/ThemeOverlay.MaterialComponents.AutoCompleteTextView.FilledBox.Dense</item>
     </style>
     <style name="Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu">
-        <item name="endIconMode">3</item>
+        <item name="endIconMode">dropdown_menu</item>
         <item name="materialThemeOverlay">@style/ThemeOverlay.MaterialComponents.AutoCompleteTextView.FilledBox</item>
     </style>
     <style name="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -3433,11 +3433,11 @@
         <item name="materialThemeOverlay">@style/ThemeOverlay.MaterialComponents.TextInputEditText.OutlinedBox.Dense</item>
     </style>
     <style name="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
-        <item name="endIconMode">3</item>
+        <item name="endIconMode">dropdown_menu</item>
         <item name="materialThemeOverlay">@style/ThemeOverlay.MaterialComponents.AutoCompleteTextView.OutlinedBox.Dense</item>
     </style>
     <style name="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
-        <item name="endIconMode">3</item>
+        <item name="endIconMode">dropdown_menu</item>
         <item name="materialThemeOverlay">@style/ThemeOverlay.MaterialComponents.AutoCompleteTextView.OutlinedBox</item>
     </style>
     <style name="Widget.MaterialComponents.TextView">

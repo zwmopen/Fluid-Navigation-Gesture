@@ -31,22 +31,32 @@
     <string name="about_googleplay">Google Play</string>
     <string name="about_twitter">Twitter</string>
     <string name="about_website">Weboldal</string>
-    <string name="access_capacitive_desc">A hardveres navigációs gombok véletlen megnyomását akadályozza meg, ha az alkalmazás engedélyezve van (opcionális). 101010Minden beérkezett esemény, amely nem releváns, egyszerűen figyelmen kívül marad. A szoftver kulcsfontosságú eseményei NEM fogják megkapni101010Fluid NG a szükséges minimális hozzáférési beállításokat használ, és személyes adatokat nem gyűjtenek.10</string>
+    <string name="access_capacitive_desc">"A hardveres navigációs gombok véletlen megnyomását akadályozza meg, ha az alkalmazás engedélyezve van (opcionális). 
+
+
+Minden beérkezett esemény, amely nem releváns, egyszerűen figyelmen kívül marad. A szoftver kulcsfontosságú eseményei NEM fogják megkapni
+
+
+Fluid NG a szükséges minimális hozzáférési beállításokat használ, és személyes adatokat nem gyűjtenek.
+    "</string>
     <string name="access_capacitive_sum">Segítő szolgáltatás a Fluid NG-nek</string>
-    <string name="access_capacitive_title">Fluid key Mapper (Választható)10</string>
-    <string name="bottomsheet_action_expand_halfway">Kibontás félig</string>
-    <string name="item_view_role_description">Lap</string>
-    <string name="access_main_desc">Az FNG az Android Hozzáférését használja a navigációs események végrehajtására, beleértve, de nem korlátozva a Home, Vissza, Legutóbbi alkalmazásokat. 1010FNG a minimális hozzáférési beállításokat használja</string>
+    <string name="access_capacitive_title">"Fluid key Mapper (Választható)
+"</string>
+    <string name="access_main_desc">"Az FNG az Android Hozzáférését használja a navigációs események végrehajtására, beleértve, de nem korlátozva a Home, Vissza, Legutóbbi alkalmazásokat. 
+
+FNG a minimális hozzáférési beállításokat használja"</string>
     <string name="action_app">App</string>
     <string name="action_app_dock">Alkalmazás mappa</string>
     <string name="action_assistant">Asszisztens</string>
     <string name="action_back">Vissza</string>
-    <string name="action_flashligh_toggle">Zseblámpa bekapcsolása10</string>
+    <string name="action_flashligh_toggle">"Zseblámpa bekapcsolása
+"</string>
     <string name="action_google_overlay">Google kereső</string>
     <string name="action_home">Home</string>
     <string name="action_keyboard_selector">Billentyűzet választó</string>
     <string name="action_keycode">Kulcs kód</string>
-    <string name="action_kill_app">Alkalmazás leállítása10</string>
+    <string name="action_kill_app">"Alkalmazás leállítása
+"</string>
     <string name="action_kill_app_failed">Alkalmazás nincs leállítva</string>
     <string name="action_menu">Menü</string>
     <string name="action_next_app">Következő alkalmazás</string>
@@ -65,7 +75,6 @@
     <string name="action_rotation_app">Engedélyezze a képernyő forgását az aktuális alkalmazásban</string>
     <string name="action_rotation_app_sum">Engedélyezd az Android auto fogatást addig, ameddig ki nem lépsz az aktuális alkalmazásból</string>
     <string name="action_rotation_lock">Auto forgatás kapcsoló</string>
-    <string name="material_clock_toggle_content_description">Válassza ki, hogy délelőtt vagy délután</string>
     <string name="action_rotation_pie">Elforgatás kényszerítés</string>
     <string name="action_rotation_pie_sum">Képernyő elfordulás kényszerítése. Hasonló az Android Pie-hoz.</string>
     <string name="action_screen_off">Kapcsolja ki és zárja le a képernyőt</string>
@@ -77,16 +86,15 @@
     <string name="action_voice_search">Hang Kereső</string>
     <string name="action_volume_dialog">Hangerőszabályzó megnyitása</string>
     <string name="anim_bubble">Buborék</string>
-    <string name="material_hour_selection">Óra kiválasztása</string>
     <string name="anim_fluid">Folyadék</string>
-    <string name="material_hour_suffix">%1$s óra</string>
     <string name="anim_none">Nincs</string>
     <string name="anim_plain_icon">Alap ikon</string>
     <string name="anim_teardrop">Könnycsepp</string>
-    <string name="app_name">Fluid Navigation Gestures10</string>
+    <string name="app_name">"Fluid Navigation Gestures
+"</string>
     <string name="app_name_s">FNG</string>
     <string name="billing_cancelled">Vásárlás megszakítva</string>
-    <string name="billing_dialog_message">Vásárold meg az FNG Pro-t, hogy többet kapj. Az összes animációt. Támogasd az alkalmazás fejlesztését.</string>
+    <string name="billing_dialog_message">"Vásárold meg az FNG Pro-t, hogy többet kapj. Az összes animációt. Támogasd az alkalmazás fejlesztését. "</string>
     <string name="billing_dialog_purchase">%1$s — Lifetime</string>
     <string name="billing_dialog_restore">Vásárlás visszaállítása</string>
     <string name="billing_dialog_title">Fluid Navigation Gestures Pro</string>
@@ -96,34 +104,15 @@
     <string name="billing_pro">Frissíts pro-ra</string>
     <string name="billing_pro_required">Ez a beállítás csak Pro felhasználóknak elérhető</string>
     <string name="billing_unlocked">FNG Pro feloldva!</string>
-    <string name="material_minute_selection">Perc kiválasztása</string>
-    <string name="material_minute_suffix">%1$s perc</string>
-    <string name="character_counter_content_description">Begépelt karakterszám: %2$d/%1$d</string>
-    <string name="character_counter_overflowed_content_description">Maximális karakterszám túllépve: %2$d/%1$d</string>
-    <string name="clear_text_end_icon_content_description">Szöveg törlése</string>
     <string name="contact_email">Email</string>
     <string name="contact_email_title">Email küldése</string>
     <string name="contact_email_title_subject">Visszajelzés</string>
     <string name="contact_telegram">Telegram Csoport</string>
     <string name="dialog_about_label">Fejlesztette és tervezte Francisco Barroso</string>
-    <string name="done">Kész</string>
-    <string name="error_icon_content_description">Hiba</string>
-    <string name="material_timepicker_am">de.</string>
-    <string name="material_timepicker_clock_mode_description">Időbevitelhez váltson óramódba.</string>
-    <string name="material_timepicker_hour">Óra</string>
-    <string name="material_timepicker_minute">Perc</string>
-    <string name="material_timepicker_pm">du.</string>
-    <string name="exposed_dropdown_menu_content_description">Legördülő menü megjelenítése</string>
-    <string name="material_timepicker_select_time">Időpont kiválasztása</string>
-    <string name="material_timepicker_text_input_mode_description">Időbevitelhez váltson szövegbeviteli módba.</string>
-    <string name="mtrl_exceed_max_badge_number_content_description">Több mint %1$d új értesítés</string>
-    <string name="mtrl_picker_invalid_format_example">Példa: %1$s</string>
-    <string name="mtrl_picker_invalid_format_use">Használja ezt: %1$s</string>
-    <string name="mtrl_picker_text_input_day_abbr">N</string>
-    <string name="header_about">Névjegy 10</string>
+    <string name="done">"Kész "</string>
+    <string name="header_about">"Névjegy 
+"</string>
     <string name="header_action">\#%1$d Esemény</string>
-    <string name="mtrl_picker_text_input_month_abbr">H</string>
-    <string name="mtrl_picker_text_input_year_abbr">É</string>
     <string name="header_additional_settings">További beállítások</string>
     <string name="header_advanced">Haladó</string>
     <string name="header_animation">Animáció</string>
@@ -141,7 +130,8 @@
     <string name="header_navbar">Navigációs sáv elrejtése</string>
     <string name="header_navbar_sum">Szüneteltesd az FNG-t, mielőtt megállításra kényszeríted, törlöd az adatokat vagy eltávolítod az alkalmazást, hogy az FNG engedélyezze a rendszer navigációs sáv visszaállítását</string>
     <string name="header_pause_recommended">Az FNG egyes rendszermenüket átfedések használata miatt blokkolhat. Szüneteltesse a telepített alkalmazásokban és az engedélykezelőnél, vagy manuálisan szüneteltesse az FNG-t, hogy elkerülje ezt a problémát.</string>
-    <string name="header_permissions">Engedélyek10</string>
+    <string name="header_permissions">"Engedélyek
+"</string>
     <string name="header_permissions_required">A következő engedélyeket meg kell adni az alkalmazás használatához</string>
     <string name="header_personalization">Kinézet és érzés</string>
     <string name="header_privacy">Adatvédelmi irányelvek</string>
@@ -155,13 +145,13 @@
     <string name="help_actions_fail_oneplus_sum">Kapcsold ki a \"Navigation gestures\" opciót a rendszerbeállítások között. Sajnos ezek a műveletek nem működnek, amikor bekapcsolja ezt az opciót.</string>
     <string name="help_app_not_working">FNG nem működik</string>
     <string name="help_app_optimization_desc">Akkumulátor beállítások megnyitása</string>
-    <string name="help_app_optimization_sum">Kapcsold az akkumulátor optimalizálást erre az alkalmazásra a beállításokban.10</string>
+    <string name="help_app_optimization_sum">"Kapcsold az akkumulátor optimalizálást erre az alkalmazásra a beállításokban.
+    "</string>
     <string name="help_autostart_desc">Alkalmazás beállítások indítása</string>
     <string name="help_autostart_sum">Az automatikus indítás szükséges lehet néhány készüléken az alkalmazás háttérben való futtatásához</string>
     <string name="help_dontkillmyapp">Látogass el ide dontkillmyapp.com további tippekért</string>
     <string name="help_dontkillmyapp_desc">dontkillmyapp.com indítása</string>
     <string name="help_service_sdcard">Telepítsd az alkalmazást az SD kártyára (külső tároló) Ez kikapcsolhatja az elérhetőségét a készülék újraindításakor. Próbáld meg vissza helyezni a fő tárolóba.</string>
-    <string name="icon_content_description">Párbeszédpanel ikonja</string>
     <string name="intro_swipe">Gyors elhúzás</string>
     <string name="intro_swipe_hold">Elhúzás &amp; megtartás</string>
     <string name="intro_swipe_hold_sum">Húzd el hosszabban, és tartsd lenyomva, a másodlagos esemény elindításához</string>
@@ -170,42 +160,18 @@
     <string name="msg_action_requires_hide_navbar">Válaszd ki az elrejtés módot, mielőtt ezt használod</string>
     <string name="msg_backup_error">Egy hiba történt</string>
     <string name="msg_failed_to_install_shortcut">Hiba a parancsikon létrehozásakor. Ez a parancsikon nem támogatott a rendszerkorlátozások miatt.</string>
-    <string name="msg_fluid_paused">FNG Kikapcsolva10</string>
-    <string name="msg_fluid_running">FNG folyamatban10</string>
+    <string name="msg_fluid_paused">"FNG Kikapcsolva
+"</string>
+    <string name="msg_fluid_running">"FNG folyamatban
+"</string>
     <string name="msg_import_sucess">Beállítások importálva</string>
-    <string name="mtrl_badge_numberless_content_description">Új értesítés</string>
-    <string name="mtrl_chip_close_icon_content_description">Eltávolítás (%1$s)</string>
-    <string name="mtrl_picker_a11y_next_month">Váltás a következő hónapra</string>
-    <string name="mtrl_picker_a11y_prev_month">Váltás az előző hónapra</string>
-    <string name="mtrl_picker_announce_current_selection">Jelenleg kiválasztva: %1$s</string>
-    <string name="mtrl_picker_confirm">@android:string/ok</string>
-    <string name="mtrl_picker_date_header_selected">%1$s</string>
-    <string name="mtrl_picker_date_header_title">Válasszon dátumot</string>
-    <string name="mtrl_picker_date_header_unselected">Kiválasztott dátum</string>
-    <string name="mtrl_picker_day_of_week_column_header">Napok oszlopa: %1$s</string>
-    <string name="mtrl_picker_invalid_format">Érvénytelen formátum.</string>
-    <string name="mtrl_picker_invalid_range">Érvénytelen tartomány.</string>
-    <string name="mtrl_picker_navigate_to_year_description">Ugrás ehhez az évhez: %1$s</string>
-    <string name="mtrl_picker_out_of_range">Tartományon kívül: %1$s</string>
-    <string name="mtrl_picker_range_header_only_end_selected">Kezdés dátuma – %1$s</string>
-    <string name="mtrl_picker_range_header_only_start_selected">%1$s – Befejezés dátuma</string>
-    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
-    <string name="mtrl_picker_range_header_title">Válasszon dátumtartományt</string>
-    <string name="mtrl_picker_range_header_unselected">Kezdés dátuma – Befejezés dátuma</string>
-    <string name="mtrl_picker_save">Mentés</string>
-    <string name="mtrl_picker_text_input_date_hint">Dátum</string>
-    <string name="mtrl_picker_text_input_date_range_end_hint">Befejezés dátuma</string>
-    <string name="mtrl_picker_text_input_date_range_start_hint">Kezdés dátuma</string>
-    <string name="mtrl_picker_toggle_to_calendar_input_mode">Váltás naptárbeviteli módra</string>
-    <string name="mtrl_picker_toggle_to_day_selection">Koppintson a nap kiválasztásához</string>
-    <string name="mtrl_picker_toggle_to_text_input_mode">Váltás szövegbeviteli módra</string>
-    <string name="mtrl_picker_toggle_to_year_selection">Koppintson az év kiválasztásához</string>
     <string name="ok">Rendben</string>
-    <string name="password_toggle_content_description">Jelszó megjelenítése</string>
-    <string name="perm_accessibility">Hozzáférési szolgáltatás10</string>
+    <string name="perm_accessibility">"Hozzáférési szolgáltatás
+"</string>
     <string name="perm_accessibility_sum">A navigációs események szimulálásához szükséges (Home, Vissza, stb….)</string>
     <string name="perm_display_overlays">Az alkalmazások feletti irányítás</string>
-    <string name="perm_display_overlays_sum">Az alkalmazások futtatásához szükséges10</string>
+    <string name="perm_display_overlays_sum">"Az alkalmazások futtatásához szükséges
+"</string>
     <string name="perm_group_optional">Választható</string>
     <string name="perm_group_recommended">Ajánlott</string>
     <string name="perm_group_required">Kötelező</string>
@@ -222,15 +188,17 @@
     <string name="pref_app_toggle">Bekapcsolva</string>
     <string name="pref_blacklist">Szüneteltetés a kiválasztott alkalmazásokban</string>
     <string name="pref_blacklist_removed">%s eltávolítva</string>
-    <string name="pref_block_capacitive_keys">Érintő gombok blokkolása10</string>
+    <string name="pref_block_capacitive_keys">"Érintő gombok blokkolása
+"</string>
     <string name="pref_block_capacitive_keys_desc">Újraindítás szükséges</string>
-    <string name="pref_block_capacitive_keys_sum">Megakadályozza a hardveres gombok véletlenszerű aktiválását az események blokkolásával, amikor a Fluid NG engedélyezve van.10</string>
+    <string name="pref_block_capacitive_keys_sum">"Megakadályozza a hardveres gombok véletlenszerű aktiválását az események blokkolásával, amikor a Fluid NG engedélyezve van.
+"</string>
     <string name="pref_button_action_swipe">Gyors elhúzás</string>
     <string name="pref_button_action_swipe_hold">Elhúzás és megtartás</string>
     <string name="pref_color_accent">Kiemelés színe</string>
     <string name="pref_color_accent_sum">Az ikonok színe és egyéb részletek</string>
     <string name="pref_color_outline">Show outline</string>
-    <string name="pref_color_primary">Elsődleges szín</string>
+    <string name="pref_color_primary">"Elsődleges szín "</string>
     <string name="pref_color_primary_sum">Háttérszín</string>
     <string name="pref_debug_triggers">Ravasz hibakeresés</string>
     <string name="pref_hide_navbar">A navigációs sáv elrejtése</string>
@@ -238,12 +206,15 @@
     <string name="pref_hide_navbar_mode_emui">EMUI teljes képernyő gesztusok</string>
     <string name="pref_hide_navbar_mode_emui_sum">Felülírja az EMUI teljes képernyős gesztusait. Nincsenek extra követelmények</string>
     <string name="pref_hide_navbar_mode_oneui">One UI teljes képernyős gesztusok</string>
-    <string name="pref_hide_navbar_mode_oneui_sum">Felülírja a One UI teljes képernyős gesztusait10Root vagy ADB parancs szükséges (Ajánlott)</string>
+    <string name="pref_hide_navbar_mode_oneui_sum">"Felülírja a One UI teljes képernyős gesztusait
+Root vagy ADB parancs szükséges (Ajánlott)"</string>
     <string name="pref_hide_navbar_mode_threebutton">3 gombos navigáció</string>
-    <string name="pref_hide_navbar_mode_threebutton_sum">Elrejti a 3 gombos navigációs sávot a kijelzőről. 10Root vagy ADB parancs szükséges</string>
+    <string name="pref_hide_navbar_mode_threebutton_sum">"Elrejti a 3 gombos navigációs sávot a kijelzőről. 
+Root vagy ADB parancs szükséges"</string>
     <string name="pref_ignore_policycontrol_changes">Engedélyezze az immersive mód változásokat</string>
     <string name="pref_ignore_policycontrol_changes_sum">Módosítja az Android Immersive mód beállításait, hogy segítse a navigációs sáv elrejtését néhány készüléken</string>
-    <string name="pref_move_side_triggers_from_keyboard">Eseményindítók áthelyezése a billentyűzet fölé10</string>
+    <string name="pref_move_side_triggers_from_keyboard">"Eseményindítók áthelyezése a billentyűzet fölé
+"</string>
     <string name="pref_navbar_keyboard">Mutassa a navigációs sávot a billentyűzettel</string>
     <string name="pref_navbar_keyboard_sum">Mutassa a rendszer navigációs sávot amikor a billentyűzet kivan választva</string>
     <string name="pref_navbar_mode_m">A képernyő jobb oldala (Android 6.0)</string>
@@ -252,10 +223,13 @@
     <string name="pref_navbar_rotation_mode">Navigációs sáv viselkedése</string>
     <string name="pref_navbar_rotation_mode_sum">Válaszd ezt, ha a navigációs sáv nincs elrejtve automatikusan fekvő módban</string>
     <string name="pref_pause_immersivemode">Szüneteltesse immersive módban</string>
-    <string name="pref_pause_in_car_mode">Szüneteltetés autó módban</string>
-    <string name="pref_pause_in_installer">Szüneteltesse az alkalmazás telepítőben101010</string>
+    <string name="pref_pause_in_car_mode">"Szüneteltetés autó módban "</string>
+    <string name="pref_pause_in_installer">"Szüneteltesse az alkalmazás telepítőben
+
+
+"</string>
     <string name="pref_pause_in_lockscreen">Szüneteltesse a lezárt képernyőn</string>
-    <string name="pref_pause_in_permission_manager">Szüneteltesse az engedélykezelőben</string>
+    <string name="pref_pause_in_permission_manager">"Szüneteltesse az engedélykezelőben "</string>
     <string name="pref_pc_instructions">Kövesd az alábbi utasításokat, hogy megadd az engedélyt a számítógép használatával</string>
     <string name="pref_quick_primary_action">Gyors elsődleges esemény</string>
     <string name="pref_quick_primary_action_sum">Amint kiválasztod végre lesz hajtva az esemény. Másodlagos esemény nem fog működni</string>
@@ -276,7 +250,7 @@
     <string name="pref_swipe_to_exit_immersive">Húzd el, hogy kilépj az immerzív módból</string>
     <string name="pref_swipe_to_exit_immersive_sum">További elhúzás szükséges az FNG eléréséhez immersive Módban</string>
     <string name="pref_swipe_top">Elhúzás felfele</string>
-    <string name="pref_system_hapticfeedback">Használja a rendszerbeállításokat</string>
+    <string name="pref_system_hapticfeedback">"Használja a rendszerbeállításokat "</string>
     <string name="pref_trigger_location">Elhelyezkedés</string>
     <string name="pref_trigger_location_desc_horz">Alul/Felül</string>
     <string name="pref_trigger_location_desc_vert">Bal/Jobb</string>
@@ -297,7 +271,7 @@
     <string name="setup_adb">Engedély megadása PC segítségével</string>
     <string name="setup_adb_sum">Csatlakoztasson egy PC-t, hogy engedélyt adjon az ADB-vel. Ne feledd, hogy az ADB csak egy fejlesztői eszköz, ezért ez nem érvényteleníti a jótállást, mint a root.</string>
     <string name="setup_none">Folytatás engedély nélkül</string>
-    <string name="setup_none_sum">Az alkalmazást engedély megadása nélkül is használhatod. Csak a navigációs sáv elrejtése nem fog működni.</string>
+    <string name="setup_none_sum">"Az alkalmazást engedély megadása nélkül is használhatod. Csak a navigációs sáv elrejtése nem fog működni. "</string>
     <string name="setup_root">Engedélyezd a root használatát</string>
     <string name="setup_root_sum">A root használatával megadhatod az engedélyt</string>
     <string name="status_bar_notification_info_overflow">999+</string>
@@ -322,7 +296,9 @@
     <string name="wss_step_1_sum">Menjen az Android Beállítások -> A telefonról -> Keresse meg a Build Number opciót, és érintse meg többször, amíg a fejlesztői mód engedélyezve nem lesz</string>
     <string name="wss_step_2">2 - Engedélyezze az USB hibakeresést</string>
     <string name="wss_step_2_sum">Menjen az Android Beállítások -> Fejlesztői beállítások -> Engedélyezze az USB hibakeresési lehetőséget</string>
-    <string name="wss_step_2_sum_miui">Menj az android beállítások -> Rendszer és készülék -> Rendszer beállítások -> Fejlesztői beállítások -> USB hibakeresés lehetőség engedélyezése 1010MIUI-n muszáj bekapcsolni az USB hibakereső módot (Biztonsági beállítások)</string>
+    <string name="wss_step_2_sum_miui">"Menj az android beállítások -> Rendszer és készülék -> Rendszer beállítások -> Fejlesztői beállítások -> USB hibakeresés lehetőség engedélyezése 
+
+MIUI-n muszáj bekapcsolni az USB hibakereső módot (Biztonsági beállítások)"</string>
     <string name="wss_step_3">3 - Telepítse az ADB-t a számítógépére</string>
     <string name="wss_step_3_download_sdk">Töltse le az Android SDK-t</string>
     <string name="wss_step_3_sum">Az ADB, az Android Debug Bridge egy parancssoros segédprogram, amely az engedély megadásához szükséges. Használja az alábbi oktatóanyagok egyikét, vagy töltse le közvetlenül az SDK-t</string>

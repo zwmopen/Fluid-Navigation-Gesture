@@ -1,0 +1,49 @@
+.class Lcom/android/billingclient/api/e$g$a;
+.super Ljava/lang/Object;
+.source ""
+
+# interfaces
+.implements Ljava/lang/Runnable;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/billingclient/api/e$g;->call()Ljava/lang/Void;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x0
+    name = null
+.end annotation
+
+
+# instance fields
+.field final synthetic f:Lcom/android/billingclient/api/e$g;
+
+
+# direct methods
+.method constructor <init>(Lcom/android/billingclient/api/e$g;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/billingclient/api/e$g$a;->f:Lcom/android/billingclient/api/e$g;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public run()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/billingclient/api/e$g$a;->f:Lcom/android/billingclient/api/e$g;
+
+    iget-object v0, v0, Lcom/android/billingclient/api/e$g;->g:Lcom/android/billingclient/api/r;
+
+    sget-object v1, Lcom/android/billingclient/api/i;->j:Lcom/android/billingclient/api/h;
+
+    invoke-interface {v0, v1}, Lcom/android/billingclient/api/r;->a(Lcom/android/billingclient/api/h;)V
+
+    return-void
+.end method

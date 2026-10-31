@@ -13,3 +13,8 @@ versionInfo:
   versionName: 2.0-beta11
 doNotCompress:
 - arsc
+- so
+
+unknownFiles:
+  META-INF/services/kotlinx.coroutines.CoroutineExceptionHandler: '8'
+  META-INF/services/kotlinx.coroutines.internal.MainDispatcherFactory: '8'

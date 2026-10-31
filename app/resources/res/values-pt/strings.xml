@@ -27,10 +27,18 @@
     <string name="abc_shareactionprovider_share_with">Compartilhar com</string>
     <string name="abc_shareactionprovider_share_with_application">Compartilhar com %s</string>
     <string name="abc_toolbar_collapse_description">Recolher</string>
-    <string name="access_capacitive_desc">Usado para evitar pressionamentos acidentais nos botões de navegação do hardware quando o aplicativo está habilitado (Opcional). 1010Todos os eventos recebidos que não são relevantes são simplesmente ignorados. Eventos de chave de software NÃO serão recebidos 1010O Fluid NG usa as configurações de acessibilidade mínimas exigidas e nenhum dado pessoal é coletado.10</string>
+    <string name="access_capacitive_desc">"Usado para evitar pressionamentos acidentais nos botões de navegação do hardware quando o aplicativo está habilitado (Opcional). 
+
+Todos os eventos recebidos que não são relevantes são simplesmente ignorados. Eventos de chave de software NÃO serão recebidos 
+
+O Fluid NG usa as configurações de acessibilidade mínimas exigidas e nenhum dado pessoal é coletado.
+    "</string>
     <string name="access_capacitive_sum">Usado para impedir a ativação acidental dos botões de hardware (opcional)</string>
     <string name="access_capacitive_title">Bloquear teclas capacitivas para o Fluid NG</string>
-    <string name="access_main_desc">Usado para executar ações, incluindo, mas não se limitando a, aplicativos iniciais, anteriores e recentes. 1010O Fluid NG usa as configurações de acessibilidade mínimas exigidas e nenhum dado pessoal é coletado.10</string>
+    <string name="access_main_desc">"Usado para executar ações, incluindo, mas não se limitando a, aplicativos iniciais, anteriores e recentes. 
+
+O Fluid NG usa as configurações de acessibilidade mínimas exigidas e nenhum dado pessoal é coletado.
+    "</string>
     <string name="action_app">Aplicativo</string>
     <string name="action_assistant">Assistente</string>
     <string name="action_back">Voltar</string>
@@ -82,7 +90,11 @@
     <string name="help_actions_fail_oneplus">Ações de ecrã inicial e voltar não funcionam (One Plus)</string>
     <string name="help_actions_fail_oneplus_sum">"Desative a opção 'Gestos de navegação' nas configurações do sistema. Infelizmente, essas ações não funcionam quando essa opção está ativada."</string>
     <string name="help_app_optimization_desc">Toque para iniciar a página de otimização da bateria</string>
-    <string name="help_app_optimization_sum">Infelizmente este é o comportamento em alguns dispositivos e não podemos impedi-lo. Tente desativar a otimização da bateria para este aplicativo nas configurações.10 Configurações -> Bateria -> menu de 3 pontos -> Otimização da bateria 1010Instalar o aplicativo em um cartão SD (armazenamento externo) pode desativar a acessibilidade quando o dispositivo é inicializado. Tente movê-lo de volta para o armazenamento principal.10</string>
+    <string name="help_app_optimization_sum">"Infelizmente este é o comportamento em alguns dispositivos e não podemos impedi-lo. Tente desativar a otimização da bateria para este aplicativo nas configurações.
+ Configurações -> Bateria -> menu de 3 pontos -> Otimização da bateria 
+
+Instalar o aplicativo em um cartão SD (armazenamento externo) pode desativar a acessibilidade quando o dispositivo é inicializado. Tente movê-lo de volta para o armazenamento principal.
+    "</string>
     <string name="intro_swipe">Deslize rápido</string>
     <string name="intro_swipe_hold">Deslize e segure</string>
     <string name="intro_swipe_hold_sum">Deslize um pouco mais e segure para acionar uma ação secundária</string>
@@ -103,12 +115,16 @@
     <string name="perm_usage_access">Acesso às estatísticas de uso</string>
     <string name="perm_usage_access_sum">Conceder acesso ao histórico de uso do aplicativo. Usado para saber o aplicativo anterior</string>
     <string name="perm_wss">Write secure settings</string>
-    <string name="perm_wss_sum">Esta permissão é usada para ocultar a barra de navegação e para gerenciar os serviços de acessibilidade automaticamente.1010É necessário root ou PC com ADB para conceder.</string>
+    <string name="perm_wss_sum">"Esta permissão é usada para ocultar a barra de navegação e para gerenciar os serviços de acessibilidade automaticamente.
+
+É necessário root ou PC com ADB para conceder."</string>
     <string name="pref_anim_bottom">Animação Inferior</string>
     <string name="pref_anim_sides">Animação lateral</string>
     <string name="pref_app_toggle">Ativado</string>
     <string name="pref_block_capacitive_keys">Bloquear teclas capacitivas</string>
-    <string name="pref_block_capacitive_keys_sum">Evite a ativação acidental dos botões de hardware, bloqueando os eventos enquanto o Fluid NG estiver ativado.1010Esta opção requer um serviço de Acessibilidade.</string>
+    <string name="pref_block_capacitive_keys_sum">"Evite a ativação acidental dos botões de hardware, bloqueando os eventos enquanto o Fluid NG estiver ativado.
+
+Esta opção requer um serviço de Acessibilidade."</string>
     <string name="pref_button_action_swipe">Deslize rápido</string>
     <string name="pref_button_action_swipe_hold">Deslize e segure</string>
     <string name="pref_color_accent">Cor de destaque</string>

@@ -385,16 +385,4 @@
     <dimen name="tooltip_vertical_padding">6.5dip</dimen>
     <dimen name="tooltip_y_offset_non_touch">0.0dip</dimen>
     <dimen name="tooltip_y_offset_touch">16.0dip</dimen>
-    <dimen name="clock_face_margin_start">64.0dip</dimen>
-    <dimen name="material_clock_display_padding">24.0dip</dimen>
-    <dimen name="material_clock_face_margin_top">44.0dip</dimen>
-    <dimen name="material_clock_number_text_size">15.0dip</dimen>
-    <dimen name="material_clock_period_toggle_height">96.0dip</dimen>
-    <dimen name="material_clock_period_toggle_margin_left">12.0dip</dimen>
-    <dimen name="material_clock_period_toggle_width">52.0dip</dimen>
-    <dimen name="material_clock_size">256.0dip</dimen>
-    <dimen name="material_cursor_inset_bottom">-6.0dip</dimen>
-    <dimen name="material_cursor_inset_top">-12.0dip</dimen>
-    <dimen name="material_cursor_width">2.0dip</dimen>
-    <dimen name="material_timepicker_dialog_buttons_margin_top">24.0dip</dimen>
 </resources>

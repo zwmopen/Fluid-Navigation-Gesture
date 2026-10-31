@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="AppTheme">
+    <style name="AppTheme" parent="@style/AppThemeBase">
         <item name="android:colorBackground">@color/colorNightBackground</item>
         <item name="android:textColorPrimary">@color/textNightColorPrimary</item>
         <item name="android:textColorSecondary">@color/textNightColorSecondary</item>
@@ -19,7 +19,7 @@
         <item name="colorBackgroundDark">@color/colorNightBackgroundDark</item>
         <item name="colorBackgroundLight">@color/colorNightBackgroundLight</item>
     </style>
-    <style name="AppThemeBlack">
+    <style name="AppThemeBlack" parent="@style/AppTheme">
         <item name="android:colorBackground">@color/colorBlackBackground</item>
         <item name="colorBackgroundDark">@color/colorBlackBackground</item>
         <item name="colorBackgroundLight">@color/colorBlackBackground</item>

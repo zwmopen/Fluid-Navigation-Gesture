@@ -27,12 +27,16 @@
     <string name="abc_shareactionprovider_share_with">Поділитися:</string>
     <string name="abc_shareactionprovider_share_with_application">Поділитися через додаток %s</string>
     <string name="abc_toolbar_collapse_description">Згорнути</string>
-    <string name="access_capacitive_desc">"Використовується для запобігання випадкових натискань на апаратні клавіші коли запущений додаток (необов'язково). 1010Всі нерелевантні отримані дії ігноруватимуться. Дії програмних клавіш НЕ ОТРИМУВАТИМУТЬСЯ 1010Fluid N.G. використовує базові потрібні налаштування \"Спеціальних можливостей\" та ніякі персональні дані не збиратимуться."</string>
+    <string name="access_capacitive_desc">"Використовується для запобігання випадкових натискань на апаратні клавіші коли запущений додаток (необов'язково). 
+
+Всі нерелевантні отримані дії ігноруватимуться. Дії програмних клавіш НЕ ОТРИМУВАТИМУТЬСЯ 
+
+Fluid N.G. використовує базові потрібні налаштування \"Спеціальних можливостей\" та ніякі персональні дані не збиратимуться."</string>
     <string name="access_capacitive_sum">"Використовується для запобігання випадкової активації апаратних клавіш (необов'язково)"</string>
     <string name="access_capacitive_title">Блокування апаратних клавіш для Fluid N.G.</string>
-    <string name="bottomsheet_action_expand_halfway">Розгорнути нижню половину</string>
-    <string name="item_view_role_description">Вкладка</string>
-    <string name="access_main_desc">Використовується для виконання дій, такі як (але не обмежуватимуться тільки цими): Додому, Назад, Нещодавні додатки. 1010Fluid N.G. використовує базові потрібні налаштування \"Спеціальних можливостей\" та ніякі персональні дані не збиратимуться.</string>
+    <string name="access_main_desc">"Використовується для виконання дій, такі як (але не обмежуватимуться тільки цими): Додому, Назад, Нещодавні додатки. 
+
+Fluid N.G. використовує базові потрібні налаштування \"Спеціальних можливостей\" та ніякі персональні дані не збиратимуться."</string>
     <string name="action_app">Додаток</string>
     <string name="action_assistant">Асистент</string>
     <string name="action_back">Назад</string>
@@ -56,7 +60,6 @@
     <string name="action_rotation_app">Увімкнути обертання екрану у поточному додатку</string>
     <string name="action_rotation_app_sum">Увімкнути автоматичне обертання, доки ви не покинете поточний додаток</string>
     <string name="action_rotation_lock">Перемикач автоповороту</string>
-    <string name="material_clock_toggle_content_description">Виберіть ДП чи ПП</string>
     <string name="action_rotation_pie">Примусове обертання</string>
     <string name="action_rotation_pie_sum">Примусити екран обертатися. Ця функція схожа з системною у Android Pie</string>
     <string name="action_screen_off">Вимкнути та заблокувати екран</string>
@@ -66,35 +69,13 @@
     <string name="action_voice_assistant">Голосовий асистент</string>
     <string name="action_voice_search">Голосовий пошук</string>
     <string name="action_volume_dialog">Відкрити діалог керування гучністю</string>
-    <string name="material_hour_selection">Вибрати годину</string>
-    <string name="material_hour_suffix">%1$s год</string>
     <string name="anim_none">Нічого</string>
     <string name="app_name">Fluid Navigation Gestures</string>
     <string name="app_name_s">Fluid N.G.</string>
-    <string name="material_minute_selection">Виберіть хвилини</string>
-    <string name="material_minute_suffix">%1$s хв</string>
-    <string name="character_counter_content_description">Введено символів: %1$d з %2$d</string>
-    <string name="character_counter_overflowed_content_description">Перевищено ліміт символів: %1$d з %2$d</string>
-    <string name="clear_text_end_icon_content_description">Видалити текст</string>
     <string name="contact_email_title">Відправити email</string>
     <string name="contact_email_title_subject">"Зворотній зв'язок"</string>
     <string name="done">Виконано</string>
-    <string name="error_icon_content_description">Помилка</string>
-    <string name="material_timepicker_am">дп</string>
-    <string name="material_timepicker_clock_mode_description">Перейти в режим годинника, щоб ввести час.</string>
-    <string name="material_timepicker_hour">Година</string>
-    <string name="material_timepicker_minute">Хвилина</string>
-    <string name="material_timepicker_pm">пп</string>
-    <string name="exposed_dropdown_menu_content_description">Показати спадне меню</string>
-    <string name="material_timepicker_select_time">Виберіть час</string>
-    <string name="material_timepicker_text_input_mode_description">Перейти в текстовий режим, щоб ввести час.</string>
-    <string name="mtrl_exceed_max_badge_number_content_description">Нових сповіщень більше ніж %1$d</string>
-    <string name="mtrl_picker_invalid_format_example">Приклад: %1$s</string>
-    <string name="mtrl_picker_invalid_format_use">Використовувати: %1$s</string>
-    <string name="mtrl_picker_text_input_day_abbr">д</string>
     <string name="header_about">Про додаток</string>
-    <string name="mtrl_picker_text_input_month_abbr">м</string>
-    <string name="mtrl_picker_text_input_year_abbr">р</string>
     <string name="header_advanced">Додатково</string>
     <string name="header_animation">Анімація</string>
     <string name="header_app_theme">Тема програми</string>
@@ -119,8 +100,13 @@
     <string name="help_actions_fail_oneplus">Дії \"Додому\" та \"Назад\" не працюють (OnePlus)</string>
     <string name="help_actions_fail_oneplus_sum">Вимкніть параметр \"Рухи жестів\" у системних налаштуваннях. На жаль, ці дії не працюють, якщо цей параметр увімкнено.</string>
     <string name="help_app_optimization_desc">Натисніть, щоб запустити сторінку \"Оптимізація батареї\"</string>
-    <string name="help_app_optimization_sum">"На жаль, так поводяться деякі пристрої, і ми не можемо запобігти цьому. Спробуйте вимкнути оптимізацію акумулятора для цього додатка в налаштуваннях.1010Налаштування -> Акумулятор -> Меню \"Три крапки\" -> Оптимізація батареї101010Встановлення програми на SD-карту (зовнішня пам'ять) може вимкнути \"Спеціальні можливості\" при завантаженні пристрою. Спробуйте перемістити його назад до основного сховища.10"</string>
-    <string name="icon_content_description">Значок вікна</string>
+    <string name="help_app_optimization_sum">"На жаль, так поводяться деякі пристрої, і ми не можемо запобігти цьому. Спробуйте вимкнути оптимізацію акумулятора для цього додатка в налаштуваннях.
+
+Налаштування -> Акумулятор -> Меню \"Три крапки\" -> Оптимізація батареї
+
+
+Встановлення програми на SD-карту (зовнішня пам'ять) може вимкнути \"Спеціальні можливості\" при завантаженні пристрою. Спробуйте перемістити його назад до основного сховища.
+    "</string>
     <string name="intro_swipe">Швидкий свайп</string>
     <string name="intro_swipe_hold">Проведіть пальцем і утримуйте</string>
     <string name="intro_swipe_hold_sum">Проведіть трохи довше і утримуйте, щоб викликати іншу дію</string>
@@ -130,35 +116,7 @@
     <string name="msg_fluid_paused">Fluid N.G. призупинено</string>
     <string name="msg_fluid_running">Fluid N.G. працює</string>
     <string name="msg_import_sucess">Налаштування імпортовані</string>
-    <string name="mtrl_badge_numberless_content_description">Нове сповіщення</string>
-    <string name="mtrl_chip_close_icon_content_description">Видалити %1$s</string>
-    <string name="mtrl_picker_a11y_next_month">Перейти до наступного місяця</string>
-    <string name="mtrl_picker_a11y_prev_month">Перейти до попереднього місяця</string>
-    <string name="mtrl_picker_announce_current_selection">Поточний вибір: %1$s</string>
-    <string name="mtrl_picker_confirm">@android:string/ok</string>
-    <string name="mtrl_picker_date_header_selected">%1$s</string>
-    <string name="mtrl_picker_date_header_title">Виберіть дату</string>
-    <string name="mtrl_picker_date_header_unselected">Вибрана дата</string>
-    <string name="mtrl_picker_day_of_week_column_header">Стовпець із днями: %1$s</string>
-    <string name="mtrl_picker_invalid_format">Недійсний формат.</string>
-    <string name="mtrl_picker_invalid_range">Недійсний діапазон.</string>
-    <string name="mtrl_picker_navigate_to_year_description">Перейти до %1$s року</string>
-    <string name="mtrl_picker_out_of_range">За межами діапазону: %1$s</string>
-    <string name="mtrl_picker_range_header_only_end_selected">Дата початку – %1$s</string>
-    <string name="mtrl_picker_range_header_only_start_selected">%1$s – дата завершення</string>
-    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
-    <string name="mtrl_picker_range_header_title">Виберіть діапазон дат</string>
-    <string name="mtrl_picker_range_header_unselected">Дата початку – дата завершення</string>
-    <string name="mtrl_picker_save">Зберегти</string>
-    <string name="mtrl_picker_text_input_date_hint">Дата</string>
-    <string name="mtrl_picker_text_input_date_range_end_hint">Дата завершення</string>
-    <string name="mtrl_picker_text_input_date_range_start_hint">Дата початку</string>
-    <string name="mtrl_picker_toggle_to_calendar_input_mode">Перейти в режим введення в календарі</string>
-    <string name="mtrl_picker_toggle_to_day_selection">Натисніть, щоб вибрати день</string>
-    <string name="mtrl_picker_toggle_to_text_input_mode">Перейти в режим введення тексту</string>
-    <string name="mtrl_picker_toggle_to_year_selection">Натисніть, щоб вибрати рік</string>
     <string name="ok">ОК</string>
-    <string name="password_toggle_content_description">Показувати пароль</string>
     <string name="perm_accessibility">Спеціальні можливості</string>
     <string name="perm_accessibility_sum">Використовується для імітації навігаційних дій (Додому, Назад тощо)</string>
     <string name="perm_display_overlays">Показувати поверх додатків</string>
@@ -178,7 +136,9 @@
     <string name="pref_anim_sides">Анімація бічних тригерів</string>
     <string name="pref_app_toggle">Увімкнено</string>
     <string name="pref_block_capacitive_keys">Блокування апаратних клавіш</string>
-    <string name="pref_block_capacitive_keys_sum">Запобігти випадковій активації апаратних клавіш, блокуючи події, якщо увімкнено Fluid N.G.1010Ця опція потребує \"Спеціальних можливостей\"</string>
+    <string name="pref_block_capacitive_keys_sum">"Запобігти випадковій активації апаратних клавіш, блокуючи події, якщо увімкнено Fluid N.G.
+
+Ця опція потребує \"Спеціальних можливостей\""</string>
     <string name="pref_button_action_swipe">Швидкий свайп</string>
     <string name="pref_button_action_swipe_hold">Проведіть пальцем і утримуйте</string>
     <string name="pref_color_accent">Колірний акцент</string>
@@ -192,7 +152,9 @@
     <string name="pref_navbar_mode_n">Слідкувати за нижньою частиною пристрою (Android 7.1+)</string>
     <string name="pref_navbar_mode_tablet">Нижня сторона екрану (планшет)</string>
     <string name="pref_navbar_rotation_mode">Положення навігаційної панелі в альбомному режимі</string>
-    <string name="pref_navbar_rotation_mode_sum">Як навігаційна панель рухається в альбомному режимі1010Оберіть налаштування, якщо навігаційна панель не ховається в альбомному режимі.</string>
+    <string name="pref_navbar_rotation_mode_sum">"Як навігаційна панель рухається в альбомному режимі
+
+Оберіть налаштування, якщо навігаційна панель не ховається в альбомному режимі."</string>
     <string name="pref_pause_in_car_mode">Пауза в режимі керування авто</string>
     <string name="pref_pause_in_installer">Зупиняти під час інсталяції додатків</string>
     <string name="pref_pause_in_lockscreen">Зупиняти на екрані блокування</string>
@@ -231,9 +193,12 @@
     <string name="unsupported_shortcut_oreo">Цей ярлик не підтримується через системні обмеження</string>
     <string name="wss_step_1">1 - Увімкніть \"Параметри розробника\"</string>
     <string name="wss_step_1_sum">Перейдіть до налаштувань Android -> Система -> Про телефон -> Знайдіть параметр \"Номер версії\" і торкніться до нього декілька разів, доки не будуть активовані \"Параметри розробника\".</string>
-    <string name="wss_step_2">2 - Увімкніть Налагодження USB10</string>
+    <string name="wss_step_2">"2 - Увімкніть Налагодження USB
+"</string>
     <string name="wss_step_2_sum">Перейдіть до налаштувань Android -> Параметри розробника -> Увімкніть параметр \"Налагодження USB\"</string>
-    <string name="wss_step_2_sum_miui">Перейдіть до налаштувань Android -> Система та телефон -> Параметри розробника -> Увімкніть налагодження USB 1010На MIUI вам також потрібно увімкнути налагодження USB в \"Параметрах безпеки\"</string>
+    <string name="wss_step_2_sum_miui">"Перейдіть до налаштувань Android -> Система та телефон -> Параметри розробника -> Увімкніть налагодження USB 
+
+На MIUI вам також потрібно увімкнути налагодження USB в \"Параметрах безпеки\""</string>
     <string name="wss_step_3">"3 - Встановіть ADB на комп'ютер"</string>
     <string name="wss_step_3_download_sdk">Завантажте SDK для Android</string>
     <string name="wss_step_3_sum">ADB, Android Debug Bridge - це утиліта командного рядка, необхідна для надання дозволу додатку. Скористайтеся одним із наведених нижче навчальних посібників або завантажте SDK безпосередньо</string>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView android:tag="layout/layout_dialog_about_0" android:layout_width="wrap_content" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
     <LinearLayout android:orientation="vertical" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="wrap_content">
         <LinearLayout android:orientation="vertical" android:paddingLeft="@dimen/activity_horizontal_margin" android:paddingTop="@dimen/item_settings_padding_half" android:paddingRight="@dimen/activity_horizontal_margin" android:paddingBottom="@dimen/item_settings_padding_half" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="wrap_content">
             <androidx.appcompat.widget.AppCompatImageView android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:src="@mipmap/ic_launcher_round_settings" />
@@ -17,7 +17,7 @@
         <View android:background="?colorBackgroundLight" android:layout_width="fill_parent" android:layout_height="0.5dip" android:layout_marginTop="8.0dip" android:layout_marginBottom="0.0dip" />
         <LinearLayout android:layout_gravity="center_horizontal" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
             <com.google.android.material.button.MaterialButton android:textSize="@dimen/font_small" android:textColor="?android:textColorSecondary" android:id="@id/but_licenses" android:tag="binding_6" android:focusable="false" android:focusableInTouchMode="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/header_licences" android:textAllCaps="false" app:strokeColor="#00000000" style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
-            <androidx.appcompat.widget.AppCompatTextView android:textSize="@dimen/font_medium" android:textColor="?android:textColorSecondary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="|" />
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="@dimen/font_medium" android:textColor="?android:textColorSecondary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="•" />
             <com.google.android.material.button.MaterialButton android:textSize="@dimen/font_small" android:textColor="?android:textColorSecondary" android:id="@id/but_privacy" android:tag="binding_7" android:focusable="false" android:focusableInTouchMode="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/header_privacy" android:textAllCaps="false" app:strokeColor="#00000000" style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
         </LinearLayout>
     </LinearLayout>

@@ -568,7 +568,7 @@
     <attr name="itemIconPadding" format="dimension" />
     <attr name="itemIconSize" format="dimension" />
     <attr name="itemIconTint" format="color" />
-    <attr name="itemMaxLines" format="integer" />
+    <attr name="itemMaxLines" format="integer" min="1" />
     <attr name="itemPadding" format="dimension" />
     <attr name="itemRippleColor" format="color" />
     <attr name="itemShapeAppearance" format="reference" />
@@ -1157,9 +1157,4 @@
     <attr name="yearSelectedStyle" format="reference" />
     <attr name="yearStyle" format="reference" />
     <attr name="yearTodayStyle" format="reference" />
-    <attr name="barrierMargin" format="dimension" />
-    <attr name="horizontalOffset" format="dimension" />
-    <attr name="selectionRequired" format="boolean" />
-    <attr name="selectorSize" format="dimension" />
-    <attr name="verticalOffset" format="dimension" />
 </resources>

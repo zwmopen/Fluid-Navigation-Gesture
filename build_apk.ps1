@@ -189,12 +189,14 @@ Write-Step "Checking project structure"
 foreach ($required in @(
     (Join-Path $decodedDir "apktool.yml"),
     (Join-Path $decodedDir "AndroidManifest.xml"),
-    (Join-Path $decodedDir "classes.dex"),
     (Join-Path $decodedDir "res")
 )) {
     if (-not (Test-Path $required)) {
         throw "Missing required file or directory: $required"
     }
+}
+if (-not (Test-Path (Join-Path $decodedDir "classes.dex")) -and -not (Test-Path (Join-Path $decodedDir "smali"))) {
+    throw "Missing classes.dex or smali directory in $decodedDir"
 }
 
 $java = Get-JavaTool "java.exe"
@@ -213,6 +215,7 @@ Remove-Item $unsignedApk, $alignedApk, $stagedSignedApk, $signedApk -Force -Erro
 if ($useAsciiStaging) {
     Write-Step "Staging resources in an ASCII path so aapt2 stays usable"
     Write-Host "Project path contains non-ASCII characters, staging to: $buildDecodedDir"
+    Remove-Item $stageDir -Recurse -Force -ErrorAction SilentlyContinue
     Remove-Item $buildDecodedDir -Recurse -Force -ErrorAction SilentlyContinue
     New-Item -ItemType Directory -Force -Path $buildDecodedDir | Out-Null
     Copy-Item (Join-Path $decodedDir "*") -Destination $buildDecodedDir -Recurse -Force
@@ -293,17 +296,12 @@ if ($useAsciiStaging) {
     $unsignedApk = Copy-Item $unsignedApk (Join-Path $outputDir (Split-Path -Leaf $unsignedApk)) -Force -PassThru
 }
 
-if (-not $SkipDesktopCopy) {
-    $desktopPath = [Environment]::GetFolderPath([Environment+SpecialFolder]::Desktop)
-    Copy-Item $signedApk (Join-Path $desktopPath $OutputName) -Force
-}
+
 
 Write-Step "Build finished"
 Write-Host "Unsigned APK: $unsignedApk"
 Write-Host "Signed APK  : $signedApk"
-if (-not $SkipDesktopCopy) {
-    Write-Host "Desktop APK : $(Join-Path ([Environment]::GetFolderPath([Environment+SpecialFolder]::Desktop)) $OutputName)"
-}
+
 
 if (-not ($zipalign -and $apksigner)) {
     Write-Host "Note: Android SDK Build-Tools were not found, so the script used jarsigner v1 signing."

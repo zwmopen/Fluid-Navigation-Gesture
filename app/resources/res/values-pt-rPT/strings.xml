@@ -31,12 +31,14 @@
     <string name="about_googleplay">Google Play</string>
     <string name="about_twitter">Twitter</string>
     <string name="about_website">Website</string>
-    <string name="access_capacitive_desc">Usado para evitar pressionar acidentalmente os botões de navegação quando a app está ligada1010FNG usa as configurações mínimas de acessibilidade necessárias e nenhum dado pessoal é guardado.</string>
+    <string name="access_capacitive_desc">"Usado para evitar pressionar acidentalmente os botões de navegação quando a app está ligada
+
+FNG usa as configurações mínimas de acessibilidade necessárias e nenhum dado pessoal é guardado."</string>
     <string name="access_capacitive_sum">Serviço auxiliar para o FNG</string>
     <string name="access_capacitive_title">Bloquear teclas capacitivas para o FNG</string>
-    <string name="bottomsheet_action_expand_halfway">Expandir até metade</string>
-    <string name="item_view_role_description">Separador</string>
-    <string name="access_main_desc">Usado para executar ações, incluindo, mas não se limitando a, app inicial, voltar e apps recentes.1010FNG usa as configurações mínimas de acessibilidade necessárias e nenhum dado pessoal é guardado.</string>
+    <string name="access_main_desc">"Usado para executar ações, incluindo, mas não se limitando a, app inicial, voltar e apps recentes.
+
+FNG usa as configurações mínimas de acessibilidade necessárias e nenhum dado pessoal é guardado."</string>
     <string name="action_app">App</string>
     <string name="action_app_dock">Pasta de apps</string>
     <string name="action_assistant">Assistente</string>
@@ -65,7 +67,6 @@
     <string name="action_rotation_app">Permitir rotação de ecrã na app atual</string>
     <string name="action_rotation_app_sum">Ativar a rotação automática do Android até sair da app atual</string>
     <string name="action_rotation_lock">Ativar/desativar o bloqueio de rotação da ecrã</string>
-    <string name="material_clock_toggle_content_description">Selecionar AM ou PM</string>
     <string name="action_rotation_pie">Forçar rotação</string>
     <string name="action_rotation_pie_sum">Forçar rotação do ecrã. Semelhante ao Android Pie</string>
     <string name="action_screen_off">Desligar e bloquear o ecrã</string>
@@ -77,9 +78,7 @@
     <string name="action_voice_search">Pesquisa por voz</string>
     <string name="action_volume_dialog">Abrir janela de volume</string>
     <string name="anim_bubble">Bubble</string>
-    <string name="material_hour_selection">Selecionar hora</string>
     <string name="anim_fluid">Fluid</string>
-    <string name="material_hour_suffix">%1$s hora(s)</string>
     <string name="anim_none">Nenhum</string>
     <string name="anim_plain_icon">Basic Icon</string>
     <string name="anim_teardrop">Teardrop</string>
@@ -96,34 +95,14 @@
     <string name="billing_pro">Atualização Pro</string>
     <string name="billing_pro_required">Esta opção é para utilizadores FNG Pro</string>
     <string name="billing_unlocked">FNG Pro desbloqueado!</string>
-    <string name="material_minute_selection">Selecionar minutos</string>
-    <string name="material_minute_suffix">%1$s minutos</string>
-    <string name="character_counter_content_description">Carateres introduzidos: %1$d de %2$d</string>
-    <string name="character_counter_overflowed_content_description">Limite de carateres excedido: %1$d de %2$d</string>
-    <string name="clear_text_end_icon_content_description">Limpar texto</string>
     <string name="contact_email">Email</string>
     <string name="contact_email_title">Enviar email</string>
     <string name="contact_email_title_subject">Feedback</string>
     <string name="contact_telegram">Grupo Telegram</string>
     <string name="dialog_about_label">Design e programação por Francisco Barroso</string>
     <string name="done">Completar</string>
-    <string name="error_icon_content_description">Erro</string>
-    <string name="material_timepicker_am">AM</string>
-    <string name="material_timepicker_clock_mode_description">Mude para o modo de relógio para a introdução da hora.</string>
-    <string name="material_timepicker_hour">Hora</string>
-    <string name="material_timepicker_minute">Minuto</string>
-    <string name="material_timepicker_pm">PM</string>
-    <string name="exposed_dropdown_menu_content_description">Mostrar menu pendente</string>
-    <string name="material_timepicker_select_time">Selecionar hora</string>
-    <string name="material_timepicker_text_input_mode_description">Mude para o modo de introdução de texto para a introdução da hora.</string>
-    <string name="mtrl_exceed_max_badge_number_content_description">Mais de %1$d notificações novas</string>
-    <string name="mtrl_picker_invalid_format_example">Exemplo: %1$s</string>
-    <string name="mtrl_picker_invalid_format_use">Utilize: %1$s</string>
-    <string name="mtrl_picker_text_input_day_abbr">d</string>
     <string name="header_about">Sobre</string>
     <string name="header_action">Ação #%1$d</string>
-    <string name="mtrl_picker_text_input_month_abbr">m</string>
-    <string name="mtrl_picker_text_input_year_abbr">a</string>
     <string name="header_additional_settings">Configurações adicionais</string>
     <string name="header_advanced">Avançado</string>
     <string name="header_animation">Animação</string>
@@ -161,7 +140,6 @@
     <string name="help_dontkillmyapp">Visite dontkillmyapp.com para mais sugestões</string>
     <string name="help_dontkillmyapp_desc">Abrir dontkillmyapp.com</string>
     <string name="help_service_sdcard">Instalar a app num cartão SD (armazenamento externo) pode desativar a acessibilidade quando o aparelho é inicializado. Tente movê-la de volta para o armazenamento principal.</string>
-    <string name="icon_content_description">Ícone de caixa de diálogo</string>
     <string name="intro_swipe">Deslize rápido</string>
     <string name="intro_swipe_hold">Deslize e segure</string>
     <string name="intro_swipe_hold_sum">Deslize e segure para ativar a ação secundária</string>
@@ -173,35 +151,7 @@
     <string name="msg_fluid_paused">O FNG está desligado</string>
     <string name="msg_fluid_running">FNG está a correr</string>
     <string name="msg_import_sucess">Configurações importadas</string>
-    <string name="mtrl_badge_numberless_content_description">Nova notificação</string>
-    <string name="mtrl_chip_close_icon_content_description">Remover %1$s</string>
-    <string name="mtrl_picker_a11y_next_month">Mudar para o mês seguinte</string>
-    <string name="mtrl_picker_a11y_prev_month">Mudar para o mês anterior</string>
-    <string name="mtrl_picker_announce_current_selection">Seleção atual: %1$s</string>
-    <string name="mtrl_picker_confirm">@android:string/ok</string>
-    <string name="mtrl_picker_date_header_selected">%1$s</string>
-    <string name="mtrl_picker_date_header_title">Selecione a data</string>
-    <string name="mtrl_picker_date_header_unselected">Data selecionada</string>
-    <string name="mtrl_picker_day_of_week_column_header">Coluna de dias: %1$s</string>
-    <string name="mtrl_picker_invalid_format">Formato inválido.</string>
-    <string name="mtrl_picker_invalid_range">Intervalo inválido.</string>
-    <string name="mtrl_picker_navigate_to_year_description">Navegue para o ano %1$s</string>
-    <string name="mtrl_picker_out_of_range">Fora do intervalo: %1$s</string>
-    <string name="mtrl_picker_range_header_only_end_selected">Data de início – %1$s</string>
-    <string name="mtrl_picker_range_header_only_start_selected">%1$s – Data de conclusão</string>
-    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
-    <string name="mtrl_picker_range_header_title">Selecione o intervalo</string>
-    <string name="mtrl_picker_range_header_unselected">Data de início – Data de conclusão</string>
-    <string name="mtrl_picker_save">Guardar</string>
-    <string name="mtrl_picker_text_input_date_hint">Data</string>
-    <string name="mtrl_picker_text_input_date_range_end_hint">Data de conclusão</string>
-    <string name="mtrl_picker_text_input_date_range_start_hint">Data de início</string>
-    <string name="mtrl_picker_toggle_to_calendar_input_mode">Mudar para o modo de introdução de calendário</string>
-    <string name="mtrl_picker_toggle_to_day_selection">Toque para mudar para a seleção do dia</string>
-    <string name="mtrl_picker_toggle_to_text_input_mode">Mudar para o modo de introdução de texto</string>
-    <string name="mtrl_picker_toggle_to_year_selection">Toque para mudar para a seleção do ano</string>
     <string name="ok">OK</string>
-    <string name="password_toggle_content_description">Mostrar palavra-passe</string>
     <string name="perm_accessibility">Serviços de acessibilidade</string>
     <string name="perm_accessibility_sum">Necessário para simular ações de navegação (Home, voltar, etc …)</string>
     <string name="perm_display_overlays">Mostrar sobre outros aplicativos</string>
@@ -238,16 +188,20 @@
     <string name="pref_hide_navbar_mode_emui">Navegação por gestos do EMUI</string>
     <string name="pref_hide_navbar_mode_emui_sum">Substituir os navegação por gestos do EMUI.</string>
     <string name="pref_hide_navbar_mode_oneui">Navegação por gestos do One UI</string>
-    <string name="pref_hide_navbar_mode_oneui_sum">Substituir os navegação por gestos do One UI.10Requer Root ou comando ADB (recomendado)</string>
+    <string name="pref_hide_navbar_mode_oneui_sum">"Substituir os navegação por gestos do One UI.
+Requer Root ou comando ADB (recomendado)"</string>
     <string name="pref_hide_navbar_mode_threebutton">Navegação com 3 botões</string>
-    <string name="pref_hide_navbar_mode_threebutton_sum">Esconder a barra de navegação com 3 botões, forçando a mesma para fora do ecrã.10Requer Root ou comando ADB</string>
+    <string name="pref_hide_navbar_mode_threebutton_sum">"Esconder a barra de navegação com 3 botões, forçando a mesma para fora do ecrã.
+Requer Root ou comando ADB"</string>
     <string name="pref_ignore_policycontrol_changes">Permitir modificação do Modo Imersivo</string>
     <string name="pref_ignore_policycontrol_changes_sum">Modificar as configurações do Modo Imersivo para ajudar as esconder a barra de navegação</string>
     <string name="pref_move_side_triggers_from_keyboard">Mover gatilhos para longe do teclado</string>
     <string name="pref_navbar_keyboard">Mostrar barra de navegação com teclado virtual</string>
     <string name="pref_navbar_keyboard_sum">Mostrar a barra de navegação do sistema quando o teclado é detectado</string>
     <string name="pref_navbar_line">Exceções para Overscan completo</string>
-    <string name="pref_navbar_line_sum">Mostrar 1 px da barra de navegação para corrigir problemas com algumas apps.1010Pode interferir com os gestos em alguns aparelhos</string>
+    <string name="pref_navbar_line_sum">"Mostrar 1 px da barra de navegação para corrigir problemas com algumas apps.
+
+Pode interferir com os gestos em alguns aparelhos"</string>
     <string name="pref_navbar_mode_m">Lado direito do ecrã (Android 6.0)</string>
     <string name="pref_navbar_mode_n">Segue a parte inferior do dispositivo (Android 7.1+)</string>
     <string name="pref_navbar_mode_tablet">Lado inferior do ecrã (Tablet)</string>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Base.TextAppearance.AppCompat.Widget.Button.Borderless.Colored" parent="@style/Base.TextAppearance.AppCompat.Widget.Button.Borderless" />
-    <style name="Base.TextAppearance.AppCompat.Widget.Button.Colored" parent="@style/Base.TextAppearance.AppCompat.Widget.Button" />
-    <style name="Base.V14.Theme.MaterialComponents" parent="@style/Base.V14.Theme">
+    <style name="Base.TextAppearance.AppCompat.Widget.Button.Borderless.Colored" parent="@android:style/TextAppearance.Material.Widget.Button.Borderless.Colored" />
+    <style name="Base.TextAppearance.AppCompat.Widget.Button.Colored" parent="@android:style/TextAppearance.Material.Widget.Button.Colored" />
+    <style name="Base.V14.Theme.MaterialComponents" parent="@style/Base.V14.Theme.MaterialComponents.Bridge">
         <item name="android:colorBackground">@color/design_dark_default_color_background</item>
         <item name="android:timePickerDialogTheme">@style/ThemeOverlay.MaterialComponents.Dialog</item>
         <item name="android:datePickerDialogTheme">@style/ThemeOverlay.MaterialComponents.Dialog</item>
@@ -51,7 +51,7 @@
         <item name="toolbarStyle">@style/Widget.MaterialComponents.Toolbar</item>
         <item name="viewInflaterClass">com.google.android.material.theme.MaterialComponentsViewInflater</item>
     </style>
-    <style name="Base.V14.Theme.MaterialComponents.Dialog" parent="@style/Base.V14.Theme.MaterialComponents">
+    <style name="Base.V14.Theme.MaterialComponents.Dialog" parent="@style/Base.V14.Theme.MaterialComponents.Dialog.Bridge">
         <item name="android:colorBackground">@color/design_dark_default_color_background</item>
         <item name="android:contextPopupMenuStyle">@style/Widget.MaterialComponents.PopupMenu.ContextMenu.Dark</item>
         <item name="actionBarSize">@dimen/mtrl_toolbar_default_height</item>
@@ -96,7 +96,7 @@
         <item name="toolbarStyle">@style/Widget.MaterialComponents.Toolbar</item>
         <item name="viewInflaterClass">com.google.android.material.theme.MaterialComponentsViewInflater</item>
     </style>
-    <style name="Base.V14.Theme.MaterialComponents.Light" parent="@style/Base.V14.Theme.MaterialComponents">
+    <style name="Base.V14.Theme.MaterialComponents.Light" parent="@style/Base.V14.Theme.MaterialComponents.Light.Bridge">
         <item name="android:colorBackground">@color/design_default_color_background</item>
         <item name="android:timePickerDialogTheme">@style/ThemeOverlay.MaterialComponents.Dialog</item>
         <item name="android:datePickerDialogTheme">@style/ThemeOverlay.MaterialComponents.Dialog</item>
@@ -144,7 +144,7 @@
         <item name="toolbarStyle">@style/Widget.MaterialComponents.Toolbar</item>
         <item name="viewInflaterClass">com.google.android.material.theme.MaterialComponentsViewInflater</item>
     </style>
-    <style name="Base.V14.Theme.MaterialComponents.Light.Dialog" parent="@style/Base.V14.Theme.MaterialComponents.Light">
+    <style name="Base.V14.Theme.MaterialComponents.Light.Dialog" parent="@style/Base.V14.Theme.MaterialComponents.Light.Dialog.Bridge">
         <item name="android:colorBackground">@color/design_default_color_background</item>
         <item name="android:contextPopupMenuStyle">@style/Widget.MaterialComponents.PopupMenu.ContextMenu</item>
         <item name="actionBarSize">@dimen/mtrl_toolbar_default_height</item>

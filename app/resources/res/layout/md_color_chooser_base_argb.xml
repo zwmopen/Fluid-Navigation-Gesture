@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout android:orientation="vertical" android:id="@id/colorArgbPage" android:paddingLeft="@dimen/color_grid_item_padding_double" android:paddingRight="@dimen/color_grid_item_padding_double" android:paddingBottom="@dimen/color_grid_padding_bottom" android:layout_width="fill_parent" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+  xmlns:android="http://schemas.android.com/apk/res/android">
     <com.afollestad.materialdialogs.color.view.PreviewFrameView android:id="@id/preview_frame" android:layout_width="fill_parent" android:layout_height="@dimen/color_argb_preview_height" />
     <com.afollestad.materialdialogs.color.view.SeekBarGroupLayout android:paddingTop="@dimen/color_argb_preview_marginBottom" android:layout_width="fill_parent" android:layout_height="wrap_content">
         <TextView android:id="@id/alpha_label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="A" android:layout_below="@id/preview_frame" android:layout_alignParentLeft="true" android:layout_alignParentStart="true" style="@style/ColorChooser.Label" />

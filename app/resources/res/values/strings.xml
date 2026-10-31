@@ -31,13 +31,14 @@
     <string name="about_googleplay">Google Play</string>
     <string name="about_twitter">Twitter</string>
     <string name="about_website">Website</string>
-    <string name="access_capacitive_desc">FNG uses this service to block events from physical navigation buttons on supported devices. 1010FNG uses the minimum required accessibility settings and no personal data is collected.</string>
+    <string name="access_capacitive_desc">"FNG uses this service to block events from physical navigation buttons on supported devices. 
+
+FNG uses the minimum required accessibility settings and no personal data is collected."</string>
     <string name="access_capacitive_sum">Helper service by FNG</string>
     <string name="access_capacitive_title">Block capacitive keys by FNG</string>
-    <string name="bottomsheet_action_expand_halfway">Expand halfway</string>
-    <string name="item_view_role_description">Tab</string>
-    <string name="material_clock_display_divider">:</string>
-    <string name="access_main_desc">FNG uses Android Accessibility to perform navigation actions including, but not limited to, Home, Back, Recent apps. 1010FNG uses the minimum required accessibility settings and no personal data is collected.</string>
+    <string name="access_main_desc">"FNG uses Android Accessibility to perform navigation actions including, but not limited to, Home, Back, Recent apps. 
+
+FNG uses the minimum required accessibility settings and no personal data is collected."</string>
     <string name="action_app">App</string>
     <string name="action_app_dock">App folder</string>
     <string name="action_assistant">Assistant</string>
@@ -66,7 +67,6 @@
     <string name="action_rotation_app">Enable screen rotation on current app</string>
     <string name="action_rotation_app_sum">Enable Android auto-rotation until you leave the current app</string>
     <string name="action_rotation_lock">Auto-rotate toggle</string>
-    <string name="material_clock_toggle_content_description">Select AM or PM</string>
     <string name="action_rotation_pie">Force rotation</string>
     <string name="action_rotation_pie_sum">Force screen to rotate. Similar to Android Pie</string>
     <string name="action_screen_off">Turn off and lock screen</string>
@@ -77,17 +77,15 @@
     <string name="action_voice_assistant">Voice assistant</string>
     <string name="action_voice_search">Voice search</string>
     <string name="action_volume_dialog">Open volume dialog</string>
-    <string name="adb_cmd_grant">adb shell pm grant com.fb.fluid.test android.permission.WRITE_SECURE_SETTINGS</string>
-    <string name="adb_cmd_grant_mac">./adb shell pm grant com.fb.fluid.test android.permission.WRITE_SECURE_SETTINGS</string>
+    <string name="adb_cmd_grant">adb shell pm grant com.fb.fluid android.permission.WRITE_SECURE_SETTINGS</string>
+    <string name="adb_cmd_grant_mac">./adb shell pm grant com.fb.fluid android.permission.WRITE_SECURE_SETTINGS</string>
     <string name="anim_bubble">Bubble</string>
-    <string name="material_hour_selection">Select hour</string>
     <string name="anim_fluid">Fluid</string>
-    <string name="material_hour_suffix">"%1$s o'clock"</string>
     <string name="anim_none">None</string>
     <string name="anim_plain_icon">Basic Icon</string>
     <string name="anim_teardrop">Teardrop</string>
-    <string name="app_name">Fluid Navigation Gestures Test</string>
-    <string name="app_name_s">FNG Test</string>
+    <string name="app_name">Fluid Navigation Gestures</string>
+    <string name="app_name_s">FNG</string>
     <string name="appbar_scrolling_view_behavior">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
     <string name="billing_cancelled">Purchase cancelled</string>
     <string name="billing_dialog_message">Unlock FNG Pro to get more actions. All the animations. Support future updates of the app.</string>
@@ -101,8 +99,6 @@
     <string name="billing_pro_required">This option is for FNG Pro Users</string>
     <string name="billing_unlocked">FNG Pro unlocked!</string>
     <string name="bottom_sheet_behavior">com.google.android.material.bottomsheet.BottomSheetBehavior</string>
-    <string name="material_minute_selection">Select minutes</string>
-    <string name="material_minute_suffix">%1$s minutes</string>
     <string name="character_counter_content_description">Characters entered %1$d of %2$d</string>
     <string name="character_counter_overflowed_content_description">Character limit exceeded %1$d of %2$d</string>
     <string name="character_counter_pattern">%1$d / %2$d</string>
@@ -120,24 +116,11 @@
     <string name="error_message">Error Message</string>
     <string name="error_message_description">"If there's an error, contains an error message"</string>
     <string name="error_touch_trigger">Error occurred with FNG trigger</string>
-    <string name="material_timepicker_am">AM</string>
-    <string name="material_timepicker_clock_mode_description">Switch to clock mode for the time input.</string>
-    <string name="material_timepicker_hour">Hour</string>
-    <string name="material_timepicker_minute">Minute</string>
-    <string name="material_timepicker_pm">PM</string>
     <string name="exposed_dropdown_menu_content_description">Show dropdown menu</string>
     <string name="fab_transformation_scrim_behavior">com.google.android.material.transformation.FabTransformationScrimBehavior</string>
     <string name="fab_transformation_sheet_behavior">com.google.android.material.transformation.FabTransformationSheetBehavior</string>
-    <string name="material_timepicker_select_time">Select time</string>
-    <string name="material_timepicker_text_input_mode_description">Switch to text input mode for the time input.</string>
-    <string name="mtrl_exceed_max_badge_number_content_description">More than %1$d new notifications</string>
-    <string name="mtrl_picker_invalid_format_example">Example: %1$s</string>
-    <string name="mtrl_picker_invalid_format_use">Use: %1$s</string>
-    <string name="mtrl_picker_text_input_day_abbr">d</string>
     <string name="header_about">About</string>
     <string name="header_action">Action #%1$d</string>
-    <string name="mtrl_picker_text_input_month_abbr">m</string>
-    <string name="mtrl_picker_text_input_year_abbr">y</string>
     <string name="header_additional_settings">Additional settings</string>
     <string name="header_advanced">Advanced</string>
     <string name="header_animation">Animation</string>
@@ -212,7 +195,8 @@
     <string name="mtrl_picker_date_header_title">Select a Date</string>
     <string name="mtrl_picker_date_header_unselected">Selected Date</string>
     <string name="mtrl_picker_day_of_week_column_header">Column of days: %1$s</string>
-    <string name="mtrl_picker_invalid_format">Invalid Format.10Use: %1$s</string>
+    <string name="mtrl_picker_invalid_format">"Invalid Format.
+Use: %1$s"</string>
     <string name="mtrl_picker_invalid_range">Invalid Range.</string>
     <string name="mtrl_picker_navigate_to_year_description">Navigate to year %1$s</string>
     <string name="mtrl_picker_out_of_range">Out of Range: %1$s</string>
@@ -290,18 +274,26 @@
     <string name="pref_hide_navbar">Hide navigation bar</string>
     <string name="pref_hide_navbar_disabled">Disabled</string>
     <string name="pref_hide_navbar_mode_emui">EMUI full screen gestures</string>
-    <string name="pref_hide_navbar_mode_emui_sum">Override the EMUI full screen gestures.1010The system gestures will still be accessible under certain conditions</string>
+    <string name="pref_hide_navbar_mode_emui_sum">"Override the EMUI full screen gestures.
+
+The system gestures will still be accessible under certain conditions"</string>
     <string name="pref_hide_navbar_mode_oneui">One UI full screen gestures</string>
-    <string name="pref_hide_navbar_mode_oneui_sum">Override the One UI full screen gestures.1010Requires Root or ADB command</string>
+    <string name="pref_hide_navbar_mode_oneui_sum">"Override the One UI full screen gestures.
+
+Requires Root or ADB command"</string>
     <string name="pref_hide_navbar_mode_threebutton">3-button navigation</string>
-    <string name="pref_hide_navbar_mode_threebutton_sum">Hide the 3-button navigation bar by forcing it outside of the screen using the Android overscan settings.1010Requires Root or ADB command</string>
+    <string name="pref_hide_navbar_mode_threebutton_sum">"Hide the 3-button navigation bar by forcing it outside of the screen using the Android overscan settings.
+
+Requires Root or ADB command"</string>
     <string name="pref_ignore_policycontrol_changes">Allow Immersive Mode changes</string>
     <string name="pref_ignore_policycontrol_changes_sum">Modify the Android Immersive Mode settings to help hide the navigation bar on some devices</string>
     <string name="pref_move_side_triggers_from_keyboard">Move triggers away from keyboard</string>
     <string name="pref_navbar_keyboard">Show navigation bar with keyboard</string>
     <string name="pref_navbar_keyboard_sum">Show the system navigation bar when the keyboard is detected</string>
     <string name="pref_navbar_line">Full overscan exceptions</string>
-    <string name="pref_navbar_line_sum">Show 1px of the navigation bar to fix issues with some apps/devices.1010It may interfere with the bottom gestures on some devices</string>
+    <string name="pref_navbar_line_sum">"Show 1px of the navigation bar to fix issues with some apps/devices.
+
+It may interfere with the bottom gestures on some devices"</string>
     <string name="pref_navbar_mode_m">Right side of screen (Android 6.0)</string>
     <string name="pref_navbar_mode_n">Follow bottom of device (Android 7.1 +)</string>
     <string name="pref_navbar_mode_tablet">Bottom side of screen (Tablet)</string>
@@ -393,7 +385,9 @@
     <string name="wss_step_1_sum">Go to Android Settings -> About Phone -> Find the Build number option and tap it multiple times until developer mode is enabled</string>
     <string name="wss_step_2">2 - Enable USB Debugging</string>
     <string name="wss_step_2_sum">Go to Android Settings -> Developer Options -> Enable the USB debugging option</string>
-    <string name="wss_step_2_sum_miui">Go to Android Settings -> System and device -> Additional settings -> Developer Options -> Enable the USB debugging option 1010On MIUI you must also enable the USB debugging (security settings)</string>
+    <string name="wss_step_2_sum_miui">"Go to Android Settings -> System and device -> Additional settings -> Developer Options -> Enable the USB debugging option 
+
+On MIUI you must also enable the USB debugging (security settings)"</string>
     <string name="wss_step_3">3 - Install ADB on your PC</string>
     <string name="wss_step_3_download_sdk">Download Android SDK</string>
     <string name="wss_step_3_sum">ADB, Android Debug Bridge, is a command-line utility required to grant the permission. Use one of the following tutorials or download the SDK directly</string>

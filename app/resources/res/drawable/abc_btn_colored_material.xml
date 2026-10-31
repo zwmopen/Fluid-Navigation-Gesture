@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <inset android:insetLeft="@dimen/abc_button_inset_horizontal_material" android:insetRight="@dimen/abc_button_inset_horizontal_material" android:insetTop="@dimen/abc_button_inset_vertical_material" android:insetBottom="@dimen/abc_button_inset_vertical_material"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+  xmlns:android="http://schemas.android.com/apk/res/android">
     <ripple android:color="?android:colorControlHighlight">
         <item>
             <selector>

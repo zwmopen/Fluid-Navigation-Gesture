@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout android:id="@id/but_icon" android:layout_width="72.0dip" android:layout_height="84.0dip" android:layout_marginLeft="0.0dip" android:layout_marginTop="0.0dip" android:layout_marginRight="8.0dip" android:layout_marginBottom="8.0dip"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+  xmlns:android="http://schemas.android.com/apk/res/android">
     <FrameLayout android:orientation="vertical" android:id="@id/img_add" android:background="@drawable/bg_blacklist_app_outline_ripple" android:padding="8.0dip" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="84.0dip" android:outlineProvider="background">
         <androidx.appcompat.widget.AppCompatImageView android:layout_gravity="center" android:layout_width="40.0dip" android:layout_height="40.0dip" android:src="@drawable/ic_menu_plus_circle_outline" android:tint="?android:textColorSecondary" />
     </FrameLayout>

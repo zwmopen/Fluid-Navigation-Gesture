@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Base.TextAppearance.AppCompat.Widget.ActionBar.Menu" parent="@style/Base.TextAppearance.AppCompat.Widget.ActionBar" />
-    <style name="Base.TextAppearance.AppCompat.Widget.Button.Inverse" parent="@style/Base.TextAppearance.AppCompat.Widget.Button" />
-    <style name="Base.Theme.AppCompat" parent="@style/Base.Theme" />
-    <style name="Base.Theme.AppCompat.Light" parent="@style/Base.Theme.AppCompat" />
-    <style name="Base.Widget.AppCompat.ActionButton.Overflow" parent="@style/Base.Widget.AppCompat.ActionButton" />
-    <style name="Base.Widget.AppCompat.Button.Borderless.Colored" parent="@style/Base.Widget.AppCompat.Button.Borderless" />
-    <style name="Base.Widget.AppCompat.Button.Colored" parent="@style/Base.Widget.AppCompat.Button" />
-    <style name="Base.Widget.AppCompat.EditText" parent="@style/Base.Widget.AppCompat">
+    <style name="Base.TextAppearance.AppCompat.Widget.ActionBar.Menu" parent="@android:style/TextAppearance.Material.Widget.ActionBar.Menu" />
+    <style name="Base.TextAppearance.AppCompat.Widget.Button.Inverse" parent="@android:style/TextAppearance.Material.Widget.Button.Inverse" />
+    <style name="Base.Theme.AppCompat" parent="@style/Base.V23.Theme.AppCompat" />
+    <style name="Base.Theme.AppCompat.Light" parent="@style/Base.V23.Theme.AppCompat.Light" />
+    <style name="Base.Widget.AppCompat.ActionButton.Overflow" parent="@android:style/Widget.Material.ActionButton.Overflow" />
+    <style name="Base.Widget.AppCompat.Button.Borderless.Colored" parent="@android:style/Widget.Material.Button.Borderless.Colored" />
+    <style name="Base.Widget.AppCompat.Button.Colored" parent="@android:style/Widget.Material.Button.Colored" />
+    <style name="Base.Widget.AppCompat.EditText" parent="@android:style/Widget.Material.EditText">
         <item name="android:breakStrategy">simple</item>
         <item name="android:hyphenationFrequency">none</item>
     </style>
-    <style name="Base.Widget.AppCompat.RatingBar.Indicator" parent="@style/Base.Widget.AppCompat.RatingBar" />
-    <style name="Base.Widget.AppCompat.RatingBar.Small" parent="@style/Base.Widget.AppCompat.RatingBar" />
-    <style name="Base.Widget.AppCompat.Spinner.Underlined" parent="@style/Base.Widget.AppCompat.Spinner" />
-    <style name="Base.Widget.AppCompat.TextView" parent="@style/Base.Widget.AppCompat">
+    <style name="Base.Widget.AppCompat.RatingBar.Indicator" parent="@android:style/Widget.Material.RatingBar.Indicator" />
+    <style name="Base.Widget.AppCompat.RatingBar.Small" parent="@android:style/Widget.Material.RatingBar.Small" />
+    <style name="Base.Widget.AppCompat.Spinner.Underlined" parent="@android:style/Widget.Material.Spinner.Underlined" />
+    <style name="Base.Widget.AppCompat.TextView" parent="@android:style/Widget.Material.TextView">
         <item name="android:breakStrategy">high_quality</item>
         <item name="android:hyphenationFrequency">none</item>
     </style>
-    <style name="CardView">
+    <style name="CardView" parent="@style/Base.CardView">
         <item name="cardBackgroundColor">?android:colorBackgroundFloating</item>
     </style>
-    <style name="Widget.MaterialComponents.PopupMenu.ContextMenu" parent="@style/Widget.MaterialComponents.PopupMenu">
+    <style name="Widget.MaterialComponents.PopupMenu.ContextMenu" parent="@style/Base.Widget.MaterialComponents.PopupMenu.ContextMenu">
         <item name="android:popupBackground">@drawable/mtrl_popupmenu_background</item>
         <item name="android:popupElevation">8.0dip</item>
     </style>
@@ -31,7 +31,7 @@
     <style name="Widget.MaterialComponents.PopupMenu.Dark" parent="@style/Widget.MaterialComponents.PopupMenu">
         <item name="android:popupBackground">@drawable/mtrl_popupmenu_background_dark</item>
     </style>
-    <style name="Widget.MaterialComponents.PopupMenu.ListPopupWindow" parent="@style/Widget.MaterialComponents.PopupMenu">
+    <style name="Widget.MaterialComponents.PopupMenu.ListPopupWindow" parent="@style/Base.Widget.MaterialComponents.PopupMenu.ListPopupWindow">
         <item name="android:popupBackground">@drawable/mtrl_popupmenu_background</item>
         <item name="android:popupElevation">8.0dip</item>
     </style>
@@ -41,7 +41,7 @@
     <style name="Widget.MaterialComponents.PopupMenu.Overflow.Dark" parent="@style/Widget.MaterialComponents.PopupMenu.Overflow">
         <item name="android:popupBackground">@drawable/mtrl_popupmenu_background_dark</item>
     </style>
-    <style name="Base.V23.Theme.AppCompat" parent="@style/Base.V23.Theme">
+    <style name="Base.V23.Theme.AppCompat" parent="@style/Base.V22.Theme.AppCompat">
         <item name="actionBarItemBackground">?android:actionBarItemBackground</item>
         <item name="actionMenuTextAppearance">?android:actionMenuTextAppearance</item>
         <item name="actionMenuTextColor">?android:actionMenuTextColor</item>
@@ -50,7 +50,7 @@
         <item name="ratingBarStyleIndicator">?android:ratingBarStyleIndicator</item>
         <item name="ratingBarStyleSmall">?android:ratingBarStyleSmall</item>
     </style>
-    <style name="Base.V23.Theme.AppCompat.Light" parent="@style/Base.V23.Theme.AppCompat">
+    <style name="Base.V23.Theme.AppCompat.Light" parent="@style/Base.V22.Theme.AppCompat.Light">
         <item name="actionBarItemBackground">?android:actionBarItemBackground</item>
         <item name="actionMenuTextAppearance">?android:actionMenuTextAppearance</item>
         <item name="actionMenuTextColor">?android:actionMenuTextColor</item>

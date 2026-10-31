@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout android:orientation="horizontal" android:id="@id/widget_config_button" android:background="?selectableItemBackgroundBorderless" android:layout_width="54.0dip" android:layout_height="54.0dip"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+  xmlns:android="http://schemas.android.com/apk/res/android">
     <View android:background="?android:colorControlHighlight" android:layout_width="1.0dip" android:layout_height="54.0dip" />
     <androidx.appcompat.widget.AppCompatImageView android:layout_gravity="center" android:id="@id/widget_color" android:layout_width="24.0dip" android:layout_height="24.0dip" android:layout_margin="4.0dip" android:src="@drawable/ic_main_settings_24dp" android:scaleType="fitCenter" />
 </FrameLayout>

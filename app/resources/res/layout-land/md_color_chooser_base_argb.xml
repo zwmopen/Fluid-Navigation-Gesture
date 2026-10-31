@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout android:id="@id/colorArgbPage" android:paddingLeft="@dimen/color_grid_item_padding_double" android:paddingRight="@dimen/color_grid_item_padding_double" android:paddingBottom="@dimen/color_grid_padding_bottom" android:layout_width="fill_parent" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+  xmlns:android="http://schemas.android.com/apk/res/android">
     <com.afollestad.materialdialogs.color.view.PreviewFrameView android:id="@id/preview_frame" android:layout_width="@dimen/color_argb_preview_width_landscape" android:layout_height="fill_parent" android:layout_marginRight="@dimen/color_argb_preview_marginRight_landscape" android:layout_alignParentLeft="true" android:layout_marginEnd="@dimen/color_argb_preview_marginRight_landscape" android:layout_alignParentStart="true" />
     <com.afollestad.materialdialogs.color.view.SeekBarGroupLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_toRightOf="@id/preview_frame" android:layout_centerVertical="true" android:layout_toEndOf="@id/preview_frame">
         <TextView android:id="@id/alpha_label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="0.0dip" android:text="A" android:layout_alignParentLeft="true" android:layout_alignParentStart="true" style="@style/ColorChooser.Label" />

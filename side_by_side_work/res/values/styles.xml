@@ -13,7 +13,7 @@
         <item name="android:windowEnterAnimation">@anim/mtrl_bottom_sheet_slide_in</item>
         <item name="android:windowExitAnimation">@anim/mtrl_bottom_sheet_slide_out</item>
     </style>
-    <style name="AppTheme">
+    <style name="AppTheme" parent="@style/AppThemeBase">
         <item name="android:colorBackground">@color/colorBackground</item>
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
         <item name="android:textColorSecondary">@color/textColorSecondary</item>
@@ -69,7 +69,17 @@
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
-    <style name="AppThemeBase">
+    <style name="AppThemeBase" parent="@style/Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
+        <item name="minTouchTargetSize">@dimen/mtrl_min_touch_target_size</item>
+        <item name="actionMenuTextColor">?android:textColorPrimary</item>
+        <item name="colorOnPrimary">#ffffffff</item>
+        <item name="isMaterialTheme">true</item>
+        <item name="android:actionBarSize">56.0dip</item>
+        <item name="actionBarSize">?android:actionBarSize</item>
+        <item name="selectableItemBackground">?android:selectableItemBackground</item>
+        <item name="selectableItemBackgroundBorderless">?android:selectableItemBackgroundBorderless</item>
+        <item name="switchStyle">@style/Widget.MaterialComponents.CompoundButton.Switch</item>
+
         <item name="android:colorBackground">@color/colorBackground</item>
         <item name="android:fitsSystemWindows">false</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
@@ -84,7 +94,7 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-    <style name="AppThemeBlack" />
+    <style name="AppThemeBlack" parent="@style/AppTheme" />
     <style name="Base.AlertDialog.AppCompat" parent="@style/Base.AlertDialog">
         <item name="android:layout">@layout/abc_alert_dialog_material</item>
         <item name="buttonIconDimen">@dimen/abc_alert_dialog_button_dimen</item>
@@ -488,6 +498,12 @@
         <item name="elevationOverlayColor">?colorOnSurface</item>
         <item name="elevationOverlayEnabled">true</item>
         <item name="isMaterialTheme">true</item>
+        <item name="android:actionBarSize">56.0dip</item>
+        <item name="actionBarSize">?android:actionBarSize</item>
+        <item name="selectableItemBackground">?android:selectableItemBackground</item>
+        <item name="selectableItemBackgroundBorderless">?android:selectableItemBackgroundBorderless</item>
+        <item name="switchStyle">@style/Widget.MaterialComponents.CompoundButton.Switch</item>
+
         <item name="scrimBackground">@color/mtrl_scrim_color</item>
         <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.MaterialComponents.LargeComponent</item>
         <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.MaterialComponents.MediumComponent</item>
@@ -565,6 +581,12 @@
         <item name="elevationOverlayColor">?colorOnSurface</item>
         <item name="elevationOverlayEnabled">true</item>
         <item name="isMaterialTheme">true</item>
+        <item name="android:actionBarSize">56.0dip</item>
+        <item name="actionBarSize">?android:actionBarSize</item>
+        <item name="selectableItemBackground">?android:selectableItemBackground</item>
+        <item name="selectableItemBackgroundBorderless">?android:selectableItemBackgroundBorderless</item>
+        <item name="switchStyle">@style/Widget.MaterialComponents.CompoundButton.Switch</item>
+
         <item name="scrimBackground">@color/mtrl_scrim_color</item>
         <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.MaterialComponents.LargeComponent</item>
         <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.MaterialComponents.MediumComponent</item>
@@ -645,6 +667,12 @@
         <item name="elevationOverlayColor">?colorOnSurface</item>
         <item name="elevationOverlayEnabled">false</item>
         <item name="isMaterialTheme">true</item>
+        <item name="android:actionBarSize">56.0dip</item>
+        <item name="actionBarSize">?android:actionBarSize</item>
+        <item name="selectableItemBackground">?android:selectableItemBackground</item>
+        <item name="selectableItemBackgroundBorderless">?android:selectableItemBackgroundBorderless</item>
+        <item name="switchStyle">@style/Widget.MaterialComponents.CompoundButton.Switch</item>
+
         <item name="scrimBackground">@color/mtrl_scrim_color</item>
         <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.MaterialComponents.LargeComponent</item>
         <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.MaterialComponents.MediumComponent</item>
@@ -678,6 +706,12 @@
         <item name="elevationOverlayColor">?colorOnSurface</item>
         <item name="elevationOverlayEnabled">false</item>
         <item name="isMaterialTheme">true</item>
+        <item name="android:actionBarSize">56.0dip</item>
+        <item name="actionBarSize">?android:actionBarSize</item>
+        <item name="selectableItemBackground">?android:selectableItemBackground</item>
+        <item name="selectableItemBackgroundBorderless">?android:selectableItemBackgroundBorderless</item>
+        <item name="switchStyle">@style/Widget.MaterialComponents.CompoundButton.Switch</item>
+
         <item name="scrimBackground">@color/mtrl_scrim_color</item>
         <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.MaterialComponents.LargeComponent</item>
         <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.MaterialComponents.MediumComponent</item>
@@ -754,6 +788,12 @@
         <item name="elevationOverlayColor">?colorOnSurface</item>
         <item name="elevationOverlayEnabled">false</item>
         <item name="isMaterialTheme">true</item>
+        <item name="android:actionBarSize">56.0dip</item>
+        <item name="actionBarSize">?android:actionBarSize</item>
+        <item name="selectableItemBackground">?android:selectableItemBackground</item>
+        <item name="selectableItemBackgroundBorderless">?android:selectableItemBackgroundBorderless</item>
+        <item name="switchStyle">@style/Widget.MaterialComponents.CompoundButton.Switch</item>
+
         <item name="scrimBackground">@color/mtrl_scrim_color</item>
         <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.MaterialComponents.LargeComponent</item>
         <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.MaterialComponents.MediumComponent</item>
@@ -799,6 +839,10 @@
         <item name="actionBarDivider">?android:actionBarDivider</item>
         <item name="actionBarItemBackground">@drawable/abc_action_bar_item_background_material</item>
         <item name="actionBarSize">?android:actionBarSize</item>
+        <item name="selectableItemBackground">?android:selectableItemBackground</item>
+        <item name="selectableItemBackgroundBorderless">?android:selectableItemBackgroundBorderless</item>
+        <item name="switchStyle">@style/Widget.MaterialComponents.CompoundButton.Switch</item>
+
         <item name="actionButtonStyle">?android:actionButtonStyle</item>
         <item name="actionModeBackground">?android:actionModeBackground</item>
         <item name="actionModeCloseDrawable">?android:actionModeCloseDrawable</item>
@@ -818,6 +862,7 @@
         <item name="ratingBarStyle">?android:ratingBarStyle</item>
         <item name="selectableItemBackground">?android:selectableItemBackground</item>
         <item name="selectableItemBackgroundBorderless">?android:selectableItemBackgroundBorderless</item>
+        <item name="switchStyle">@style/Widget.MaterialComponents.CompoundButton.Switch</item>
         <item name="spinnerStyle">?android:spinnerStyle</item>
         <item name="textAppearanceLargePopupMenu">?android:textAppearanceLargePopupMenu</item>
         <item name="textAppearanceSmallPopupMenu">?android:textAppearanceSmallPopupMenu</item>
@@ -836,6 +881,10 @@
         <item name="actionBarDivider">?android:actionBarDivider</item>
         <item name="actionBarItemBackground">@drawable/abc_action_bar_item_background_material</item>
         <item name="actionBarSize">?android:actionBarSize</item>
+        <item name="selectableItemBackground">?android:selectableItemBackground</item>
+        <item name="selectableItemBackgroundBorderless">?android:selectableItemBackgroundBorderless</item>
+        <item name="switchStyle">@style/Widget.MaterialComponents.CompoundButton.Switch</item>
+
         <item name="actionButtonStyle">?android:actionButtonStyle</item>
         <item name="actionModeBackground">?android:actionModeBackground</item>
         <item name="actionModeCloseDrawable">?android:actionModeCloseDrawable</item>
@@ -855,6 +904,7 @@
         <item name="ratingBarStyle">?android:ratingBarStyle</item>
         <item name="selectableItemBackground">?android:selectableItemBackground</item>
         <item name="selectableItemBackgroundBorderless">?android:selectableItemBackgroundBorderless</item>
+        <item name="switchStyle">@style/Widget.MaterialComponents.CompoundButton.Switch</item>
         <item name="spinnerStyle">?android:spinnerStyle</item>
         <item name="textAppearanceLargePopupMenu">?android:textAppearanceLargePopupMenu</item>
         <item name="textAppearanceSmallPopupMenu">?android:textAppearanceSmallPopupMenu</item>

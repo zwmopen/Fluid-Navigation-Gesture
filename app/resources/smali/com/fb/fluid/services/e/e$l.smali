@@ -1,0 +1,83 @@
+.class final Lcom/fb/fluid/services/e/e$l;
+.super Lkotlin/x/d/l;
+.source ""
+
+# interfaces
+.implements Lkotlin/x/c/a;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/fb/fluid/services/e/e;-><init>(Landroid/content/Context;Lcom/fb/fluid/data/Trigger;Lkotlin/x/c/f;Lkotlin/x/c/c;Lkotlin/x/c/c;Lcom/fb/fluid/services/e/h/a;)V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x18
+    name = null
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Lkotlin/x/d/l;",
+        "Lkotlin/x/c/a<",
+        "Landroid/hardware/display/DisplayManager;",
+        ">;"
+    }
+.end annotation
+
+
+# instance fields
+.field final synthetic g:Landroid/content/Context;
+
+
+# direct methods
+.method constructor <init>(Landroid/content/Context;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/fb/fluid/services/e/e$l;->g:Landroid/content/Context;
+
+    const/4 p1, 0x0
+
+    invoke-direct {p0, p1}, Lkotlin/x/d/l;-><init>(I)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final invoke()Landroid/hardware/display/DisplayManager;
+    .locals 2
+
+    iget-object v0, p0, Lcom/fb/fluid/services/e/e$l;->g:Landroid/content/Context;
+
+    const-string v1, "display"
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    check-cast v0, Landroid/hardware/display/DisplayManager;
+
+    return-object v0
+
+    :cond_0
+    new-instance v0, Lkotlin/p;
+
+    const-string v1, "null cannot be cast to non-null type android.hardware.display.DisplayManager"
+
+    invoke-direct {v0, v1}, Lkotlin/p;-><init>(Ljava/lang/String;)V
+
+    throw v0
+.end method
+
+.method public bridge synthetic invoke()Ljava/lang/Object;
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/fb/fluid/services/e/e$l;->invoke()Landroid/hardware/display/DisplayManager;
+
+    move-result-object v0
+
+    return-object v0
+.end method

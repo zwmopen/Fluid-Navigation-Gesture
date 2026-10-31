@@ -1,0 +1,61 @@
+name: Build My Fluid Navigation Gesture APK
+
+on:
+  push:
+    branches: [ "**" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Java JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Set up Android SDK & Build Tools
+        uses: android-actions/setup-android@v3
+
+      - name: Download Apktool
+        run: |
+          mkdir -p tools output
+          curl -sL https://github.com/iBotPeaches/Apktool/releases/download/v2.12.1/apktool_2.12.1.jar -o tools/apktool.jar
+
+      - name: Build APK with Apktool
+        run: |
+          echo "Building APK using Apktool..."
+          java -jar tools/apktool.jar b -o output/unsigned.apk app/resources
+
+      - name: Sign & Align APK
+        run: |
+          BUILD_TOOLS_PATH=$(find $ANDROID_SDK_ROOT/build-tools -mindepth 1 -maxdepth 1 -type d | sort -V | tail -n 1)
+          echo "Using Android Build Tools from: $BUILD_TOOLS_PATH"
+
+          # 1. 4字节对齐
+          $BUILD_TOOLS_PATH/zipalign -v -p 4 output/unsigned.apk output/aligned.apk
+
+          # 2. 生成自签名调试 Keystore
+          keytool -genkeypair -v -keystore debug.keystore -alias androiddebugkey \
+            -keyalg RSA -keysize 2048 -validity 10000 \
+            -storepass android -keypass android -dname "CN=MyFNG,O=Personal,C=CN"
+
+          # 3. apksigner v1/v2/v3 完整签名
+          $BUILD_TOOLS_PATH/apksigner sign --ks debug.keystore \
+            --ks-pass pass:android --key-pass pass:android \
+            --out output/FluidNavigationGesture-DIY.apk output/aligned.apk
+
+          # 4. 验证签名
+          $BUILD_TOOLS_PATH/apksigner verify --verbose output/FluidNavigationGesture-DIY.apk
+
+      - name: Upload APK to Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: FluidNavigationGesture-DIY-APK
+          path: output/FluidNavigationGesture-DIY.apk
+          retention-days: 30

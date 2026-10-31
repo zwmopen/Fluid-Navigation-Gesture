@@ -105,6 +105,18 @@ function Ensure-Apktool {
     Invoke-WebRequest -Uri $downloadUrl -OutFile $Destination
 }
 
+function Test-PathIsAscii {
+    param([string]$Path)
+
+    foreach ($char in $Path.ToCharArray()) {
+        if ([int]$char -gt 127) {
+            return $false
+        }
+    }
+
+    return $true
+}
+
 function Normalize-PublicResourceIds {
     param([string]$PublicXmlPath)
 
@@ -152,9 +164,26 @@ $cacheDir = Join-Path $env:LOCALAPPDATA "FluidNavigationGesture"
 $toolDir = Join-Path $cacheDir "tools"
 $apktoolJar = Join-Path $toolDir "apktool-$ApktoolVersion.jar"
 $keystorePath = Join-Path $cacheDir "debug.keystore"
-$unsignedApk = Join-Path $outputDir ([IO.Path]::GetFileNameWithoutExtension($OutputName) + "-unsigned.apk")
-$alignedApk = Join-Path $outputDir ([IO.Path]::GetFileNameWithoutExtension($OutputName) + "-aligned.apk")
 $signedApk = Join-Path $outputDir $OutputName
+
+# Apktool hands the resource directory to aapt2 as a child process, and that hand-off
+# mangles non-ASCII path segments on Windows. The build then silently falls back to the
+# legacy aapt1, which stamps the APK with compileSdkVersion 23 instead of the real 29.
+# When the project lives under a non-ASCII path (e.g. D:\AICode\工具开发\...), stage the
+# decoded resources in an ASCII-only directory so aapt2 keeps working.
+$useAsciiStaging = -not (Test-PathIsAscii $workDir)
+$stageDir = Join-Path $cacheDir "stage"
+if ($useAsciiStaging) {
+    $buildDecodedDir = Join-Path $stageDir "resources"
+    $buildOutputDir = Join-Path $stageDir "output"
+} else {
+    $buildDecodedDir = $decodedDir
+    $buildOutputDir = $outputDir
+}
+
+$unsignedApk = Join-Path $buildOutputDir ([IO.Path]::GetFileNameWithoutExtension($OutputName) + "-unsigned.apk")
+$alignedApk = Join-Path $buildOutputDir ([IO.Path]::GetFileNameWithoutExtension($OutputName) + "-aligned.apk")
+$stagedSignedApk = Join-Path $buildOutputDir $OutputName
 
 Write-Step "Checking project structure"
 foreach ($required in @(
@@ -178,23 +207,34 @@ Ensure-DebugKeystore -KeytoolPath $keytool -KeystorePath $keystorePath
 Normalize-PublicResourceIds -PublicXmlPath $publicXml
 
 New-Item -ItemType Directory -Force -Path $outputDir | Out-Null
-Remove-Item $unsignedApk, $alignedApk, $signedApk -Force -ErrorAction SilentlyContinue
+New-Item -ItemType Directory -Force -Path $buildOutputDir | Out-Null
+Remove-Item $unsignedApk, $alignedApk, $stagedSignedApk, $signedApk -Force -ErrorAction SilentlyContinue
+
+if ($useAsciiStaging) {
+    Write-Step "Staging resources in an ASCII path so aapt2 stays usable"
+    Write-Host "Project path contains non-ASCII characters, staging to: $buildDecodedDir"
+    Remove-Item $buildDecodedDir -Recurse -Force -ErrorAction SilentlyContinue
+    New-Item -ItemType Directory -Force -Path $buildDecodedDir | Out-Null
+    Copy-Item (Join-Path $decodedDir "*") -Destination $buildDecodedDir -Recurse -Force
+    Remove-Item (Join-Path $buildDecodedDir "build") -Recurse -Force -ErrorAction SilentlyContinue
+}
 
 Write-Step "Rebuilding APK with Apktool"
 $buildExitCode = Invoke-ApktoolBuild `
     -JavaPath $java `
     -ApktoolJarPath $apktoolJar `
-    -DecodedDirectory $decodedDir `
+    -DecodedDirectory $buildDecodedDir `
     -OutputApkPath $unsignedApk
 
 if ($buildExitCode -ne 0 -or -not (Test-Path $unsignedApk)) {
     Write-Step "Default Apktool build failed, retrying with aapt1"
+    Write-Warning "aapt2 failed. The aapt1 fallback stamps the APK with compileSdkVersion 23 instead of the manifest value."
     Remove-Item $unsignedApk -Force -ErrorAction SilentlyContinue
 
     $buildExitCode = Invoke-ApktoolBuild `
         -JavaPath $java `
         -ApktoolJarPath $apktoolJar `
-        -DecodedDirectory $decodedDir `
+        -DecodedDirectory $buildDecodedDir `
         -OutputApkPath $unsignedApk `
         -UseAapt1
 }
@@ -209,6 +249,9 @@ if ($buildExitCode -ne 0) {
 
 if ($SkipSigning) {
     Write-Step "Skipping signing"
+    if ($useAsciiStaging) {
+        $unsignedApk = Copy-Item $unsignedApk (Join-Path $outputDir (Split-Path -Leaf $unsignedApk)) -Force -PassThru
+    }
     Write-Host "Unsigned APK: $unsignedApk"
     exit 0
 }
@@ -227,21 +270,27 @@ if ($zipalign -and $apksigner) {
         --ks-key-alias androiddebugkey `
         --ks-pass pass:android `
         --key-pass pass:android `
-        --out $signedApk `
+        --out $stagedSignedApk `
         $alignedApk
-    & $apksigner verify --print-certs $signedApk | Out-Null
+    & $apksigner verify --print-certs $stagedSignedApk | Out-Null
 } else {
     Write-Step "Build-Tools not found, falling back to jarsigner"
-    Copy-Item $unsignedApk $signedApk -Force
+    Copy-Item $unsignedApk $stagedSignedApk -Force
     & $jarsigner `
         -sigalg SHA256withRSA `
         -digestalg SHA-256 `
         -keystore $keystorePath `
         -storepass android `
         -keypass android `
-        $signedApk `
+        $stagedSignedApk `
         androiddebugkey | Out-Null
-    & $jarsigner -verify -certs -verbose $signedApk | Out-Null
+    & $jarsigner -verify -certs -verbose $stagedSignedApk | Out-Null
+}
+
+if ($useAsciiStaging) {
+    Write-Step "Copying artifacts back to the project output folder"
+    Copy-Item $stagedSignedApk $signedApk -Force
+    $unsignedApk = Copy-Item $unsignedApk (Join-Path $outputDir (Split-Path -Leaf $unsignedApk)) -Force -PassThru
 }
 
 if (-not $SkipDesktopCopy) {

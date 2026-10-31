@@ -2,10 +2,19 @@
 
 ## 项目定位与构建事实
 
-- 项目路径：`D:\AICode\Fluid-Navigation-Gesture`。
+- 项目路径：`D:\AICode\工具开发\projects\Fluid-Navigation-Gesture`（2026-07 已迁入标准项目区，旧记录里的 `D:\AICode\Fluid-Navigation-Gesture` 已失效）。
 - 这是反编译/重打包工程，不是可以直接依赖的干净 Gradle 源码工程；实际稳定构建链是 `app\resources`、现成 `classes.dex`、Apktool 和签名工具。
-- 主构建脚本是 `D:\AICode\Fluid-Navigation-Gesture\build_apk.ps1`，当前已能用 Apktool 2.12.1 产出 APK。
+- 只有预编译 `classes.dex`，没有 smali 目录。在做 baksmali 反编译之前，可改动范围仅限清单与资源，动不了应用逻辑。
+- 主构建脚本是 `build_apk.ps1`，当前已能用 Apktool 2.12.1 产出 APK。
 - Android SDK Build-Tools 已安装在 `C:\Users\z\AppData\Local\Android\Sdk\build-tools\35.0.0`；标准签名应优先使用 `zipalign` + `apksigner`，并用 `apksigner verify --verbose --print-certs` 验证。
+
+## 中文路径导致 aapt2 静默降级（2026-07-27 实测确认）
+
+- 现象：项目路径含中文 `工具开发`，Apktool 把资源目录交给 aapt2 子进程时路径被编码损坏成 `���߿���`，aapt2 报 `failed to open directory`，脚本回退到 aapt1 后"构建成功"。
+- 代价（同一份源实测对比）：aapt1 产物 `compileSdkVersion=23`（Android 6.0）、4,886,770 字节；ASCII 路径下 aapt2 产物 `compileSdkVersion=29`（Android 10）、4,830,990 字节。两者签名都是 v1/v2/v3 通过。
+- 结论：旧记录里"已能用 Apktool 2.12.1 产出 APK"属实但不完整，实际长期走的是降级路径。
+- 已修复：`build_apk.ps1` 新增 `Test-PathIsAscii`，检测到非 ASCII 项目路径时自动把 `app\resources` 暂存到 `%LOCALAPPDATA%\FluidNavigationGesture\stage` 构建，再把产物拷回项目 `output\`；aapt1 回退分支现在会显式告警说明降级后果。
+- 复核方法：`aapt2 dump badging <apk>` 看 `compileSdkVersion` 是否为 29；构建日志应出现 `Building resources with aapt2...` 且不出现回退提示。
 
 ## 已完成的私用版改动
 

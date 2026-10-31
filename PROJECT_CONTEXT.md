@@ -22,6 +22,13 @@
    - 显式声明 `android:extractNativeLibs="true"`，解决高版本系统安装与解压拒绝问题。
 7. **全功能可点击与页面跳转**：
    - 保留原版完整的组件继承体系，所有子设置（左/右/底边缘、触发器、操作、高级设置等）点击交互与通信 100% 完整可用。
+8. **Android 11+ 包可见性与外部跳转修复**：
+   - 在 `AndroidManifest.xml` 中增加 `<queries>` 规则，并在 `k.smali` 中修复 activity 探测，确保系统浏览器可秒调起。
+9. **帮助底栏与检查更新现代化**：
+   - 替换废弃的 `dontkillmyapp.com` 为用户 GitHub 官方 Release 页面，纯单机离线环境下直连检测新版与变更；
+   - 帮助指引全面现代化为小米 HyperOS / MIUI 专属防杀保活四部曲。
+10. **全套推荐手势配置预设发布**：
+   - 提取并发布用户打磨极佳的手势预设（包含 84%×77% 黄金比例触发区、线性马达触感震动、ChatGPT/微信/飞书/滴答清单/SearchEVO 快捷动作），并作为资产附挂于 Release 与 `presets/`。
 
 ---
 
@@ -29,4 +36,7 @@
 - **本地一键构建脚本**：[`D:\AICode\工具开发\projects\Fluid-Navigation-Gesture\build_apk.ps1`](file:///D:/AICode/工具开发/projects/Fluid-Navigation-Gesture/build_apk.ps1)
 - **正式构建输出**：
   - `D:\AICode\工具开发\projects\Fluid-Navigation-Gesture\output\FluidNavigationGesture.apk`
+- **GitHub 托管与发布**：
+  - 仓库：`https://github.com/zwmopen/Fluid-Navigation-Gesture`
+  - 最新发布版本：[`v2.0-beta12-diy`](https://github.com/zwmopen/Fluid-Navigation-Gesture/releases/tag/v2.0-beta12-diy)
 - **云端 CI/CD**：[`.github/workflows/build-apk.yml`](file:///D:/AICode/工具开发/projects/Fluid-Navigation-Gesture/.github/workflows/build-apk.yml)

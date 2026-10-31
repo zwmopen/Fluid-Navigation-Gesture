@@ -98,8 +98,8 @@ FNG usa la configuración de accesibilidad mínima requerida y no recopila infor
     <string name="contact_email">Correo electrónico</string>
     <string name="contact_email_title">Enviar correo electrónico</string>
     <string name="contact_email_title_subject">Comentarios</string>
-    <string name="contact_telegram">Grupo de Telegram</string>
-    <string name="dialog_about_label">Desarrollada y diseñada por Francisco Barroso</string>
+    <string name="contact_telegram">Project Home</string>
+    <string name="dialog_about_label">Custom Edition · By zwmopen</string>
     <string name="done">Listo</string>
     <string name="header_about">Acerca de</string>
     <string name="header_action">Acción #%1$d</string>

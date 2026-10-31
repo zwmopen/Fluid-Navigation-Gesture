@@ -107,8 +107,8 @@ FNG uses the minimum required accessibility settings and no personal data is col
     <string name="contact_email">Email</string>
     <string name="contact_email_title">Send email</string>
     <string name="contact_email_title_subject">Feedback</string>
-    <string name="contact_telegram">Telegram Group</string>
-    <string name="dialog_about_label">Developed and designed by Francisco Barroso</string>
+    <string name="contact_telegram">Project Home</string>
+    <string name="dialog_about_label">Custom Edition · By zwmopen</string>
     <string name="done">Done</string>
     <string name="error_code">Error Code</string>
     <string name="error_code_description">"If there's an error, contains an error code"</string>
@@ -375,11 +375,11 @@ It may interfere with the bottom gestures on some devices"</string>
     <string name="undo">Undo</string>
     <string name="unsupported_shortcut_oreo">This shortcut is not supported</string>
     <string name="url_android_sdk">https://developer.android.com/studio/#downloads</string>
-    <string name="url_dev_github">https://github.com/stavangr</string>
-    <string name="url_dev_privacy">https://franciscobarroso.me/privacy</string>
-    <string name="url_dev_telegram">https://t.me/fluidng_group</string>
-    <string name="url_dev_twitter">https://twitter.com/stavangr</string>
-    <string name="url_dev_website">https://franciscobarroso.me</string>
+    <string name="url_dev_github">https://github.com/zwmopen/Fluid-Navigation-Gesture</string>
+    <string name="url_dev_privacy">https://github.com/zwmopen/Fluid-Navigation-Gesture</string>
+    <string name="url_dev_telegram">https://github.com/zwmopen/Fluid-Navigation-Gesture</string>
+    <string name="url_dev_twitter">https://github.com/zwmopen/Fluid-Navigation-Gesture</string>
+    <string name="url_dev_website">https://github.com/zwmopen/Fluid-Navigation-Gesture</string>
     <string name="url_dontkillmyapp">https://dontkillmyapp.com</string>
     <string name="wss_step_1">1 - Enable Developer Mode</string>
     <string name="wss_step_1_sum">Go to Android Settings -> About Phone -> Find the Build number option and tap it multiple times until developer mode is enabled</string>

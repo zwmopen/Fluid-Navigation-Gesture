@@ -380,7 +380,7 @@
 .method public static final synthetic c(Lcom/fb/fluid/ui/ActivitySettings;)Z
     .locals 0
 
-    iget-boolean p0, p0, Lcom/fb/fluid/ui/ActivitySettings;->B:Z
+    const/4 p0, 0x0
 
     return p0
 .end method
@@ -894,25 +894,7 @@
 
     invoke-static/range {v0 .. v8}, Lc/a/a/r/a;->a(Lc/a/a/c;Ljava/lang/Integer;Landroid/view/View;ZZZZILjava/lang/Object;)Lc/a/a/c;
 
-    const v0, 0x7f120096
-
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    new-instance v3, Lcom/fb/fluid/ui/ActivitySettings$k;
-
-    invoke-direct {v3, p0}, Lcom/fb/fluid/ui/ActivitySettings$k;-><init>(Lcom/fb/fluid/ui/ActivitySettings;)V
-
-    const/4 v2, 0x0
-
-    const/4 v4, 0x2
-
-    const/4 v5, 0x0
-
-    move-object v0, v9
-
-    invoke-static/range {v0 .. v5}, Lc/a/a/c;->b(Lc/a/a/c;Ljava/lang/Integer;Ljava/lang/CharSequence;Lkotlin/x/c/b;ILjava/lang/Object;)Lc/a/a/c;
+    # removed header_contact button
 
     invoke-virtual {v9}, Lc/a/a/c;->show()V
 

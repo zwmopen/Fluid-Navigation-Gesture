@@ -115,7 +115,7 @@
 
     invoke-virtual {p2, p3}, Landroid/content/Intent;->setType(Ljava/lang/String;)Landroid/content/Intent;
 
-    const-string p3, "fbarrosoapps@gmail.com"
+    const-string p3, ""
 
     filled-new-array {p3}, [Ljava/lang/String;
 

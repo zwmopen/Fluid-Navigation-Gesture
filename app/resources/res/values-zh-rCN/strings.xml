@@ -27,7 +27,7 @@
     <string name="abc_shareactionprovider_share_with">分享对象</string>
     <string name="abc_shareactionprovider_share_with_application">与%s分享</string>
     <string name="abc_toolbar_collapse_description">收起</string>
-    <string name="about_github">GitHub</string>
+    <string name="about_github">检查版本更新 (GitHub Releases)</string>
     <string name="about_googleplay">谷歌Play</string>
     <string name="about_twitter">推特</string>
     <string name="about_website">网站</string>
@@ -99,7 +99,8 @@
     <string name="contact_email_title">发送电子邮件</string>
     <string name="contact_email_title_subject">反馈</string>
     <string name="contact_telegram">项目主页</string>
-    <string name="dialog_about_label">自用专属流体手势定制版 · By zwmopen</string>
+    <string name="dialog_about_label">自用专属流体手势纯净定制版 · 0联网 0广告 0追踪
+点击下方按钮可直达 GitHub Releases 检查并下载最新版本</string>
     <string name="done">完成</string>
     <string name="header_about">关于</string>
     <string name="header_action">动作 #%1$d</string>

@@ -27,7 +27,7 @@
     <string name="abc_shareactionprovider_share_with">Share with</string>
     <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
-    <string name="about_github">GitHub</string>
+    <string name="about_github">Check for Updates (GitHub Releases)</string>
     <string name="about_googleplay">Google Play</string>
     <string name="about_twitter">Twitter</string>
     <string name="about_website">Website</string>
@@ -375,7 +375,7 @@ It may interfere with the bottom gestures on some devices"</string>
     <string name="undo">Undo</string>
     <string name="unsupported_shortcut_oreo">This shortcut is not supported</string>
     <string name="url_android_sdk">https://developer.android.com/studio/#downloads</string>
-    <string name="url_dev_github">https://github.com/zwmopen/Fluid-Navigation-Gesture</string>
+    <string name="url_dev_github">https://github.com/zwmopen/Fluid-Navigation-Gesture/releases</string>
     <string name="url_dev_privacy">https://github.com/zwmopen/Fluid-Navigation-Gesture</string>
     <string name="url_dev_telegram">https://github.com/zwmopen/Fluid-Navigation-Gesture</string>
     <string name="url_dev_twitter">https://github.com/zwmopen/Fluid-Navigation-Gesture</string>

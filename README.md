@@ -1,43 +1,116 @@
+# Fluid Navigation Gestures (流体手势导航) 自用专属纯净离线版
 
-# <img align="left" src="/app/resources/res/mipmap-xxxhdpi-v4/ic_launcher.png" height=50 width=50/><p align="left">Fluid Navigation Gesture (FNG)</p>
-
-## About:
-   Since the app is no longer maintained by the soul owner we continuing the legacy unofficially.
-
-## What's New:
-
- >version 3.0
-
-- Updated SDK from `OREO 8.1 to Android 13.`
-- Option to `Hide App icon.`
-- Unsymmetrical division in the Number of Actions.
-- Remove all permission (No internet permission is required to run the app, which means your data is not going anywhere.);
-- Integrating Dynamic Notch Cutout Gesture [Example → PlayStore](https://play.google.com/store/apps/details?id=com.dynamic.notifications);
-- Integrating Circle Sidebar Gesture [Example → PlayStore](https://play.google.com/store/apps/details?id=com.zeeshan.circlesidebar);
-- Change Bug Report Link.
-
- >Known Issues:
-
-- Bug with One UI 4.1: Where hints to adjust the Location and Size are not visible.
-
-  
-## DemoPreview:
-
-<p align="center"> 👉🏼 First Glance 👈🏼 </p>
-
-![First Glance](https://github.com/Coolboyrajat/Fluid-Navigation-Gesture/assets/67316346/d497fa76-c6ad-48cc-9af9-fb02d15d2a57)
-
-
- 
-## - Contributor's: 
->Contact me here if you are an app developer
-
-[<img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0b5493894cf60b300587_full_logo_white_RGB.svg" height='50' width='150' />](https://discord.gg/SrHVtCWUKW)
+<p align="center">
+  <b>适配现代 Android 11 ~ 15 / 小米 HyperOS 的纯净、安全、极致顺滑的全面屏手势工具</b><br>
+  <i>物理 0 联网 · 0 广告 · 0 追踪 · 自带深度调校推荐配置 · 支持一键检查更新</i>
+</p>
 
 ---
 
-## 📝 变更记录
+## 🌟 项目核心特色与自用改进
 
-| 日期 (时间) | 执行者 | 记录 |
-|---|---|---|
-| 2026-09-17 23:11 | 💻 本地 PC / 反重力 | 初始化创建文档并补齐变更记录历史 |
+本项目基于经典的 **Fluid Navigation Gestures (FNG 2.0-beta11)** 核心底座进行深度自用定制、解包重构与现代系统适配，彻底修复老旧版本的遗留痛点，带来现代化的高效手势体验：
+
+1. **绝对安全与物理断网（0 权限）**：
+   - 在 `AndroidManifest.xml` 中**彻底拔除 `android.permission.INTERNET`** 及网络状态权限；
+   - 物理级无法访问互联网，绝不可能回传任何剪贴板、按键、触控或隐私手势数据，真正做到 100% 单机纯净离线。
+2. **彻底剔除商业 SDK 与垃圾推广**：
+   - 连根拔除 Google Play Billing 计费框架、Firebase Analytics 数据遥测、Google Ads 及外部 Telegram 广告外链；
+   - 待机唤醒锁（Wakelock）全部释放，后台待机 24 小时耗电趋近于 0.0%。
+3. **适配现代 Android 11 ~ 15 (HyperOS / AOSP 15)**：
+   - 修复 Android 11+ 包可见性限制（补充系统级 `<queries>` 声明与 Activity 探测修复），应用内跳转顺畅秒开；
+   - 声明 `android:extractNativeLibs="true"`，解决 Android 15 下 64 位 Native SO（`libobjectbox-jni.so`）加载与解压兼容问题。
+4. **现代化“关于”与“帮助”页面，支持直通检测更新**：
+   - 彻底删除无效陈旧的英文死链（如 `dontkillmyapp.com` 与失效的海外社交媒体）；
+   - 在“关于”与“帮助”中内置 **【检查版本更新 (GitHub Releases)】** 按钮，点击即可直接调用系统浏览器访问自用开源仓库，一键对比版本与下载最新 APK。
+5. **附带深度打磨的“开箱即用推荐配置预设”**：
+   - 预设收录在 [`presets/fng_recommended_preset.zip`](presets/fng_recommended_preset.zip)；
+   - 包含经过长期实战打磨的黄金触发比例（侧边高度 84%、底边宽度 77%）、3 级线性马达舒适震动、短滑返回、长滑秒开常用效率应用（ChatGPT、微信、飞书、滴答清单语音速记、SearchEVO 浮窗搜索等）。
+
+---
+
+## 📱 小米 HyperOS / MIUI 后台防杀保活四部曲
+
+流体手势的核心驱动依靠 Android 系统级的**无障碍服务 (`AccessibilityService`)**。无障碍服务在 Android 进程树中享有极高优先级（`oom_adj <= 2`）。为避免被国内定制系统（如 HyperOS）的极端省电策略误杀，请完成以下 4 步保活设置：
+
+1. **自启动与关联启动**：
+   - 进入系统【设置】➔【应用设置】➔【应用管理】➔【流体手势】；
+   - 开启 **“自启动”** 与 **“允许关联启动”**。
+2. **省电策略设为“无限制”**：
+   - 在流体手势的应用信息页中，将【省电策略】（电池优化）由默认的“智能推荐”修改为 **“无限制”**。
+3. **多任务后台加锁**：
+   - 从屏幕底部上滑呼出多任务后台卡片流；
+   - 长按“流体手势”的预览卡片，点击出现的小锁图标（🔒）进行**锁定**，防止平时点击底部一键清理时被误关。
+4. **保持无障碍常驻**：
+   - 在【更多设置】➔【无障碍】➔【已下载的应用】中，确保“流体手势导航”始终处于开启状态。
+
+---
+
+## 💡 搭配第三方桌面（如 Nova Launcher）的使用技巧与经验
+
+很多极客用户喜欢将 **Nova Launcher + 流体手势** 搭配使用，以下是深度使用经验总结：
+
+1. **为什么建议保留底部三大金刚键作为“双保险”？**
+   - 小米系统在检测到第三方桌面时，会限制官方手势并强行回退到三大虚拟按键；
+   - 将流体手势配置为主力侧边/底部手势，同时保留底层三大键（或将其设置在最底部），可以在极端游戏全屏或系统偶发死锁时，随时有一条 100% 稳定的物理退路。
+2. **如何解决 MIUI/HyperOS 下第三方桌面最近任务“卡住、点不进应用”？**
+   - 进入【设置】➔【桌面】➔【最近任务排列方式】，将默认的“纵向排布”切换为 **“横向排布”**（横向单排更契合 AOSP 原生逻辑，能消除大部分私有动画死锁）；
+   - 在手机无障碍设置中，**关闭 Nova Launcher 自身的无障碍服务**，让流体手势独占手势监听，杜绝双无障碍争抢窗口焦点；
+   - 在流体手势中把一个长滑手势绑定为 **“切换到上一个应用”**，日常来回切换 App 直接侧滑搞定，无需频繁点进系统的多任务卡片流。
+
+---
+
+## 📥 推荐配置预设导入方法
+
+本项目在 Releases 与仓库中附带了专属调校配置包 `fng_recommended_preset.zip`：
+
+1. 打开流体手势应用，确保主界面顶部的总开关处于**“开启”**状态；
+2. 点击界面右下角的【更多选项】（三个点图标）➔ 点击【备份】；
+3. 选择 **【导入偏好设置】**；
+4. 在弹出的系统文件选择器中，定位并选中下载好的 `fng_recommended_preset.zip`（或从本仓库 releases 下载的配置包）；
+5. 提示“成功导入设置”后，两侧的触发区即刻恢复为舒适大范围（84% / 77%），即可尽情使用！
+
+---
+
+## 🛠️ 本地编译与构建指南
+
+本项目包含完整的解包源码、Smali 字节码以及一键自动化构建脚本：
+
+### 前置环境需求
+- Windows 10/11 (PowerShell)
+- Java JDK 17+ (配置好 `JAVA_HOME` 或在 `PATH` 中)
+- Android SDK Build-Tools (`zipalign`、`apksigner`)
+
+### 一键打包命令
+在工程根目录下执行构建脚本：
+```powershell
+powershell -ExecutionPolicy Bypass -File .\build_apk.ps1
+```
+构建脚本将全自动完成：
+1. 校验 Apktool 工具链；
+2. 自动解决 Windows 中文路径问题（采用 ASCII 独立 Staging 空间编译）；
+3. 编译资源与 Dex 字节码；
+4. 执行 4 字节对齐 (`zipalign`)；
+5. 使用 Android SDK 官方 Debug Key 进行 v1+v2 签名；
+6. 产物规范输出至 `output/FluidNavigationGesture.apk`，绝不污染系统桌面。
+
+---
+
+## 📦 版本发布记录 (Changelog)
+
+### v2.0-beta12-diy (2026-10-31)
+- ✨ **现代化关于界面**：在“关于”弹窗内增加直通 **【检查版本更新 (GitHub Releases)】** 按钮，支持系统浏览器秒级跳转；
+- ✨ **帮助底栏更新**：剔除旧版 `dontkillmyapp` 死链，更新为小米 HyperOS / MIUI 专属后台防杀保活四部曲；
+- ✨ **预设资产集成**：官方 Release 附赠深度定制的 `fng_recommended_preset.zip` 优质手势预设；
+- 📝 **全中文官方文档**：仓库全面重构为全中文高质量说明文档与使用指南。
+
+### v2.0-beta11-diy (2026-10-31)
+- 🚀 **初始化开源发布**：建立独立托管仓库 `zwmopen/Fluid-Navigation-Gesture`；
+- 🛡️ **纯净离线化**：彻底拔除所有网络权限与商业 SDK；
+- 🔧 **修复 Android 11+ 包可见性**：修复无法调起外部浏览器的系统 Bug。
+
+---
+
+## 📄 开源许可证与致谢
+- 本项目仅供个人自用、学习研究及技术交流；
+- 感谢原版 Fluid Navigation Gestures 创造的经典液态水滴手势交互引擎。

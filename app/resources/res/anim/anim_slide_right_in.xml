@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<set xmlns:android="http://schemas.android.com/apk/res/android" android:interpolator="@android:anim/accelerate_decelerate_interpolator" android:startOffset="10">
-    <translate android:duration="250" android:fromXDelta="-100%" android:toXDelta="0%"/>
-    <translate android:duration="125" android:fromYDelta="0%" android:toYDelta="-1%"/>
-    <translate android:duration="125" android:startOffset="125" android:fromYDelta="0%" android:toYDelta="1%"/>
-    <scale android:duration="125" android:pivotX="50%" android:pivotY="50%" android:fromXScale="100%" android:toXScale="98%" android:fromYScale="100%" android:toYScale="98%"/>
-    <scale android:duration="125" android:pivotX="50%" android:pivotY="50%" android:startOffset="125" android:fromXScale="100%" android:toXScale="101.9989%" android:fromYScale="100%" android:toYScale="101.9989%"/>
+<set android:interpolator="@android:anim/accelerate_decelerate_interpolator" android:startOffset="10"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <translate android:duration="250" android:fromXDelta="-100.0%" android:toXDelta="0.0%" />
+    <translate android:duration="125" android:fromYDelta="0.0%" android:toYDelta="-0.99999905%" />
+    <translate android:duration="125" android:startOffset="125" android:fromYDelta="0.0%" android:toYDelta="0.99999905%" />
+    <scale android:duration="125" android:pivotX="50.0%" android:pivotY="50.0%" android:fromXScale="100.0%" android:toXScale="98.0%" android:fromYScale="100.0%" android:toYScale="98.0%" />
+    <scale android:duration="125" android:pivotX="50.0%" android:pivotY="50.0%" android:startOffset="125" android:fromXScale="100.0%" android:toXScale="101.9989%" android:fromYScale="100.0%" android:toYScale="101.9989%" />
 </set>

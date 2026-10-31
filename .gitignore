@@ -1,0 +1,13 @@
+# Build and outputs
+output/
+build/
+app/resources/build/
+side_by_side_work/
+tools/
+*.keystore
+
+# IDE and temporary
+.idea/
+.gradle/
+*.log
+*.tmp

@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Base.Theme.AppCompat.DialogWhenLarge">
-    </style>
-    <style name="Base.Theme.AppCompat.Light.DialogWhenLarge">
-    </style>
-    <style name="Base.Theme.MaterialComponents.DialogWhenLarge">
-    </style>
-    <style name="Base.Theme.MaterialComponents.Light.DialogWhenLarge">
-    </style>
+    <style name="Base.Theme.AppCompat.DialogWhenLarge" parent="@style/Base.Theme.AppCompat" />
+    <style name="Base.Theme.AppCompat.Light.DialogWhenLarge" parent="@style/Base.Theme.AppCompat.Light" />
+    <style name="Base.Theme.MaterialComponents.DialogWhenLarge" parent="@style/Base.Theme.MaterialComponents" />
+    <style name="Base.Theme.MaterialComponents.Light.DialogWhenLarge" parent="@style/Base.Theme.MaterialComponents.Light" />
 </resources>

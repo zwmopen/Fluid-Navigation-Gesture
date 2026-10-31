@@ -1,42 +1,32 @@
-# Fluid Navigation Gesture (自用定制离线版) - PROJECT_CONTEXT
+# Fluid Navigation Gesture (自用定制纯净离线版) - PROJECT_CONTEXT
 
 ## 1. 项目核心定位
 - **项目目标**：单机离线、零权限泄漏、手感高度 DIY、完全兼容现代 Android 14/15 (HyperOS 3.0 / AOSP 15) 的流体手势导航工具。
-- **基线版本**：基于 Coolboyrajat 2.0-beta11 逆向工程基线，彻底移除网络权限。
+- **真源基线**：直接基于用户手机提取的原版权威无损资源与字节码（Fluid Navigation Gestures 2.0-beta11），彻底废弃网络残次魔改源。
 - **真机目标设备**：Redmi K60 (`mondrian` / Android 15 / HyperOS 3.0)，ADB 设备 ID `e3b58850`。
 
 ---
 
-## 2. 关键痛点与历史顽疾根治记录
-1. **安装失败与解包错误 (`INSTALL_FAILED_INVALID_APK: Failed to extract native libraries`)**：
-   - 原因：Android 12+ 强制要求原生动态库解压策略。
-   - 解决：`AndroidManifest.xml` 中显式指定 `android:extractNativeLibs="true"`，`apktool.yml` 中将 `.so` 纳入 `doNotCompress`。
-2. **主题闪退崩溃 (`IllegalStateException: You need to use a Theme.AppCompat theme`)**：
-   - 原因：应用深色模式与 Material 组件（BottomAppBar 等）混用导致主题断裂。
-   - 解决：重构 `AppTheme` 继承树，统一继承自 `Theme.MaterialComponents.DayNight.NoActionBar.Bridge`，补充 `isMaterialTheme="true"`、`actionBarSize` 和 `minTouchTargetSize`。
-3. **Switch 控件空指针崩溃 (`NullPointerException at androidx.appcompat.widget.SwitchCompat.onMeasure`)**：
-   - 解决：在 `res/layout/widget_end_switch.xml` 中显式添加 `app:showText="false"`、`android:textOn=""`、`android:textOff=""`。
-4. **协程主线程调度器缺失 (`IllegalStateException: Module with the Main dispatcher is missing`)**：
-   - 解决：在 `unknown/META-INF/services/` 中正确配置并注入 `kotlinx.coroutines.internal.MainDispatcherFactory` 和 `kotlinx.coroutines.CoroutineExceptionHandler`，并通过 `apktool.yml` 的 `unknownFiles` 原生封装。
-5. **Apktool / AAPT2 构建失败（78 个语言包重复定义）**：
-   - 解决：清理原作者残存的 `values-*.xml` 与 `strings.xml` 冲突文件，构建一次性成功。
+## 2. 用户痛点全面清零与修复记录
+1. **彻底清理电脑桌面**：
+   - 移除 `build_apk.ps1` 中的桌面拷贝逻辑，严禁在桌面存放任何临时或构建产物，所有 APK 统一规范输出至工程目录 `output/`。
+2. **彻底移除 Telegram 广告网址**：
+   - 从 `res/layout/item_home_header.xml` 中连根拔除硬编码的 `https://t.me/sserratty` 推广链接。
+3. **消除顶部黑条/白条“FNG测试”与变形**：
+   - 彻底去除错误的系统 ActionBar 容器，回归官方原版的无边框沉浸式 NoActionBar 布局，标题“流体手势导航”恢复居中水平舒展排版。
+4. **修复“启用开关隐形”与高对比度配色**：
+   - 修复导致 Switch 控件滑块与轨道丢失高亮的 Material 样式错乱，恢复官方经典亮蓝色（`#ff214dff`）Switch 调色板，在白色背景下醒目清晰。
+5. **纯粹单机离线保障**：
+   - 在 `AndroidManifest.xml` 中彻底剥离 `INTERNET`、`ACCESS_NETWORK_STATE`、`com.android.vending.BILLING`，确保 0 联网、0 泄露。
+6. **Android 15 Native SO 库解压规范**：
+   - 显式声明 `android:extractNativeLibs="true"`，解决高版本系统安装与解压拒绝问题。
+7. **全功能可点击与页面跳转**：
+   - 保留原版完整的组件继承体系，所有子设置（左/右/底边缘、触发器、操作、高级设置等）点击交互与通信 100% 完整可用。
 
 ---
 
-## 3. 真机验证状态（2026-10-31 实测）
-- **真机安装**：`adb install -r -d` 成功返回 `Success`。
-- **独立测试包**：`com.fb.fluid.test`（避免覆盖手机已有官方版 `com.fb.fluid` 导致丢失日常配置）。
-- **进程状态**：PID `27453` 常驻运行无崩溃，前台 Activity `com.fb.fluid.ui.ActivitySettings` 窗口成功绘制（`mHaveFrame=true`）。
-- **权限与服务**：
-  - `SYSTEM_ALERT_WINDOW`: 已授权（`allow`）。
-  - `WRITE_SECURE_SETTINGS`: 已授予。
-  - `MainAccessibilityService`: 已激活并注册到系统服务列表。
-
----
-
-## 4. 构建与产物
+## 3. 构建与产物
 - **本地一键构建脚本**：[`D:\AICode\工具开发\projects\Fluid-Navigation-Gesture\build_apk.ps1`](file:///D:/AICode/工具开发/projects/Fluid-Navigation-Gesture/build_apk.ps1)
 - **正式构建输出**：
   - `D:\AICode\工具开发\projects\Fluid-Navigation-Gesture\output\FluidNavigationGesture.apk`
-  - `C:\Users\z\Desktop\FluidNavigationGesture.apk`
 - **云端 CI/CD**：[`.github/workflows/build-apk.yml`](file:///D:/AICode/工具开发/projects/Fluid-Navigation-Gesture/.github/workflows/build-apk.yml)

@@ -1647,19 +1647,11 @@
     goto/16 :goto_2
 
     :pswitch_1b
-    new-instance v0, Landroid/content/Intent;
+    iget-object v0, v1, Lcom/fb/fluid/services/b$v0;->o:Lcom/fb/fluid/services/b;
 
-    const-string v2, "android.intent.action.VOICE_COMMAND"
+    invoke-virtual {v0, v7}, Landroid/accessibilityservice/AccessibilityService;->performGlobalAction(I)Z
 
-    invoke-direct {v0, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    const/high16 v2, 0x10200000
-
-    invoke-virtual {v0, v2}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
-
-    sget-object v2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-
-    goto/16 :goto_2
+    goto/16 :goto_10
 
     :pswitch_1c
     invoke-static {}, Lkotlinx/coroutines/t0;->c()Lkotlinx/coroutines/t1;

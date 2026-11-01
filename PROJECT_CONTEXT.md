@@ -42,6 +42,11 @@
     - **原理查证**：深入追踪查明原版 FNG 在 Android 15 上三键隐藏失效系因 Google 在 Android 11+ 删除了 `setOverscan` 并废弃了全局 `policy_control`；而小米系统在第三方桌面下强行将 `force_fsg_nav_bar` 设为 0（调出物理三大键）并拦截系统设置；
     - **字节码原生注入**：改造 `com/fb/fluid/l/q/b$a.smali`，在持有 `WRITE_SECURE_SETTINGS` 下直接调用 `Settings.Global.putInt(..., "force_fsg_nav_bar", 1)`，关闭时自动写回 0；移除针对 Android 10+ 的虚假报错拦截；
     - **双端实测生效**：配合 Nova Launcher 注入 `appops 10021 allow`（后台弹出特权），彻底实现在保留 Nova 默认桌面下，全面销毁小米物理三大按键（`NavigationBar0` 销毁），由 FNG 流体手势完美接管全局手势。
+15. **语音助手 (Voice Assistant) 误触与小爱同学 CTA 隐私协议弹窗彻底根治 (v2.0-beta15-diy)**：
+    - **故障现象**：用户在边缘大滑动（大返回 / Swipe & Hold）时，偶尔会弹出带有【忽略】与【设置】的小爱同学隐私保护协议弹窗（`CTAAlertActivity`）；点击【忽略】无法根除，后续手势仍会偶发；点击【设置】则会进入小米桌面设置，导致小米系统自动将 `force_fsg_nav_bar` 写回 0，使好不容易隐藏的三大导航物理按键重新浮现；
+    - **根因查证**：FNG 底层手势动作 Action 12（`ACTION_VOICE_ASSISTANT`）会向系统广播 `android.intent.action.VOICE_COMMAND`；小米系统将此 Intent 路由给内置的小爱同学（`com.miui.voiceassist`）；因用户从未使用/授权小爱同学，小爱首次唤醒时强行阻断并弹窗索权；
+    - **Smali 字节码拦截**：在 `com/fb/fluid/services/b$v0.smali` 中定位 `:pswitch_1b`，彻底拔除构造并广播 `VOICE_COMMAND` 的 Intent 逻辑，改为直接调用无害的全局返回操作（`AccessibilityService.performGlobalAction(GLOBAL_ACTION_BACK)`），从物理指令源头上杜绝了唤醒小爱同学的任何可能；
+    - **效果验证**：安装验证后，任意大滑动、误触长滑均仅执行安全返回，全屏沉浸与三大键隐藏坚如磐石，彻底消除偶发弹窗与按键复现连锁反应。
 
 ---
 
@@ -52,5 +57,5 @@
   - `D:\AICode\工具开发\projects\Fluid-Navigation-Gesture\output\FluidNavigationGesture-arm64.apk` (纯 64 位极速版)
 - **GitHub 托管与发布**：
   - 仓库：`https://github.com/zwmopen/Fluid-Navigation-Gesture`
-  - 最新发布版本：[`v2.0-beta14-diy`](https://github.com/zwmopen/Fluid-Navigation-Gesture/releases/tag/v2.0-beta14-diy)
+  - 最新发布版本：[`v2.0-beta15-diy`](https://github.com/zwmopen/Fluid-Navigation-Gesture/releases/tag/v2.0-beta15-diy)
 - **云端 CI/CD**：[`.github/workflows/build-apk.yml`](file:///D:/AICode/工具开发/projects/Fluid-Navigation-Gesture/.github/workflows/build-apk.yml)

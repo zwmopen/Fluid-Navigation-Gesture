@@ -109,6 +109,13 @@ powershell -ExecutionPolicy Bypass -File .\build_apk.ps1
 
 ## 📦 版本发布记录 (Changelog)
 
+### v2.0-beta15-diy (2026-11-01)
+- 🚫 **根除语音助手误触与小爱同学 CTA 隐私协议弹窗**：
+  - **精准定位**：解决用户在做边缘大滑动（长滑 / Swipe & Hold）时，FNG 默认动作 Action 12 广播 `VOICE_COMMAND` 误唤醒小米小爱同学并弹出带有【忽略】与【设置】的隐私协议授权弹窗（`CTAAlertActivity`）；
+  - **防止系统三大键回滚**：彻底消除用户误点【设置】跳转系统设置导致小米 HyperOS 自动重置 `force_fsg_nav_bar=0`（物理三大键重新浮现）的恶性连锁反应；
+  - **Smali 字节码拦截**：在 `com.fb.fluid.services.b$v0` 中将 Action 12 彻底重定向为全局返回指令（`performGlobalAction(GLOBAL_ACTION_BACK)`），从物理指令源头上封死向系统广播语音唤醒的通道；
+  - **大返回体验统一**：大滑动与长按手势安全执行返回，全屏沉浸与三大键隐藏坚如磐石，彻底消除偶发弹窗困扰。
+
 ### v2.0-beta14-diy (2026-11-01)
 - 🎨 **底部操作栏（BottomAppBar）自适应沉浸重构**：
   - 彻底去除原版底部突兀亮蓝色大块（`#214dff`），改由系统主题自适应（明亮模式纯白背景搭配高级深灰图标与指示条，深色/夜间自动变为 `#16181a`，AMOLED 黑自动变为 `#000000`），实现完美一体化沉浸。

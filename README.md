@@ -181,6 +181,15 @@ powershell -ExecutionPolicy Bypass -File .\build_apk.ps1
 
 ## 📦 版本发布记录 (Changelog)
 
+### v2.0-beta18-diy (2026-11-02)
+- 🚀 **彻底修复 Android 14/15/16 及小米 HyperOS 下无障碍检测死循环（手势打不开根因根除）**：
+  - **精准根因定位**：老旧代码通过 `Settings.Secure.getString("enabled_accessibility_services")` 获取无障碍列表，现代安卓出于防窃听隐私保护向非系统应用直接返回 `null`。原版紧跟 `Intrinsics.checkNotNull(p1, "it")` 导致不可控抛出 `NullPointerException` 被捕获后强制判定为 `false`，应用内部陷入死循环，误判无障碍未开启并强制拦截跳权限页；
+  - **Smali 三重弹性防御补丁**：
+    1. **内存运行时直通检测 (`services/b.h()`)**：服务由系统绑定后极速毫秒级返回 `true`，开关秒开；
+    2. **标准系统 IPC API 检测 (`AccessibilityManager.getEnabledAccessibilityServiceList`)**：官方跨进程规范查询，100% 畅通无阻获取服务状态；
+    3. **安全设置兜底严密判空**：移除引发崩溃的强制非空断言，绝不误吞异常报假死；
+  - **实机全功能闭环验证**：在小米 15 Pro (HyperOS 2.0 / Android 15+) 真机实测通过，点击“启用”开关无需任何跳转与二次确认，瞬间开启，左右底三向手势层秒级监听并丝滑工作。
+
 ### v2.0-beta17-diy (2026-11-02)
 - ⚡ **【隐藏导航栏】开关“秒开秒关”实机彻底打通**：
   - **根治开关被强行写回 0**：原版后台无障碍服务 `com.fb.fluid.services.b` 在处理小米机型（`isXiaomi=true`）隐藏导航栏时，硬编码向 `d$a.a(context, false)` 传入了 `false`，导致用户每次拨动隐藏开关后系统 `force_fsg_nav_bar` 瞬时被强行重置为 0（三大物理键无法消失且开关失效）；现已彻底纠正参数逻辑，开启时坚定写入 `1`；

@@ -65,7 +65,7 @@
 .end method
 
 .method public final a(Lcom/fb/fluid/ui/g/c/t;)Z
-    .locals 1
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -79,27 +79,57 @@
 
     invoke-static {p1, v0}, Lkotlin/x/d/k;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    iget-object p1, p0, Lcom/fb/fluid/ui/g/b/u$f$a;->g:Lcom/fb/fluid/ui/g/b/u$f;
+    :try_start_0
+    iget-object v0, p0, Lcom/fb/fluid/ui/g/b/u$f$a;->g:Lcom/fb/fluid/ui/g/b/u$f;
 
-    iget-object p1, p1, Lcom/fb/fluid/ui/g/b/u$f;->g:Lcom/fb/fluid/ui/g/b/u;
+    iget-object v0, v0, Lcom/fb/fluid/ui/g/b/u$f;->g:Lcom/fb/fluid/ui/g/b/u;
 
-    invoke-static {p1}, Lcom/fb/fluid/ui/g/b/u;->b(Lcom/fb/fluid/ui/g/b/u;)Lcom/fb/fluid/utils/preferences/h;
+    invoke-static {v0}, Lcom/fb/fluid/ui/g/b/u;->d(Lcom/fb/fluid/ui/g/b/u;)Landroid/app/Application;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Lcom/fb/fluid/utils/preferences/h;->n()I
+    invoke-virtual {v0}, Landroid/app/Application;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result p1
+    move-result-object v0
 
-    if-eqz p1, :cond_0
+    const-string v1, "force_fsg_nav_bar"
 
-    const/4 p1, 0x1
+    const/4 v2, 0x0
 
-    goto :goto_0
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    if-eqz v0, :cond_pref
+
+    const/4 v0, 0x1
+
+    return v0
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :catch_0
+    :cond_pref
+    iget-object v0, p0, Lcom/fb/fluid/ui/g/b/u$f$a;->g:Lcom/fb/fluid/ui/g/b/u$f;
+
+    iget-object v0, v0, Lcom/fb/fluid/ui/g/b/u$f;->g:Lcom/fb/fluid/ui/g/b/u;
+
+    invoke-static {v0}, Lcom/fb/fluid/ui/g/b/u;->b(Lcom/fb/fluid/ui/g/b/u;)Lcom/fb/fluid/utils/preferences/h;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/fb/fluid/utils/preferences/h;->n()I
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    return v0
 
     :cond_0
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    :goto_0
-    return p1
+    return v0
 .end method

@@ -8,7 +8,7 @@
 
 .field private final j:Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;
 
-.field private final k:Landroid/app/Application;
+.field public final k:Landroid/app/Application;
 
 
 # direct methods
@@ -265,6 +265,14 @@
     move-result p0
 
     return p0
+.end method
+
+.method public static final synthetic d(Lcom/fb/fluid/ui/g/b/u;)Landroid/app/Application;
+    .locals 0
+
+    iget-object p0, p0, Lcom/fb/fluid/ui/g/b/u;->k:Landroid/app/Application;
+
+    return-object p0
 .end method
 
 .method private final j()Z

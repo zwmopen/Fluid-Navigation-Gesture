@@ -1775,31 +1775,7 @@
     goto/16 :goto_10
 
     :pswitch_25
-    sget-object v0, Lcom/fb/fluid/l/q/a;->a:Lcom/fb/fluid/l/q/a$a;
-
-    invoke-virtual {v0}, Lcom/fb/fluid/l/q/a$a;->f()Z
-
-    move-result v0
-
-    if-nez v0, :cond_14
-
-    sget-object v0, Lcom/fb/fluid/l/q/a;->a:Lcom/fb/fluid/l/q/a$a;
-
-    invoke-virtual {v0}, Lcom/fb/fluid/l/q/a$a;->j()Z
-
-    move-result v0
-
-    if-nez v0, :cond_14
-
-    sget-object v0, Lcom/fb/fluid/l/c;->h:Lcom/fb/fluid/l/c$a;
-
-    invoke-virtual {v0}, Lcom/fb/fluid/l/c$a;->a()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_13
-
-    goto :goto_e
+    goto :goto_d
 
     :cond_13
     iget-object v0, v1, Lcom/fb/fluid/services/b$v0;->o:Lcom/fb/fluid/services/b;

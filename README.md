@@ -181,6 +181,17 @@ powershell -ExecutionPolicy Bypass -File .\build_apk.ps1
 
 ## 📦 版本发布记录 (Changelog)
 
+### v2.0-beta17-diy (2026-11-02)
+- ⚡ **【隐藏导航栏】开关“秒开秒关”实机彻底打通**：
+  - **根治开关被强行写回 0**：原版后台无障碍服务 `com.fb.fluid.services.b` 在处理小米机型（`isXiaomi=true`）隐藏导航栏时，硬编码向 `d$a.a(context, false)` 传入了 `false`，导致用户每次拨动隐藏开关后系统 `force_fsg_nav_bar` 瞬时被强行重置为 0（三大物理键无法消失且开关失效）；现已彻底纠正参数逻辑，开启时坚定写入 `1`；
+  - **前台极速直通**：设置项 Setter（`u$f$b`）升级为双轨驱动：在持久化应用配置的同时，直接向系统 `Settings.Global` 写入 `force_fsg_nav_bar` (1/0) 与 `policy_control`，无需等待后台服务跨进程排队，实现物理三大键毫秒级销毁与重现；
+  - **状态绝对保真**：Getter（`u$f$a`）智能动态读取系统底层 `force_fsg_nav_bar` 实际状态，开关状态与屏幕表现 100% 毫秒对齐；
+  - **界面极简沉浸**：剔除开关右侧多余的 `ic_chevron_right` 箭头图标，重塑为与官方“启用流体手势”完全一致的原生扁平开关。
+- 🚫 **彻底根除返回桌面 Nova Launcher【默认启动器重置】误报弹窗**：
+  - **精准定位**：原版 FNG 在 `b$v0` 的 Home 手势处理（Action 1）中，针对小米和 EMUI 机型通过 `startActivity(Intent(ACTION_MAIN, CATEGORY_HOME))` 启动桌面并广播已废弃的 `CLOSE_SYSTEM_DIALOGS`，在 Android 15 / HyperOS 上导致 Nova Launcher 内部检测机制误判系统默认启动器被篡改，频繁弹出烦人的【默认启动器重置】警告；
+  - **字节码重构**：将 Home 手势全机型统一路由至 Android 官方标准无障碍动作 `performGlobalAction(GLOBAL_ACTION_HOME = 2)`，彻底拔除外部 Intent 调度与系统广播干扰；
+  - **实机严密验证**：从番茄小说、微信、各类应用中任意执行返回桌面手势，100% 丝滑回到 Nova 桌面，彻底告别误报弹窗。
+
 ### v2.0-beta16-diy (2026-11-01)
 - 🔘 **【隐藏导航栏】全面升级首页原生胶囊小开关 (SwitchCompat)**：
   - **交互体验重构**：彻底告别原本繁琐反人类的二级子菜单与陈旧单选框列表（“已停用”与“3键式导航栏”），将【隐藏导航栏】直接平铺在设置首页，作为原生圆角滑动胶囊小开关并列呈现；

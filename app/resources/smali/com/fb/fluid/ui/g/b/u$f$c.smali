@@ -67,42 +67,42 @@
 .end method
 
 .method public final a(Z)Z
-    .locals 2
+    .locals 3
 
     if-eqz p1, :cond_0
 
-    iget-object p1, p0, Lcom/fb/fluid/ui/g/b/u$f$c;->g:Lcom/fb/fluid/ui/g/b/u$f;
+    iget-object v0, p0, Lcom/fb/fluid/ui/g/b/u$f$c;->g:Lcom/fb/fluid/ui/g/b/u$f;
 
-    iget-object p1, p1, Lcom/fb/fluid/ui/g/b/u$f;->g:Lcom/fb/fluid/ui/g/b/u;
+    iget-object v0, v0, Lcom/fb/fluid/ui/g/b/u$f;->g:Lcom/fb/fluid/ui/g/b/u;
 
-    invoke-static {p1}, Lcom/fb/fluid/ui/g/b/u;->c(Lcom/fb/fluid/ui/g/b/u;)Z
+    invoke-static {v0}, Lcom/fb/fluid/ui/g/b/u;->c(Lcom/fb/fluid/ui/g/b/u;)Z
 
-    move-result p1
+    move-result v0
 
-    if-nez p1, :cond_0
+    if-nez v0, :cond_0
 
-    iget-object p1, p0, Lcom/fb/fluid/ui/g/b/u$f$c;->g:Lcom/fb/fluid/ui/g/b/u$f;
+    iget-object v0, p0, Lcom/fb/fluid/ui/g/b/u$f$c;->g:Lcom/fb/fluid/ui/g/b/u$f;
 
-    iget-object p1, p1, Lcom/fb/fluid/ui/g/b/u$f;->g:Lcom/fb/fluid/ui/g/b/u;
+    iget-object v0, v0, Lcom/fb/fluid/ui/g/b/u$f;->g:Lcom/fb/fluid/ui/g/b/u;
 
-    invoke-virtual {p1}, Lcom/fb/fluid/ui/g/b/o;->h()Landroidx/lifecycle/t;
+    invoke-virtual {v0}, Lcom/fb/fluid/ui/g/b/o;->h()Landroidx/lifecycle/t;
 
-    move-result-object p1
+    move-result-object v0
 
-    new-instance v0, Lcom/fb/fluid/ui/g/a/a;
+    new-instance v1, Lcom/fb/fluid/ui/g/a/a;
 
-    const/16 v1, 0x14
+    const/16 v2, 0x14
 
-    invoke-direct {v0, v1}, Lcom/fb/fluid/ui/g/a/a;-><init>(I)V
+    invoke-direct {v1, v2}, Lcom/fb/fluid/ui/g/a/a;-><init>(I)V
 
-    invoke-virtual {p1, v0}, Landroidx/lifecycle/t;->setValue(Ljava/lang/Object;)V
+    invoke-virtual {v0, v1}, Landroidx/lifecycle/t;->setValue(Ljava/lang/Object;)V
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return p1
+    return v0
 
     :cond_0
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    return p1
+    return v0
 .end method

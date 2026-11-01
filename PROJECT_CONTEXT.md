@@ -55,6 +55,16 @@
       - 编写 Setter `u$f$b.smali`：布尔值驱动写入底层 `h.f(1)` 或 `h.f(0)`，直接触发后台服务写入 `force_fsg_nav_bar=1/0` 并即刻销毁/恢复三大物理按键；
       - 编写 Validator `u$f$c.smali`：拨动到 ON 时实时校验 `WRITE_SECURE_SETTINGS` 特权，未授权时智能弹窗引导 ADB 授权并将开关弹回原位，授权下秒级执行；
       - 实时刷新联动 `u$a.smali`：注册对 `hide_navbar_mode` 键的变动监听，无论通过前台开关还是外部脚本变更，首页胶囊小开关与真机状态绝对毫秒级精准对齐。
+17. **隐藏导航栏开关“秒开秒关”实机彻底打通 & 返回桌面 Nova【默认启动器重置】弹窗彻底根治 (v2.0-beta17-diy)**：
+    - **开关点不动/没有变化根因查证与修复**：
+      1. 原版后台无障碍服务 `b.smali` 在处理小米机型（`isXiaomi=true`）隐藏导航栏时，硬编码调用了 `d$a.a(context, false)`（意图关闭全面屏手势调出三键以便利用已废弃的 Overscan 隐藏），导致用户每次开启隐藏时系统 `force_fsg_nav_bar` 瞬时被强行写回 0，使三大物理键无法被隐藏；修复为正确传入 `true`，开启时锁定 `force_fsg_nav_bar=1`；
+      2. 前台 Setter `u$f$b.smali` 升级为前后台双驱即时生效：不仅写入偏好 `hide_navbar_mode`，更在拨动瞬间直接向系统 `Settings.Global` 写入 `force_fsg_nav_bar` (1/0) 与 `policy_control`，三大按键毫秒级销毁与重现；
+      3. 前台 Getter `u$f$a.smali` 强化：动态核验当前底层 `force_fsg_nav_bar` 状态，确保开关 UI 与物理三大键显示状态绝对 100% 毫秒对齐；
+      4. 界面净化：剔除开关右侧多余的 `ic_chevron_right` 箭头图标，重塑为与官方“启用流体手势”完全一致的原生扁平开关。
+    - **返回桌面 Nova Launcher 弹窗【默认启动器重置】根除**：
+      1. 原版 FNG 在 `b$v0.smali` 的 Home 手势处理（Action 1 / `:pswitch_25`）中，针对小米和 EMUI 机型通过 `startActivity(Intent(ACTION_MAIN, CATEGORY_HOME))` 启动桌面并广播 `CLOSE_SYSTEM_DIALOGS`，在 Android 15 / HyperOS 上导致 Nova Launcher 判定启动器调用异常，触发【默认启动器重置】误报弹窗；
+      2. 将 `:pswitch_25` 统一路由至官方标准的无障碍全局动作 `performGlobalAction(GLOBAL_ACTION_HOME = 2)`，彻底拔除外部 Intent 调度与系统广播干扰；
+      3. 实机验证：从各大应用（番茄小说、微信等）手势返回 Nova 桌面 100% 顺畅丝滑，彻底告别误报弹窗。
 
 ---
 
@@ -65,5 +75,5 @@
   - `D:\AICode\工具开发\projects\Fluid-Navigation-Gesture\output\FluidNavigationGesture-arm64.apk` (纯 64 位极速版)
 - **GitHub 托管与发布**：
   - 仓库：`https://github.com/zwmopen/Fluid-Navigation-Gesture`
-  - 最新发布版本：[`v2.0-beta16-diy`](https://github.com/zwmopen/Fluid-Navigation-Gesture/releases/tag/v2.0-beta16-diy)
+  - 最新发布版本：[`v2.0-beta17-diy`](https://github.com/zwmopen/Fluid-Navigation-Gesture/releases/tag/v2.0-beta17-diy)
 - **云端 CI/CD**：[`.github/workflows/build-apk.yml`](file:///D:/AICode/工具开发/projects/Fluid-Navigation-Gesture/.github/workflows/build-apk.yml)

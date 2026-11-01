@@ -68,7 +68,7 @@
 .end method
 
 .method public final a(Lcom/fb/fluid/ui/g/c/t;Z)V
-    .locals 1
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -84,23 +84,51 @@
 
     if-eqz p2, :cond_0
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
+
+    const-string v1, "immersive.navigation=*"
 
     goto :goto_0
 
     :cond_0
-    const/4 p1, 0x0
+    const/4 v0, 0x0
+
+    const-string v1, "immersive.none=*"
 
     :goto_0
-    iget-object p2, p0, Lcom/fb/fluid/ui/g/b/u$f$b;->g:Lcom/fb/fluid/ui/g/b/u$f;
+    iget-object v2, p0, Lcom/fb/fluid/ui/g/b/u$f$b;->g:Lcom/fb/fluid/ui/g/b/u$f;
 
-    iget-object p2, p2, Lcom/fb/fluid/ui/g/b/u$f;->g:Lcom/fb/fluid/ui/g/b/u;
+    iget-object v2, v2, Lcom/fb/fluid/ui/g/b/u$f;->g:Lcom/fb/fluid/ui/g/b/u;
 
-    invoke-static {p2}, Lcom/fb/fluid/ui/g/b/u;->b(Lcom/fb/fluid/ui/g/b/u;)Lcom/fb/fluid/utils/preferences/h;
+    invoke-static {v2}, Lcom/fb/fluid/ui/g/b/u;->b(Lcom/fb/fluid/ui/g/b/u;)Lcom/fb/fluid/utils/preferences/h;
 
-    move-result-object p2
+    move-result-object v2
 
-    invoke-virtual {p2, p1}, Lcom/fb/fluid/utils/preferences/h;->f(I)V
+    invoke-virtual {v2, v0}, Lcom/fb/fluid/utils/preferences/h;->f(I)V
 
+    :try_start_0
+    iget-object v2, p0, Lcom/fb/fluid/ui/g/b/u$f$b;->g:Lcom/fb/fluid/ui/g/b/u$f;
+
+    iget-object v2, v2, Lcom/fb/fluid/ui/g/b/u$f;->g:Lcom/fb/fluid/ui/g/b/u;
+
+    invoke-static {v2}, Lcom/fb/fluid/ui/g/b/u;->d(Lcom/fb/fluid/ui/g/b/u;)Landroid/app/Application;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/app/Application;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string v3, "force_fsg_nav_bar"
+
+    invoke-static {v2, v3, v0}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    const-string v0, "policy_control"
+
+    invoke-static {v2, v0, v1}, Landroid/provider/Settings$Global;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :catch_0
     return-void
 .end method

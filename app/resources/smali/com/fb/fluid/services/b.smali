@@ -1879,7 +1879,9 @@
 
     sget-object v1, Lcom/fb/fluid/l/q/d;->a:Lcom/fb/fluid/l/q/d$a;
 
-    invoke-virtual {v1, v0, v6}, Lcom/fb/fluid/l/q/d$a;->a(Landroid/content/Context;Z)Z
+    const/4 v2, 0x1
+
+    invoke-virtual {v1, v0, v2}, Lcom/fb/fluid/l/q/d$a;->a(Landroid/content/Context;Z)Z
 
     :cond_6
     sget-object v1, Lcom/fb/fluid/l/q/a;->a:Lcom/fb/fluid/l/q/a$a;

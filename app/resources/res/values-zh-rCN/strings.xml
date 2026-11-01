@@ -99,8 +99,8 @@
     <string name="contact_email_title">发送电子邮件</string>
     <string name="contact_email_title_subject">反馈</string>
     <string name="contact_telegram">项目主页</string>
-    <string name="dialog_about_label">自用专属流体手势纯净定制版 · 0联网 0广告 0追踪
-点击下方按钮可直达 GitHub Releases 检查并下载最新版本</string>
+    <string name="dialog_about_label">流体手势导航增强纯净版 · 0联网 0广告 0追踪
+全面屏手势高效增强工具 · 点击下方按钮可检查最新版本</string>
     <string name="done">完成</string>
     <string name="header_about">关于</string>
     <string name="header_action">动作 #%1$d</string>
@@ -138,7 +138,7 @@
     <string name="help_app_optimization_sum">进入省电策略设为“无限制”，并在多任务后台卡片长按小锁加锁，防止被系统清理</string>
     <string name="help_autostart_desc">自启动权限管理</string>
     <string name="help_autostart_sum">开启“自启动”与“关联启动”权限，保障开机即用并在系统杀后台后极速常驻自启</string>
-    <string name="help_dontkillmyapp">访问 GitHub Release 获取自用纯净版最新安装包与变更说明</string>
+    <string name="help_dontkillmyapp">访问 GitHub Releases 获取增强纯净版最新安装包与变更说明</string>
     <string name="help_dontkillmyapp_desc">检查版本更新 (GitHub Releases)</string>
     <string name="help_service_sdcard">【后台防杀保活四部曲】\n1. 自启动权限：开启自启动与关联启动\n2. 省电策略：设置为“无限制”\n3. 多任务加锁：后台卡片加锁保护\n4. 系统级无障碍：服务常驻，0 联网权限极度省电</string>
     <string name="intro_swipe">快速滑动</string>

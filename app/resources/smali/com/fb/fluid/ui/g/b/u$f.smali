@@ -20,7 +20,7 @@
     value = {
         "Lkotlin/x/d/l;",
         "Lkotlin/x/c/b<",
-        "Lcom/fb/fluid/ui/g/c/s;",
+        "Lcom/fb/fluid/ui/g/c/a0;",
         "Lkotlin/Unit;",
         ">;"
     }
@@ -49,21 +49,25 @@
 .method public bridge synthetic a(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
-    check-cast p1, Lcom/fb/fluid/ui/g/c/s;
+    check-cast p1, Lcom/fb/fluid/ui/g/c/a0;
 
-    invoke-virtual {p0, p1}, Lcom/fb/fluid/ui/g/b/u$f;->a(Lcom/fb/fluid/ui/g/c/s;)V
+    invoke-virtual {p0, p1}, Lcom/fb/fluid/ui/g/b/u$f;->a(Lcom/fb/fluid/ui/g/c/a0;)V
 
     sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object p1
 .end method
 
-.method public final a(Lcom/fb/fluid/ui/g/c/s;)V
+.method public final a(Lcom/fb/fluid/ui/g/c/a0;)V
     .locals 9
 
     const-string v0, "$receiver"
 
     invoke-static {p1, v0}, Lkotlin/x/d/k;->b(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const-string v0, "hide_navbar_mode"
+
+    invoke-virtual {p1, v0}, Lcom/fb/fluid/ui/g/c/t;->a(Ljava/lang/String;)Lcom/fb/fluid/ui/g/c/t;
 
     const v0, 0x7f0800a7
 
@@ -103,7 +107,17 @@
 
     invoke-direct {v0, p0}, Lcom/fb/fluid/ui/g/b/u$f$a;-><init>(Lcom/fb/fluid/ui/g/b/u$f;)V
 
-    invoke-virtual {p1, v0}, Lcom/fb/fluid/ui/g/c/s;->a(Lkotlin/x/c/c;)Lcom/fb/fluid/ui/g/c/s;
+    new-instance v1, Lcom/fb/fluid/ui/g/b/u$f$b;
+
+    invoke-direct {v1, p0}, Lcom/fb/fluid/ui/g/b/u$f$b;-><init>(Lcom/fb/fluid/ui/g/b/u$f;)V
+
+    invoke-virtual {p1, v0, v1}, Lcom/fb/fluid/ui/g/c/t;->a(Lkotlin/x/c/b;Lkotlin/x/c/c;)Lcom/fb/fluid/ui/g/c/t;
+
+    new-instance v0, Lcom/fb/fluid/ui/g/b/u$f$c;
+
+    invoke-direct {v0, p0}, Lcom/fb/fluid/ui/g/b/u$f$c;-><init>(Lcom/fb/fluid/ui/g/b/u$f;)V
+
+    invoke-virtual {p1, v0}, Lcom/fb/fluid/ui/g/c/a0;->a(Lkotlin/x/c/b;)Lcom/fb/fluid/ui/g/c/t;
 
     return-void
 .end method

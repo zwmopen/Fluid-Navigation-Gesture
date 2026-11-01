@@ -200,13 +200,13 @@
 
     const/16 v0, 0x8
 
-    new-instance v1, Lcom/fb/fluid/ui/g/c/s;
+    new-instance v1, Lcom/fb/fluid/ui/g/c/a0;
 
     new-instance v2, Lcom/fb/fluid/ui/g/b/u$f;
 
     invoke-direct {v2, p0}, Lcom/fb/fluid/ui/g/b/u$f;-><init>(Lcom/fb/fluid/ui/g/b/u;)V
 
-    invoke-direct {v1, v2}, Lcom/fb/fluid/ui/g/c/s;-><init>(Lkotlin/x/c/b;)V
+    invoke-direct {v1, v2}, Lcom/fb/fluid/ui/g/c/a0;-><init>(Lkotlin/x/c/b;)V
 
     aput-object v1, p1, v0
 
@@ -255,6 +255,30 @@
     iget-object p0, p0, Lcom/fb/fluid/ui/g/b/u;->i:Lcom/fb/fluid/utils/preferences/h;
 
     return-object p0
+.end method
+
+.method public static final synthetic c(Lcom/fb/fluid/ui/g/b/u;)Z
+    .locals 0
+
+    invoke-direct {p0}, Lcom/fb/fluid/ui/g/b/u;->j()Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method private final j()Z
+    .locals 2
+
+    sget-object v0, Lcom/fb/fluid/l/s/a;->a:Lcom/fb/fluid/l/s/a$a;
+
+    iget-object v1, p0, Lcom/fb/fluid/ui/g/b/u;->k:Landroid/app/Application;
+
+    invoke-virtual {v0, v1}, Lcom/fb/fluid/l/s/a$a;->c(Landroid/content/Context;)Z
+
+    move-result v0
+
+    return v0
 .end method
 
 .method private final i()Z

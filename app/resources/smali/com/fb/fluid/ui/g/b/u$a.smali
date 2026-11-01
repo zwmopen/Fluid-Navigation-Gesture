@@ -42,32 +42,30 @@
     goto :goto_0
 
     :cond_0
-    invoke-virtual {p2}, Ljava/lang/String;->hashCode()I
-
-    move-result p1
-
-    const v0, -0x62d9fe34
-
-    if-eq p1, v0, :cond_1
-
-    goto :goto_0
-
-    :cond_1
     const-string p1, "fluid_enabled"
 
     invoke-virtual {p2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result p2
+    move-result p1
 
-    if-eqz p2, :cond_2
+    if-nez p1, :cond_1
 
-    iget-object p2, p0, Lcom/fb/fluid/ui/g/b/u$a;->a:Lcom/fb/fluid/ui/g/b/u;
+    const-string p1, "hide_navbar_mode"
 
-    invoke-virtual {p2}, Lcom/fb/fluid/ui/g/b/o;->g()Lc/a/b/f/a;
+    invoke-virtual {p2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result-object p2
+    move-result p1
 
-    invoke-static {p2, p1}, Lcom/fb/fluid/ui/g/c/u;->a(Lc/a/b/f/a;Ljava/lang/String;)V
+    if-eqz p1, :cond_2
+
+    :cond_1
+    iget-object p1, p0, Lcom/fb/fluid/ui/g/b/u$a;->a:Lcom/fb/fluid/ui/g/b/u;
+
+    invoke-virtual {p1}, Lcom/fb/fluid/ui/g/b/o;->g()Lc/a/b/f/a;
+
+    move-result-object p1
+
+    invoke-static {p1, p2}, Lcom/fb/fluid/ui/g/c/u;->a(Lc/a/b/f/a;Ljava/lang/String;)V
 
     :cond_2
     :goto_0

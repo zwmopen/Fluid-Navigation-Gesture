@@ -1973,6 +1973,18 @@
 
     if-ne p1, v3, :cond_0
 
+    sget-object v6, Lcom/fb/fluid/l/q/b;->a:Lcom/fb/fluid/l/q/b$a;
+
+    invoke-virtual {p0}, Landroid/accessibilityservice/AccessibilityService;->getBaseContext()Landroid/content/Context;
+
+    move-result-object v7
+
+    invoke-static {v7, v0}, Lkotlin/x/d/k;->a(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const-string v8, "immersive.navigation=*"
+
+    invoke-virtual {v6, v7, v8}, Lcom/fb/fluid/l/q/b$a;->a(Landroid/content/Context;Ljava/lang/String;)V
+
     sget-object p1, Lcom/fb/fluid/l/f;->c:Lcom/fb/fluid/l/f$a;
 
     invoke-virtual {p0}, Landroid/accessibilityservice/AccessibilityService;->getBaseContext()Landroid/content/Context;
@@ -2146,18 +2158,6 @@
     move-result-object p2
 
     invoke-virtual {p1, p2}, Lcom/fb/fluid/l/t/b;->a(Ljava/lang/Object;)V
-
-    sget-object p1, Lcom/fb/fluid/l/c;->h:Lcom/fb/fluid/l/c$a;
-
-    invoke-virtual {p1}, Lcom/fb/fluid/l/c$a;->a()Z
-
-    move-result p1
-
-    if-eqz p1, :cond_4
-
-    iget-boolean p1, p0, Lcom/fb/fluid/services/b;->U:Z
-
-    if-nez p1, :cond_4
 
     sget-object p1, Lcom/fb/fluid/l/q/b;->a:Lcom/fb/fluid/l/q/b$a;
 

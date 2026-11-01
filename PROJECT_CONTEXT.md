@@ -47,6 +47,14 @@
     - **根因查证**：FNG 底层手势动作 Action 12（`ACTION_VOICE_ASSISTANT`）会向系统广播 `android.intent.action.VOICE_COMMAND`；小米系统将此 Intent 路由给内置的小爱同学（`com.miui.voiceassist`）；因用户从未使用/授权小爱同学，小爱首次唤醒时强行阻断并弹窗索权；
     - **Smali 字节码拦截**：在 `com/fb/fluid/services/b$v0.smali` 中定位 `:pswitch_1b`，彻底拔除构造并广播 `VOICE_COMMAND` 的 Intent 逻辑，改为直接调用无害的全局返回操作（`AccessibilityService.performGlobalAction(GLOBAL_ACTION_BACK)`），从物理指令源头上杜绝了唤醒小爱同学的任何可能；
     - **效果验证**：安装验证后，任意大滑动、误触长滑均仅执行安全返回，全屏沉浸与三大键隐藏坚如磐石，彻底消除偶发弹窗与按键复现连锁反应。
+16. **【隐藏导航栏】交互重构：拔除繁琐二级单选，首页原生“胶囊小开关”秒开秒关 (v2.0-beta16-diy)**：
+    - **痛点与直觉重构**：原版将【隐藏导航栏】作为二级子项，点入后需在一长串单选框（“已停用”与“3键式导航栏”）中二次勾选，反人类且不直观；现代全面屏手机上隐藏导航栏实质上只有“开（隐藏三大键）”与“关（恢复三大键）”；
+    - **首页控件平铺改造**：修改 `com/fb/fluid/ui/g/b/u.smali`，将索引 8 项由导航跳转项（`s` / `NavigationPreferenceItem`）彻底升级为首页平级原生胶囊小开关（`a0` / `SwitchPreferenceItem` / `SwitchCompat`）；
+    - **双向 Smali 桥接适配**：
+      - 编写 Getter `u$f$a.smali`：读取 `h.n() != 0` 并映射为布尔状态，初始化时开关位置精准对应当前导航栏是否已隐藏；
+      - 编写 Setter `u$f$b.smali`：布尔值驱动写入底层 `h.f(1)` 或 `h.f(0)`，直接触发后台服务写入 `force_fsg_nav_bar=1/0` 并即刻销毁/恢复三大物理按键；
+      - 编写 Validator `u$f$c.smali`：拨动到 ON 时实时校验 `WRITE_SECURE_SETTINGS` 特权，未授权时智能弹窗引导 ADB 授权并将开关弹回原位，授权下秒级执行；
+      - 实时刷新联动 `u$a.smali`：注册对 `hide_navbar_mode` 键的变动监听，无论通过前台开关还是外部脚本变更，首页胶囊小开关与真机状态绝对毫秒级精准对齐。
 
 ---
 
@@ -57,5 +65,5 @@
   - `D:\AICode\工具开发\projects\Fluid-Navigation-Gesture\output\FluidNavigationGesture-arm64.apk` (纯 64 位极速版)
 - **GitHub 托管与发布**：
   - 仓库：`https://github.com/zwmopen/Fluid-Navigation-Gesture`
-  - 最新发布版本：[`v2.0-beta15-diy`](https://github.com/zwmopen/Fluid-Navigation-Gesture/releases/tag/v2.0-beta15-diy)
+  - 最新发布版本：[`v2.0-beta16-diy`](https://github.com/zwmopen/Fluid-Navigation-Gesture/releases/tag/v2.0-beta16-diy)
 - **云端 CI/CD**：[`.github/workflows/build-apk.yml`](file:///D:/AICode/工具开发/projects/Fluid-Navigation-Gesture/.github/workflows/build-apk.yml)

@@ -3,12 +3,12 @@
 .source ""
 
 # interfaces
-.implements Lkotlin/x/c/c;
+.implements Lkotlin/x/c/b;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/fb/fluid/ui/g/b/u$f;->a(Lcom/fb/fluid/ui/g/c/s;)V
+    value = Lcom/fb/fluid/ui/g/b/u$f;->a(Lcom/fb/fluid/ui/g/c/a0;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -19,10 +19,11 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Lkotlin/x/d/l;",
-        "Lkotlin/x/c/c<",
-        "Lcom/fb/fluid/ui/g/c/s;",
-        "Ljava/lang/Integer;",
-        "Lkotlin/Unit;",
+        "Lkotlin/x/c/b<",
+        "Lcom/fb/fluid/ui/g/c/t<",
+        "Ljava/lang/Boolean;",
+        ">;",
+        "Ljava/lang/Boolean;",
         ">;"
     }
 .end annotation
@@ -38,7 +39,7 @@
 
     iput-object p1, p0, Lcom/fb/fluid/ui/g/b/u$f$a;->g:Lcom/fb/fluid/ui/g/b/u$f;
 
-    const/4 p1, 0x2
+    const/4 p1, 0x1
 
     invoke-direct {p0, p1}, Lkotlin/x/d/l;-><init>(I)V
 
@@ -47,46 +48,58 @@
 
 
 # virtual methods
-.method public bridge synthetic a(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+.method public bridge synthetic a(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
-    check-cast p1, Lcom/fb/fluid/ui/g/c/s;
+    check-cast p1, Lcom/fb/fluid/ui/g/c/t;
 
-    check-cast p2, Ljava/lang/Number;
+    invoke-virtual {p0, p1}, Lcom/fb/fluid/ui/g/b/u$f$a;->a(Lcom/fb/fluid/ui/g/c/t;)Z
 
-    invoke-virtual {p2}, Ljava/lang/Number;->intValue()I
+    move-result p1
 
-    move-result p2
+    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    invoke-virtual {p0, p1, p2}, Lcom/fb/fluid/ui/g/b/u$f$a;->a(Lcom/fb/fluid/ui/g/c/s;I)V
-
-    sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+    move-result-object p1
 
     return-object p1
 .end method
 
-.method public final a(Lcom/fb/fluid/ui/g/c/s;I)V
+.method public final a(Lcom/fb/fluid/ui/g/c/t;)Z
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/fb/fluid/ui/g/c/t<",
+            "Ljava/lang/Boolean;",
+            ">;)Z"
+        }
+    .end annotation
 
-    const-string p2, "<anonymous parameter 0>"
+    const-string v0, "it"
 
-    invoke-static {p1, p2}, Lkotlin/x/d/k;->b(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, v0}, Lkotlin/x/d/k;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
     iget-object p1, p0, Lcom/fb/fluid/ui/g/b/u$f$a;->g:Lcom/fb/fluid/ui/g/b/u$f;
 
     iget-object p1, p1, Lcom/fb/fluid/ui/g/b/u$f;->g:Lcom/fb/fluid/ui/g/b/u;
 
-    invoke-virtual {p1}, Lcom/fb/fluid/ui/g/b/o;->h()Landroidx/lifecycle/t;
+    invoke-static {p1}, Lcom/fb/fluid/ui/g/b/u;->b(Lcom/fb/fluid/ui/g/b/u;)Lcom/fb/fluid/utils/preferences/h;
 
     move-result-object p1
 
-    new-instance p2, Lcom/fb/fluid/ui/g/a/a;
+    invoke-virtual {p1}, Lcom/fb/fluid/utils/preferences/h;->n()I
 
-    const/4 v0, 0x2
+    move-result p1
 
-    invoke-direct {p2, v0}, Lcom/fb/fluid/ui/g/a/a;-><init>(I)V
+    if-eqz p1, :cond_0
 
-    invoke-virtual {p1, p2}, Landroidx/lifecycle/t;->setValue(Ljava/lang/Object;)V
+    const/4 p1, 0x1
 
-    return-void
+    goto :goto_0
+
+    :cond_0
+    const/4 p1, 0x0
+
+    :goto_0
+    return p1
 .end method

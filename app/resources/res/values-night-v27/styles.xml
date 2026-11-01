@@ -6,7 +6,7 @@
         <item name="android:textColorSecondary">@color/textNightColorSecondary</item>
         <item name="android:textColorTertiary">@color/textNightColorTertiary</item>
         <item name="android:statusBarColor">@color/colorNightBackgroundAlpha</item>
-        <item name="android:navigationBarColor">@color/colorAccentDarkAlpha</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
         <item name="android:windowLightStatusBar">false</item>
         <item name="android:windowLightNavigationBar">false</item>
         <item name="colorAccent">@color/colorAccentLight</item>
@@ -18,7 +18,7 @@
     <style name="AppThemeBlack" parent="@style/AppTheme">
         <item name="android:colorBackground">@color/colorBlackBackground</item>
         <item name="android:statusBarColor">@color/colorBlackBackgroundAlpha</item>
-        <item name="android:navigationBarColor">@color/colorAccentDarkAlpha</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
         <item name="colorBackgroundDark">@color/colorBlackBackground</item>
         <item name="colorOnPrimary">#ffffffff</item>
         <item name="md_background_color">@color/colorBlackBackgroundLight</item>

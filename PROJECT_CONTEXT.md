@@ -1,48 +1,56 @@
-# Fluid Navigation Gesture (自用定制纯净离线版) - PROJECT_CONTEXT
+# Fluid Navigation Gesture (现代化流体手势增强纯净版) - PROJECT_CONTEXT
 
 ## 1. 项目核心定位
-- **项目目标**：单机离线、零权限泄漏、手感高度 DIY、完全兼容现代 Android 14/15 (HyperOS 3.0 / AOSP 15) 的流体手势导航工具。
-- **真源基线**：直接基于用户手机提取的原版权威无损资源与字节码（Fluid Navigation Gestures 2.0-beta11），彻底废弃网络残次魔改源。
-- **真机目标设备**：Redmi K60 (`mondrian` / Android 15 / HyperOS 3.0)，ADB 设备 ID `e3b58850`。
+- **项目目标**：单机离线、0 联网物理断网、手感高度 DIY、完全兼容现代 Android 14/15 (HyperOS 2.0/3.0 / AOSP 15) 的流体手势导航增强工具。
+- **真源基线**：基于官方原版权威无损资源与字节码（Fluid Navigation Gestures 2.0-beta11 逆向工程深度重构），彻底剔除网络广告与残次魔改源。
+- **已验证目标设备**：
+  - Xiaomi 15 Pro (`dada` / Android 15 / HyperOS 2.0，设备 ID `b78fc473`，已部署生效并无损导入手势预设)
+  - Redmi K60 (`mondrian` / Android 15 / HyperOS 3.0，设备 ID `e3b58850`，已部署验证通过)
 
 ---
 
-## 2. 用户痛点全面清零与修复记录
-1. **彻底清理电脑桌面**：
-   - 移除 `build_apk.ps1` 中的桌面拷贝逻辑，严禁在桌面存放任何临时或构建产物，所有 APK 统一规范输出至工程目录 `output/`。
-2. **彻底移除 Telegram 广告网址**：
-   - 从 `res/layout/item_home_header.xml` 中连根拔除硬编码的 `https://t.me/sserratty` 推广链接。
-3. **消除顶部黑条/白条“FNG测试”与变形**：
-   - 彻底去除错误的系统 ActionBar 容器，回归官方原版的无边框沉浸式 NoActionBar 布局，标题“流体手势导航”恢复居中水平舒展排版。
-4. **修复“启用开关隐形”与高对比度配色**：
-   - 修复导致 Switch 控件滑块与轨道丢失高亮的 Material 样式错乱，恢复官方经典亮蓝色（`#ff214dff`）Switch 调色板，在白色背景下醒目清晰。
-5. **纯粹单机离线保障**：
-   - 在 `AndroidManifest.xml` 中彻底剥离 `INTERNET`、`ACCESS_NETWORK_STATE`、`com.android.vending.BILLING`，确保 0 联网、0 泄露。
-6. **Android 15 Native SO 库解压规范**：
-   - 显式声明 `android:extractNativeLibs="true"`，解决高版本系统安装与解压拒绝问题。
-7. **全功能可点击与页面跳转**：
-   - 保留原版完整的组件继承体系，所有子设置（左/右/底边缘、触发器、操作、高级设置等）点击交互与通信 100% 完整可用。
-8. **Android 11+ 包可见性与外部跳转修复**：
-   - 在 `AndroidManifest.xml` 中增加 `<queries>` 规则，并在 `k.smali` 中修复 activity 探测，确保系统浏览器可秒调起。
-9. **帮助底栏与检查更新现代化**：
-   - 替换废弃的 `dontkillmyapp.com` 为用户 GitHub 官方 Release 页面，纯单机离线环境下直连检测新版与变更；
-   - 帮助指引全面现代化为小米 HyperOS / MIUI 专属防杀保活四部曲。
-10. **全套推荐手势配置预设发布**：
-   - 提取并发布用户打磨极佳的手势预设（包含 84%×77% 黄金比例触发区、线性马达触感震动、ChatGPT/微信/飞书/滴答清单/SearchEVO 快捷动作），并作为资产附挂于 Release 与 `presets/`。
-11. **架构与系统兼容性全面升级 (v2.0-beta13-diy)**：
-   - **Target SDK 现代化递进**：从 27 提升至 29（Android 10），消除了 Android 14/15 (HyperOS) 上的低 Target SDK 安装警告与拦截；
-   - **存储兼容性保障**：在 `<application>` 中配置 `android:requestLegacyExternalStorage="true"`，保障新旧安卓设备上 ZIP 偏好配置备份与恢复无异常；
-   - **无用 PC 模拟器架构剔除**：彻底移除 `x86` 和 `x86_64` SO 库，削减 2.6MB 冗余代码；
-   - **双架构构建输出**：自动输出通用 ARM 兼容版（`FluidNavigationGesture.apk`，兼容 32 位和 64 位）及纯 64 位极速版（`FluidNavigationGesture-arm64.apk`，专为现代旗舰纯 64 位架构裁剪）。
+## 2. 核心功能与演进记录
+1. **构建与桌面整洁规范**：
+   - 所有构建产物统一输出至 `output/` 目录，严禁在系统桌面产生任何文件。
+2. **剔除广告与推广链**：
+   - 移除所有硬编码 Telegram 推广与广告连接，保持 100% 极简纯净。
+3. **沉浸式无边框界面规范**：
+   - 彻底去除原生白条/黑条标题栏变形，恢复官方居中自适应优雅排版。
+4. **高对比度控件与状态可见性**：
+   - 核心 Switch 开关恢复亮蓝色高对比调色板，开启/关闭状态清晰醒目。
+5. **0 联网物理级安全保障**：
+   - 移除了 `INTERNET`、`ACCESS_NETWORK_STATE`、`BILLING` 等网络与计费权限，安装包内无任何网络套接字。
+6. **Android 15 Native SO 架构支持**：
+   - 声明 `android:extractNativeLibs="true"`，解决现代 Android 14/15 动态加载 SO 库拦截问题。
+7. **全功能模块与交互打通**：
+   - 包含三边边缘（左/右/底）、触发区高度/宽度、多段滑动物理延迟、线性马达震动、快速/长按动作绑定等 100% 完整可用。
+8. **应用可见性与外部跳转优化**：
+   - 配置 Android 11+ `<queries>` 标签，确保关于页面与检查更新可即时调起浏览器。
+9. **关于与检查更新产品化**：
+   - 剔除“自用”等个人化词汇，全面升级为公开开源发布的规范产品文案，关于页直链 GitHub Releases 检查最新更新。
+10. **手势配置预设无损热迁移与恢复**：
+    - 针对小米 Xiaomi 15 Pro，实现从底层 ObjectBox 数据库 (`data.mdb`) 与 `shared.json` 导出并打包为预设包；在新安装版本中无损导入恢复（侧边 84% 高度、底边 77% 宽度、3 级震动、短滑返回、长滑 ChatGPT/微信/飞书/滴答清单/Via/SearchEVO 映射全部还原生效）。
+11. **双架构编译产物 (v2.0-beta13-diy)**：
+    - `output/FluidNavigationGesture.apk`（通用 ARM 兼容版）
+    - `output/FluidNavigationGesture-arm64.apk`（纯 64 位旗舰极速版，针对现代旗舰 SoC 裁剪）
+12. **同类生态 Vivid Navigation Gestures (VividNG) 深度汉化与并存**：
+    - 提取手机端 VividNG (v3.8.9)，补齐其缺失的 274 项中文资源，完成全量深度汉化；
+    - 打包签名并在 Xiaomi 15 Pro 上安装成功；默认关闭总开关，供用户随时对比手感与功能借鉴。
+13. **底部操作栏（BottomAppBar）自适应主题重构**：
+    - 根治原版底部突兀亮蓝色大块（`#214dff`），改由系统主题自适应（明亮模式纯白背景搭配高级深灰图标与指示条，深色/夜间自动变为 `#16181a`，AMOLED 黑自动变为 `#000000`），实现完美一体化沉浸。
+14. **小米澎湃（HyperOS）+ Nova Launcher 底层三键隐藏破局与原生适配**：
+    - **原理查证**：深入追踪查明原版 FNG 在 Android 15 上三键隐藏失效系因 Google 在 Android 11+ 删除了 `setOverscan` 并废弃了全局 `policy_control`；而小米系统在第三方桌面下强行将 `force_fsg_nav_bar` 设为 0（调出物理三大键）并拦截系统设置；
+    - **字节码原生注入**：改造 `com/fb/fluid/l/q/b$a.smali`，在持有 `WRITE_SECURE_SETTINGS` 下直接调用 `Settings.Global.putInt(..., "force_fsg_nav_bar", 1)`，关闭时自动写回 0；移除针对 Android 10+ 的虚假报错拦截；
+    - **双端实测生效**：配合 Nova Launcher 注入 `appops 10021 allow`（后台弹出特权），彻底实现在保留 Nova 默认桌面下，全面销毁小米物理三大按键（`NavigationBar0` 销毁），由 FNG 流体手势完美接管全局手势。
 
 ---
 
 ## 3. 构建与产物
 - **本地一键构建脚本**：[`D:\AICode\工具开发\projects\Fluid-Navigation-Gesture\build_apk.ps1`](file:///D:/AICode/工具开发/projects/Fluid-Navigation-Gesture/build_apk.ps1)
 - **正式构建输出**：
-  - `D:\AICode\工具开发\projects\Fluid-Navigation-Gesture\output\FluidNavigationGesture.apk` (通用 ARM 版，兼容 32/64 位手机)
-  - `D:\AICode\工具开发\projects\Fluid-Navigation-Gesture\output\FluidNavigationGesture-arm64.apk` (纯 64 位极速版，针对现代旗舰芯片)
+  - `D:\AICode\工具开发\projects\Fluid-Navigation-Gesture\output\FluidNavigationGesture.apk` (通用 ARM 版)
+  - `D:\AICode\工具开发\projects\Fluid-Navigation-Gesture\output\FluidNavigationGesture-arm64.apk` (纯 64 位极速版)
 - **GitHub 托管与发布**：
   - 仓库：`https://github.com/zwmopen/Fluid-Navigation-Gesture`
-  - 最新发布版本：[`v2.0-beta13-diy`](https://github.com/zwmopen/Fluid-Navigation-Gesture/releases/tag/v2.0-beta13-diy)
+  - 最新发布版本：[`v2.0-beta14-diy`](https://github.com/zwmopen/Fluid-Navigation-Gesture/releases/tag/v2.0-beta14-diy)
 - **云端 CI/CD**：[`.github/workflows/build-apk.yml`](file:///D:/AICode/工具开发/projects/Fluid-Navigation-Gesture/.github/workflows/build-apk.yml)

@@ -89,7 +89,7 @@
 
 # virtual methods
 .method public final a(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 1
+    .locals 3
 
     const-string v0, "context"
 
@@ -102,11 +102,31 @@
     :try_start_0
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object p1
+    move-result-object v0
 
-    const-string v0, "policy_control"
+    const-string v1, "policy_control"
 
-    invoke-static {p1, v0, p2}, Landroid/provider/Settings$Global;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
+    invoke-static {v0, v1, p2}, Landroid/provider/Settings$Global;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
+
+    const-string v1, "immersive.navigation"
+
+    invoke-virtual {p2, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_fsg_off
+
+    const/4 v1, 0x1
+
+    goto :goto_fsg_set
+
+    :cond_fsg_off
+    const/4 v1, 0x0
+
+    :goto_fsg_set
+    const-string v2, "force_fsg_nav_bar"
+
+    invoke-static {v0, v2, v1}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -424,62 +444,14 @@
 .end method
 
 .method public final b(Landroid/content/Context;)Z
-    .locals 4
+    .locals 1
 
     const-string v0, "context"
 
     invoke-static {p1, v0}, Lkotlin/x/d/k;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const/4 v0, 0x0
-
-    const/4 v1, 0x1
-
-    :try_start_0
-    invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object p1
-
-    const-string v2, "navigation_mode"
-
-    invoke-static {p1, v2}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;)I
-
-    move-result p1
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    if-nez p1, :cond_0
-
     const/4 v0, 0x1
 
-    goto :goto_0
-
-    :catch_0
-    move-exception p1
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "sa.navm.e: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    const/4 v2, 0x0
-
-    invoke-static {p1, v2, v1, v2}, Lcom/fb/fluid/l/p/l;->a(Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)V
-
-    :cond_0
-    :goto_0
     return v0
 .end method
 

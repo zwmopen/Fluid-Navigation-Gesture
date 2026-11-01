@@ -109,6 +109,15 @@ powershell -ExecutionPolicy Bypass -File .\build_apk.ps1
 
 ## 📦 版本发布记录 (Changelog)
 
+### v2.0-beta14-diy (2026-11-01)
+- 🎨 **底部操作栏（BottomAppBar）自适应沉浸重构**：
+  - 彻底去除原版底部突兀亮蓝色大块（`#214dff`），改由系统主题自适应（明亮模式纯白背景搭配高级深灰图标与指示条，深色/夜间自动变为 `#16181a`，AMOLED 黑自动变为 `#000000`），实现完美一体化沉浸。
+- ⚡ **原生支持 Android 15 / 小米澎湃 (HyperOS) 底层三大按键隐藏**：
+  - 重构 `com.fb.fluid.l.q.b$a` 底层 Smali 字节码，不再调用已在 Android 11+ 废弃的 `setOverscan` 与失效的 `policy_control`，而在获得 `WRITE_SECURE_SETTINGS` 后直接原生调度小米 HyperOS 全局底座参数 `force_fsg_nav_bar`（开启写入 1，关闭写回 0）；
+  - 彻底破局小米在第三方桌面（如 Nova Launcher）下强制锁定经典三大导航键的系统壁垒，实现无障碍手势与第三方桌面全屏沉浸并存。
+- 🛡️ **彻底消除 Android 10+ 虚假报错与开关回滚**：
+  - 移除对 Android 10+ 系统中旧式沉浸模式检测导致的假弹窗与自动回滚，确保开关状态稳定持久生效。
+
 ### v2.0-beta13-diy (2026-11-01)
 - 🚀 **Target SDK 现代化升级**：Target SDK 从 27 提升至 29（Android 10），彻底消除 Android 14/15 (HyperOS) 下“此应用专为较旧版本 Android 打造”的安装警告与运行拦截；
 - 💾 **存储兼容性增强**：在清单中配置 `requestLegacyExternalStorage="true"`，保障在新旧 Android 系统上导入导出 ZIP 偏好设置零权限异常；

@@ -21,7 +21,7 @@
             <data android:scheme="http"/>
         </intent>
     </queries>
-                <application android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:extractNativeLibs="true" android:hardwareAccelerated="false" android:icon="@mipmap/ic_launcher" android:label="@string/app_name_s" android:largeHeap="true" android:name="com.fb.fluid.App" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/AppTheme">
+                <application android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:extractNativeLibs="true" android:hardwareAccelerated="false" android:icon="@mipmap/ic_launcher" android:label="@string/app_name_s" android:largeHeap="true" android:name="com.fb.fluid.App" android:requestLegacyExternalStorage="true" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/AppTheme">
         <meta-data android:name="preloaded_fonts" android:resource="@array/preloaded_fonts"/>
         <activity android:exported="true" android:icon="@mipmap/ic_launcher" android:label="@string/tasker_pause" android:name="com.fb.fluid.PauseFNGActivity">
             <intent-filter>

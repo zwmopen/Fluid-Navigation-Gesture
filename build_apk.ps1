@@ -296,11 +296,38 @@ if ($useAsciiStaging) {
     $unsignedApk = Copy-Item $unsignedApk (Join-Path $outputDir (Split-Path -Leaf $unsignedApk)) -Force -PassThru
 }
 
+# Also build Pure 64-bit APK (arm64-v8a) if armeabi-v7a is present for full modular choices
+$arm64DecodedDir = Join-Path $stageDir "resources-arm64"
+$arm64Unsigned = Join-Path $buildOutputDir "FluidNavigationGesture-arm64-unsigned.apk"
+$arm64Aligned = Join-Path $buildOutputDir "FluidNavigationGesture-arm64-aligned.apk"
+$arm64Signed = Join-Path $outputDir "FluidNavigationGesture-arm64.apk"
+$arm64StagedSigned = Join-Path $buildOutputDir "FluidNavigationGesture-arm64.apk"
 
+if ((Test-Path (Join-Path $buildDecodedDir "lib\armeabi-v7a")) -and (Test-Path (Join-Path $buildDecodedDir "lib\arm64-v8a"))) {
+    Write-Step "Building Pure 64-bit APK (arm64-v8a only)"
+    Remove-Item $arm64DecodedDir -Recurse -Force -ErrorAction SilentlyContinue
+    Copy-Item $buildDecodedDir -Destination $arm64DecodedDir -Recurse -Force
+    Remove-Item (Join-Path $arm64DecodedDir "lib\armeabi-v7a") -Recurse -Force -ErrorAction SilentlyContinue
+
+    $arm64ExitCode = Invoke-ApktoolBuild -JavaPath $java -ApktoolJarPath $apktoolJar -DecodedDirectory $arm64DecodedDir -OutputApkPath $arm64Unsigned
+    if ($arm64ExitCode -eq 0 -and (Test-Path $arm64Unsigned)) {
+        if ($zipalign -and $apksigner) {
+            & $zipalign -f 4 $arm64Unsigned $arm64Aligned
+            & $apksigner sign --ks $keystorePath --ks-key-alias androiddebugkey --ks-pass pass:android --key-pass pass:android --out $arm64StagedSigned $arm64Aligned
+        } else {
+            Copy-Item $arm64Unsigned $arm64StagedSigned -Force
+            & $jarsigner -sigalg SHA256withRSA -digestalg SHA-256 -keystore $keystorePath -storepass android -keypass android $arm64StagedSigned androiddebugkey | Out-Null
+        }
+        Copy-Item $arm64StagedSigned $arm64Signed -Force
+    }
+}
 
 Write-Step "Build finished"
-Write-Host "Unsigned APK: $unsignedApk"
-Write-Host "Signed APK  : $signedApk"
+Write-Host "Unsigned APK         : $unsignedApk"
+Write-Host "Signed Universal APK : $signedApk"
+if (Test-Path $arm64Signed) {
+    Write-Host "Signed Pure 64bit APK: $arm64Signed"
+}
 
 
 if (-not ($zipalign -and $apksigner)) {

@@ -98,6 +98,15 @@ powershell -ExecutionPolicy Bypass -File .\build_apk.ps1
 
 ## 📦 版本发布记录 (Changelog)
 
+### v2.0-beta13-diy (2026-11-01)
+- 🚀 **Target SDK 现代化升级**：Target SDK 从 27 提升至 29（Android 10），彻底消除 Android 14/15 (HyperOS) 下“此应用专为较旧版本 Android 打造”的安装警告与运行拦截；
+- 💾 **存储兼容性增强**：在清单中配置 `requestLegacyExternalStorage="true"`，保障在新旧 Android 系统上导入导出 ZIP 偏好设置零权限异常；
+- ⚡ **原生架构双版本与体积精简**：
+  - 彻底剔除无用的 PC 模拟器架构（x86 / x86_64）二进制，移除 2.6MB 冗余代码；
+  - **通用 ARM 兼容版** (`FluidNavigationGesture.apk`)：同时内置 `arm64-v8a` 与 `armeabi-v7a`，100% 兼容老旧 32 位及现代 64 位所有物理 Android 手机；
+  - **纯 64 位极速版** (`FluidNavigationGesture-arm64.apk`)：仅保留 `arm64-v8a`，专为当下主流旗舰（如 Redmi K60、小米 15 Pro、骁龙 8 Gen 3/4 等纯 64 位芯片）深度裁剪定制；
+- 💡 **第三方桌面体验深化**：完善 Nova Launcher + HyperOS 多任务假死规避方案，推荐配置双击或手势直跳“上一个应用”。
+
 ### v2.0-beta12-diy (2026-10-31)
 - ✨ **现代化关于界面**：在“关于”弹窗内增加直通 **【检查版本更新 (GitHub Releases)】** 按钮，支持系统浏览器秒级跳转；
 - ✨ **帮助底栏更新**：剔除旧版 `dontkillmyapp` 死链，更新为小米 HyperOS / MIUI 专属后台防杀保活四部曲；

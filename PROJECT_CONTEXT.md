@@ -29,14 +29,20 @@
    - 帮助指引全面现代化为小米 HyperOS / MIUI 专属防杀保活四部曲。
 10. **全套推荐手势配置预设发布**：
    - 提取并发布用户打磨极佳的手势预设（包含 84%×77% 黄金比例触发区、线性马达触感震动、ChatGPT/微信/飞书/滴答清单/SearchEVO 快捷动作），并作为资产附挂于 Release 与 `presets/`。
+11. **架构与系统兼容性全面升级 (v2.0-beta13-diy)**：
+   - **Target SDK 现代化递进**：从 27 提升至 29（Android 10），消除了 Android 14/15 (HyperOS) 上的低 Target SDK 安装警告与拦截；
+   - **存储兼容性保障**：在 `<application>` 中配置 `android:requestLegacyExternalStorage="true"`，保障新旧安卓设备上 ZIP 偏好配置备份与恢复无异常；
+   - **无用 PC 模拟器架构剔除**：彻底移除 `x86` 和 `x86_64` SO 库，削减 2.6MB 冗余代码；
+   - **双架构构建输出**：自动输出通用 ARM 兼容版（`FluidNavigationGesture.apk`，兼容 32 位和 64 位）及纯 64 位极速版（`FluidNavigationGesture-arm64.apk`，专为现代旗舰纯 64 位架构裁剪）。
 
 ---
 
 ## 3. 构建与产物
 - **本地一键构建脚本**：[`D:\AICode\工具开发\projects\Fluid-Navigation-Gesture\build_apk.ps1`](file:///D:/AICode/工具开发/projects/Fluid-Navigation-Gesture/build_apk.ps1)
 - **正式构建输出**：
-  - `D:\AICode\工具开发\projects\Fluid-Navigation-Gesture\output\FluidNavigationGesture.apk`
+  - `D:\AICode\工具开发\projects\Fluid-Navigation-Gesture\output\FluidNavigationGesture.apk` (通用 ARM 版，兼容 32/64 位手机)
+  - `D:\AICode\工具开发\projects\Fluid-Navigation-Gesture\output\FluidNavigationGesture-arm64.apk` (纯 64 位极速版，针对现代旗舰芯片)
 - **GitHub 托管与发布**：
   - 仓库：`https://github.com/zwmopen/Fluid-Navigation-Gesture`
-  - 最新发布版本：[`v2.0-beta12-diy`](https://github.com/zwmopen/Fluid-Navigation-Gesture/releases/tag/v2.0-beta12-diy)
+  - 最新发布版本：[`v2.0-beta13-diy`](https://github.com/zwmopen/Fluid-Navigation-Gesture/releases/tag/v2.0-beta13-diy)
 - **云端 CI/CD**：[`.github/workflows/build-apk.yml`](file:///D:/AICode/工具开发/projects/Fluid-Navigation-Gesture/.github/workflows/build-apk.yml)

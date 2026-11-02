@@ -1775,12 +1775,10 @@
     goto/16 :goto_10
 
     :pswitch_25
-    goto :goto_d
-
     :cond_13
+    :goto_d
     iget-object v0, v1, Lcom/fb/fluid/services/b$v0;->o:Lcom/fb/fluid/services/b;
 
-    :goto_d
     invoke-virtual {v0, v4}, Landroid/accessibilityservice/AccessibilityService;->performGlobalAction(I)Z
     :try_end_e
     .catch Ljava/lang/Exception; {:try_start_e .. :try_end_e} :catch_7

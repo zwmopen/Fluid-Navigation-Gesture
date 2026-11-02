@@ -181,6 +181,12 @@ powershell -ExecutionPolicy Bypass -File .\build_apk.ps1
 
 ## 📦 版本发布记录 (Changelog)
 
+### v2.0-beta19-diy (2026-11-02)
+- 🐛 **根除手势滑动触发后崩溃闪退并假死（VerifyError 字节码校验缺陷修复）**：
+  - **精准故障定位**：用户滑动侧边返回或桌面手势时，流体手势服务进程 `com.fb.fluid` 偶发瞬间崩溃闪退并导致手势完全失效。查明根本原因为 `com.fb.fluid.services.b$v0`（手势动作调度协程）中 `:pswitch_25` 跳转 `:goto_d` 时越过了 `iget-object v0, ...` 引用载入指令，导致 ART 虚拟机字节码校验器检测到 `v0` 寄存器在 `invoke-virtual` 时可能存在 Integer 整型类型，抛出 `java.lang.VerifyError: [0x5FB] tried to get class from non-reference register v0 (type=Integer)`，直接导致主线程 FATAL EXCEPTION 崩溃闪退；
+  - **Smali 严格类型归一化修复**：规范 `:pswitch_25`、`:cond_13` 与 `:goto_d` 的跳转标签与寄存器绑定路径，确保 `performGlobalAction` 调用前 `v0` 100% 正确加载为无障碍服务实例；
+  - **真机实测连续滑动**：在小米 15 Pro (HyperOS 2.0 / Android 15+) 上执行左侧内滑返回、右侧内滑返回、底部上滑回到桌面多轮连续实测，进程常驻稳定零报错，手势持久丝滑响应。
+
 ### v2.0-beta18-diy (2026-11-02)
 - 🚀 **彻底修复 Android 14/15/16 及小米 HyperOS 下无障碍检测死循环（手势打不开根因根除）**：
   - **精准根因定位**：老旧代码通过 `Settings.Secure.getString("enabled_accessibility_services")` 获取无障碍列表，现代安卓出于防窃听隐私保护向非系统应用直接返回 `null`。原版紧跟 `Intrinsics.checkNotNull(p1, "it")` 导致不可控抛出 `NullPointerException` 被捕获后强制判定为 `false`，应用内部陷入死循环，误判无障碍未开启并强制拦截跳权限页；

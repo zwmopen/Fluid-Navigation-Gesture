@@ -1,8 +1,8 @@
 name: Build My Fluid Navigation Gesture APK
 
+# Cloud builds are intentionally opt-in. Pushes must not consume Actions minutes.
+# All routine builds run locally via build_apk.ps1.
 on:
-  push:
-    branches: [ "**" ]
   workflow_dispatch:
 
 jobs:

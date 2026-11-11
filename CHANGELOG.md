@@ -1,4 +1,10 @@
 # CHANGELOG — FNG 长期维护
+## 2026-11-12：确定新主线完整融合范围（仅文档）
+- 明确以 **GestureEVO 主工程** 开发新版，一并融合 FNG 与 SearchEVO 的功能、设置及手机真实配置。
+- FNG 重点迁移流体水滴视觉手感、多位置短滑/长滑、快捷动作映射及其顺序；SearchEVO 重点迁移搜索引擎、默认项、排序、执行模式与缺失能力。
+- 修正 README 遗留的“FNG 继续为开发主线”表述；旧 FNG 仅保留为稳定版与来源参照。
+- 未创建新仓库、未收集手机备份、未修改 APK/功能、未构建或验证。
+
 ## 2026-11-12：调整长期技术底座（规划变更，未修改 APK）
 - 经官方源码检查，GestureEVO 已存在 `GestureService`、`GestureManager`、`FreeTriggerConfig`、`TriggerView`、`GestureFluidAppearance`、`GestureActionType`、`QuickSearchActivity` 等模块：覆盖用户最常用的边缘动作、自定义快捷启动、搜索与部分流体视觉能力。
 - 用户更看重“边缘滑动控制系统/直接打开 App”，而非 FNG 原生动效；因此新版本计划改为 **GestureEVO 作为上游原生源码底座，FNG 老项目保留稳定使用和兼容行为参照**。

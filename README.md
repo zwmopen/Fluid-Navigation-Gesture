@@ -9,7 +9,7 @@
 
 ## 🧭 长期维护与功能融合（2026-11-11 起）
 
-本仓库继续作为 **FNG 流体手势主项目**，保留已经验证的导航交互，并分阶段吸收 GestureEVO 的手势快捷动作及 SearchEVO 式搜索体验；**不先推倒重做**。目前是 Apktool/Smali 重构工程，新增 Kotlin/DEX 的同包集成尚待本地 PoC 验证，不能把设计计划算作已完成功能。
+**2026-11-12 方向更新：此仓库保留为 FNG 稳定版、旧配置与手感参考；新产品改以 GestureEVO 官方源码为主体。** 目标是完整融合 SearchEVO 和 FNG 的功能、设置项以及手机当前真实配置，不只是备份导入。请优先参阅 [最终需求](PROJECT_PLAN.md) 与 [技术决策](docs/ADR-0001-GestureEVO-mainline.md)。
 
 - [项目计划与验收标准](PROJECT_PLAN.md) · [代码架构与已核实事实](docs/ARCHITECTURE.md)
 - [GestureEVO / SearchEVO 融合路线及许可边界](docs/MIGRATION.md) · [本地 Codex 开发交接](docs/CODEX_HANDOFF.md)

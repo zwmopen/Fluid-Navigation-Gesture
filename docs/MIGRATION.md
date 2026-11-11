@@ -1,6 +1,8 @@
 # GestureEVO / SearchEVO 融合技术路线与许可审计
 > 日期：2026-11-11。只读调查和方案，不是代码已集成声明。
 
+> **2026-11-12 优先方案已变更：** 此文后续记录的是 FNG 作为主项目的旧技术路线，现列为备选/历史参照；新主方向是 GestureEVO 原生源码作为主项目、FNG 作为行为与兼容性参考，详见 [ADR-0001](ADR-0001-GestureEVO-mainline.md)。
+
 ## 项目来源
 - FNG 主仓库：https://github.com/zwmopen/Fluid-Navigation-Gesture
 - GestureEVO **可阅读源代码**：https://github.com/LumiaGG/GestureEVO （主项目 GPL-3.0-only；第三方 NOTICE 需要保留）

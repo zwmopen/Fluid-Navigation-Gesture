@@ -1,6 +1,6 @@
 # FNG 长期产品计划：流体手势 × GestureEVO × SearchEVO
 > 记录时间：2026-11-11。状态：进入开发准备阶段，**不是已集成版本**。
-> 原仓库：\`zwmopen/Fluid-Navigation-Gesture\`；主项目继续保留，不另起炉灶。
+> 原仓库：`zwmopen/Fluid-Navigation-Gesture`；主项目继续保留，不另起炉灶。
 
 ## 目标
 把已经调好的 FNG 边缘水滴交互作为默认导航入口，在不破坏返回、主页、多任务、隐藏导航栏和 HyperOS/Nova 兼容成果的前提下，增加：
@@ -11,8 +11,8 @@
 优先级：稳定 > 使用手感 > 隐私 > 性能 > 功能数量。
 
 ## 现有基线（以仓库当前状态为准）
-- 有 Apktool 重打包输入 \`app/resources/\`，含 \`smali/\`、\`res/\`、\`lib/\` 和 Manifest；有 \`build_apk.ps1\`。
-- 有反编译参考代码 \`sources/\`、\`classes.dex\`，**并非完整可直接 Kotlin 增量编译的 Gradle 工程**。
+- 有 Apktool 重打包输入 `app/resources/`，含 `smali/`、`res/`、`lib/` 和 Manifest；有 `build_apk.ps1`。
+- 有反编译参考代码 `sources/`、`classes.dex`，**并非完整可直接 Kotlin 增量编译的 Gradle 工程**。
 - README 记录最新 v2.0-beta19-diy 及早期真机验证；本轮未复测，不新增“稳定已验证”声明。
 - 默认 Manifest 不声明 INTERNET；未来 Web 搜索可以委托浏览器，不默默添加联网权限。
 - GitHub Actions 已设为手动触发，日常更新不做云构建。

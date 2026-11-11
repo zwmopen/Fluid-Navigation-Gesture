@@ -38,3 +38,13 @@
 
 - 任何后续 AI 接手前，先读本文件和 `D:\AICode\AI\memory\会话追踪\Fluid-Navigation-Gesture-并存测试与小米稳定性.md`。
 - 未完成真机安装和稳定性验证前，不要对用户承诺“可以直接长期使用”；交付时必须给出 APK 所在文件夹和具体 APK 的绝对路径。
+
+
+## 2026-11-11 仓库状态纠偏（覆盖旧结论，不删除历史）
+
+- 当前仓库 **已经存在 `app/resources/smali/` 目录**（含 com、androidx、kotlin 等），因此旧条目“只有 `classes.dex`、没有 smali”已经过时；仍以当前 Git 文件树为准。
+- 当前项目可由 `build_apk.ps1` 以 Apktool/Smali 构建。仓库的 `app/build.gradle` 是旧版辅助配置，**不能推断其已经是可直接混合编译 Kotlin 的完整 Android Studio 源码工程**。
+- `app/resources/AndroidManifest.xml` 未声明 `INTERNET`；GestureEVO 自身有 `INTERNET`、`READ_CONTACTS`、`QUERY_ALL_PACKAGES` 等需求，融合时不能不经审查把权限一并引入。
+- `.github/workflows/build-apk.yml` 已取消所有 push 自动构建，只保留 `workflow_dispatch` 手动构建；本地构建仍为主通道。
+- 主方向：保留 FNG 高优先级导航手势 → 低风险外部动作桥接 → 再验证同包 Kotlin/DEX 模块 → 最后决定深度集成。来源：`PROJECT_PLAN.md`、`docs/MIGRATION.md`。
+- 本次只完成仓库文档与 CI 治理；**尚未导入 GestureEVO 源码、尚未完成 SearchEVO 功能集成、尚未构建新 APK 或真机测试**。请后续维护者严禁把计划当成成果。

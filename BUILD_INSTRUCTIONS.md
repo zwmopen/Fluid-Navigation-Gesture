@@ -35,7 +35,7 @@ build_apk.bat
 
 ## 依赖要求
 
-- JDK 8 或更高版本
+- 推荐 JDK 17 或更高版本（与现有本地工具链对齐）
 - 网络可用时，脚本会自动下载 Apktool
 
 可选但推荐：
@@ -62,3 +62,11 @@ build_apk.bat
 - 继续梳理 `sources/com/p131fb/fluid` 里的关键类
 - 把构建过程逐步从反编译产物迁移到可维护源码
 - 再针对手势逻辑、功耗和兼容性做更深层优化
+
+
+## 2026-11-11 长期维护说明
+
+- GitHub Actions 的 `push` 自动打包已经禁用；若不主动点击 “Run workflow”，GitHub 不会因为提交代码而构建 APK。
+- 默认使用 `powershell -ExecutionPolicy Bypass -File .\\build_apk.ps1` 进行 **本地构建**，本次没有执行编译。
+- 本构建脚本仍以 `app/resources` 的 Smali 与资源目录为输入。`app/build.gradle` 不等于 Kotlin 新功能已经可以直接通过 Gradle 与 FNG 一起出包。
+- **已识别待修项**：脚本会先清理与输出同名的 APK，且在 Apktool 返回非零退出码但残留 unsigned APK 时仍可能继续签名。后续在独立开发分支先修复并本地验证，避免因构建失败误删稳定可用包；详见 `docs/TEST_REPORT.md`。

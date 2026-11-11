@@ -7,6 +7,17 @@
 
 ---
 
+## 🧭 长期维护与功能融合（2026-11-11 起）
+
+本仓库继续作为 **FNG 流体手势主项目**，保留已经验证的导航交互，并分阶段吸收 GestureEVO 的手势快捷动作及 SearchEVO 式搜索体验；**不先推倒重做**。目前是 Apktool/Smali 重构工程，新增 Kotlin/DEX 的同包集成尚待本地 PoC 验证，不能把设计计划算作已完成功能。
+
+- [项目计划与验收标准](PROJECT_PLAN.md) · [代码架构与已核实事实](docs/ARCHITECTURE.md)
+- [GestureEVO / SearchEVO 融合路线及许可边界](docs/MIGRATION.md) · [本地 Codex 开发交接](docs/CODEX_HANDOFF.md)
+- [测试状态（未验证事项明确标记）](docs/TEST_REPORT.md) · [更新日志](CHANGELOG.md)
+- **云端构建已改为仅手动触发**：日常更新只提交代码，使用本地 `build_apk.ps1` 构建 APK，不自动消耗 GitHub Actions 额度。
+
+---
+
 ## 📖 核心功能总览与产品特色
 
 **Fluid Navigation Gestures (流体手势导航)** 是一款专注于带来极致顺滑操作手感的 Android 全面屏手势增强工具。本项目基于经典 FNG 核心底座进行深度重构、代码净化与现代系统规范适配，彻底去除陈旧版本的商业组件与网络依赖，为追求纯净、流畅与高效交互的用户打造：

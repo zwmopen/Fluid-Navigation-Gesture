@@ -9,8 +9,8 @@ sdkInfo:
 packageInfo:
   forcedPackageId: 127
 versionInfo:
-  versionCode: 250
-  versionName: 2.0-beta21-v65
+  versionCode: 251
+  versionName: 2.0-beta21-v66
 doNotCompress:
 - arsc
 - mp3

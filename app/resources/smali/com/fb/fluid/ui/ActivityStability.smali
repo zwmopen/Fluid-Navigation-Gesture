@@ -381,7 +381,7 @@
 
     if-eqz v1, :cond_click_notification
 
-    invoke-static {p0}, Lcom/fb/fluid/l/p/a;->d(Landroid/app/Activity;)V
+    invoke-static {p0}, Lcom/fb/fluid/l/p/a;->e(Landroid/app/Activity;)V
 
     return-void
 

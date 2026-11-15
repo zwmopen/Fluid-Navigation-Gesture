@@ -50,25 +50,15 @@
     goto :goto_0
 
     :sswitch_0
-    sget-object v0, Lcom/fb/fluid/ui/ActivitySettings;->E:Lcom/fb/fluid/ui/ActivitySettings$b;
+    new-instance v0, Landroid/content/Intent;
 
     iget-object v1, p0, Lcom/fb/fluid/ui/ActivitySettings$c;->a:Lcom/fb/fluid/ui/ActivitySettings;
 
-    const/16 v2, 0x12
+    const-class v2, Lcom/fb/fluid/ui/ActivityStability;
 
-    const/4 v3, 0x0
+    invoke-direct {v0, v1, v2}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    const/4 p1, 0x0
-
-    new-array v4, p1, [Lkotlin/j;
-
-    const/4 v5, 0x0
-
-    const/16 v6, 0x14
-
-    const/4 v7, 0x0
-
-    invoke-static/range {v0 .. v7}, Lcom/fb/fluid/ui/ActivitySettings$b;->a(Lcom/fb/fluid/ui/ActivitySettings$b;Landroid/app/Activity;II[Lkotlin/j;Lkotlin/x/c/c;ILjava/lang/Object;)V
+    invoke-virtual {v1, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
     goto :goto_0
 
@@ -107,17 +97,6 @@
 
     goto :goto_0
 
-    :sswitch_6
-    new-instance v0, Landroid/content/Intent;
-
-    iget-object v1, p0, Lcom/fb/fluid/ui/ActivitySettings$c;->a:Lcom/fb/fluid/ui/ActivitySettings;
-
-    const-class v2, Lcom/fb/fluid/ui/ActivityStability;
-
-    invoke-direct {v0, v1, v2}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
-
-    invoke-virtual {v1, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
-
     :goto_0
     const/4 p1, 0x1
 
@@ -132,6 +111,5 @@
         0x7f0a0038 -> :sswitch_2
         0x7f0a003c -> :sswitch_1
         0x7f0a0043 -> :sswitch_0
-        0x7f0a0197 -> :sswitch_6
     .end sparse-switch
 .end method

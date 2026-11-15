@@ -18,7 +18,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="权限与后台保护"
+            android:text="权限"
             android:textAppearance="@style/AppTheme.TextAppearance.Title"
             android:textColor="?android:attr/textColorPrimary" />
 
@@ -29,7 +29,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="14dp"
             android:lineSpacingExtra="2dp"
-            android:text="检查核心权限和后台运行状态；是否开启由你决定。"
+            android:text="这里集中显示流体手势需要的权限和后台运行状态。"
             android:textColor="?android:attr/textColorSecondary"
             android:textSize="14sp" />
 

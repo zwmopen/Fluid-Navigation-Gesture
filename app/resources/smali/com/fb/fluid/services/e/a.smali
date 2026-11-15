@@ -224,6 +224,23 @@
     :catch_1
     move-exception v2
 
+    iget-object v3, p0, Lcom/fb/fluid/services/e/a;->e:Lcom/fb/fluid/ui/views/b;
+
+    invoke-virtual {v3}, Landroid/view/View;->isAttachedToWindow()Z
+
+    move-result v1
+
+    if-nez v1, :overlay_already_attached
+
+    iget v3, p0, Lcom/fb/fluid/services/e/a;->d:I
+
+    add-int/lit8 v3, v3, 0x1
+
+    iput v3, p0, Lcom/fb/fluid/services/e/a;->d:I
+
+    :overlay_already_attached
+    const/4 v1, 0x1
+
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -243,6 +260,12 @@
     move-result-object v2
 
     invoke-static {v2, v0, v1, v0}, Lcom/fb/fluid/l/p/l;->a(Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)V
+
+    iget-object v3, p0, Lcom/fb/fluid/services/e/a;->e:Lcom/fb/fluid/ui/views/b;
+
+    invoke-virtual {v3}, Landroid/view/View;->isAttachedToWindow()Z
+
+    move-result v1
 
     :goto_0
     iget-object v0, p0, Lcom/fb/fluid/services/e/a;->h:Lcom/fb/fluid/l/t/b;

@@ -4046,7 +4046,19 @@
 .end method
 
 .method protected onServiceConnected()V
-    .locals 0
+    .locals 2
+
+    invoke-virtual {p0}, Lcom/fb/fluid/services/b;->C()Lcom/fb/fluid/services/e/b;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Lcom/fb/fluid/services/b;->z()Lcom/fb/fluid/utils/preferences/h;
+
+    move-result-object v1
+
+    const/4 p0, 0x0
+
+    invoke-virtual {v0, v1, p0}, Lcom/fb/fluid/services/e/b;->a(Lcom/fb/fluid/utils/preferences/h;Z)V
 
     return-void
 .end method

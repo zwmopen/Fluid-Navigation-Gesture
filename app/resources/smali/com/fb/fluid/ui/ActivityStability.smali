@@ -264,6 +264,62 @@
     :after_notification_text
     invoke-direct {p0, v3, v4}, Lcom/fb/fluid/ui/ActivityStability;->setStatus(Ljava/lang/String;Ljava/lang/String;)V
 
+    const-string v3, "status_usage"
+
+    const-string v4, "appops"
+
+    invoke-virtual {p0, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/app/AppOpsManager;
+
+    const/16 v11, 0x2b
+
+    invoke-static {}, Landroid/os/Process;->myUid()I
+
+    move-result v12
+
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-virtual {v4, v11, v12, v13}, Landroid/app/AppOpsManager;->checkOpNoThrow(IILjava/lang/String;)I
+
+    move-result v11
+
+    if-nez v11, :cond_usage_off
+
+    const-string v4, "使用情况访问：已允许（用于识别上一个应用）"
+
+    goto :after_usage_text
+
+    :cond_usage_off
+    const-string v4, "使用情况访问：未允许（上一个应用识别会受限）"
+
+    :after_usage_text
+    invoke-direct {p0, v3, v4}, Lcom/fb/fluid/ui/ActivityStability;->setStatus(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string v3, "status_phone"
+
+    const-string v4, "android.permission.CALL_PHONE"
+
+    invoke-virtual {p0, v4}, Landroid/content/Context;->checkCallingOrSelfPermission(Ljava/lang/String;)I
+
+    move-result v12
+
+    if-nez v12, :cond_phone_off
+
+    const-string v4, "电话权限：已允许（仅用于直接拨号动作）"
+
+    goto :after_phone_text
+
+    :cond_phone_off
+    const-string v4, "电话权限：未允许（仅直接拨号动作会受影响）"
+
+    :after_phone_text
+    invoke-direct {p0, v3, v4}, Lcom/fb/fluid/ui/ActivityStability;->setStatus(Ljava/lang/String;Ljava/lang/String;)V
+
     const-string v3, "android.permission.WRITE_SECURE_SETTINGS"
 
     invoke-virtual {p0, v3}, Landroid/content/Context;->checkCallingOrSelfPermission(Ljava/lang/String;)I
@@ -392,7 +448,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_click_autostart
+    if-eqz v1, :cond_click_usage
 
     new-instance v0, Landroid/content/Intent;
 
@@ -407,6 +463,50 @@
     move-result-object v2
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
+
+    return-void
+
+    :cond_click_usage
+    const-string v1, "usage"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_click_app_details
+
+    new-instance v0, Landroid/content/Intent;
+
+    const-string v1, "android.settings.USAGE_ACCESS_SETTINGS"
+
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
+
+    return-void
+
+    :cond_click_app_details
+    const-string v1, "app_details"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_click_autostart
+
+    new-instance v0, Landroid/content/Intent;
+
+    const-string v1, "android.settings.APPLICATION_DETAILS_SETTINGS"
+
+    const-string v2, "package:com.fb.fluid"
+
+    invoke-static {v2}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v2
+
+    invoke-direct {v0, v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 

@@ -2,7 +2,8 @@ param(
     [string]$ApktoolVersion = "2.12.1",
     [string]$OutputName = "FluidNavigationGesture.apk",
     [switch]$SkipSigning,
-    [switch]$SkipDesktopCopy
+    [switch]$SkipDesktopCopy,
+    [switch]$SkipArm64
 )
 
 $ErrorActionPreference = "Stop"
@@ -303,7 +304,7 @@ $arm64Aligned = Join-Path $buildOutputDir "FluidNavigationGesture-arm64-aligned.
 $arm64Signed = Join-Path $outputDir "FluidNavigationGesture-arm64.apk"
 $arm64StagedSigned = Join-Path $buildOutputDir "FluidNavigationGesture-arm64.apk"
 
-if ((Test-Path (Join-Path $buildDecodedDir "lib\armeabi-v7a")) -and (Test-Path (Join-Path $buildDecodedDir "lib\arm64-v8a"))) {
+if (-not $SkipArm64 -and (Test-Path (Join-Path $buildDecodedDir "lib\armeabi-v7a")) -and (Test-Path (Join-Path $buildDecodedDir "lib\arm64-v8a"))) {
     Write-Step "Building Pure 64-bit APK (arm64-v8a only)"
     Remove-Item $arm64DecodedDir -Recurse -Force -ErrorAction SilentlyContinue
     Copy-Item $buildDecodedDir -Destination $arm64DecodedDir -Recurse -Force

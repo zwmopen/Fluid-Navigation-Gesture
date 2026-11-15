@@ -78,12 +78,12 @@
 
     if-eqz v2, :cond_accessibility_text_off
 
-    const-string v4, "无障碍服务：已开启"
+    const-string v4, "无障碍：已开启"
 
     goto :after_accessibility_text
 
     :cond_accessibility_text_off
-    const-string v4, "无障碍服务：未开启，需要在系统设置中打开"
+    const-string v4, "无障碍：未开启"
 
     :after_accessibility_text
     invoke-direct {p0, v3, v4}, Lcom/fb/fluid/ui/ActivityStability;->setStatus(Ljava/lang/String;Ljava/lang/String;)V
@@ -96,12 +96,12 @@
 
     if-eqz v5, :cond_service_off
 
-    const-string v4, "手势服务连接：正在运行"
+    const-string v4, "手势服务：运行中"
 
     goto :after_service_text
 
     :cond_service_off
-    const-string v4, "手势服务连接：尚未连接"
+    const-string v4, "手势服务：未连接"
 
     :after_service_text
     invoke-direct {p0, v3, v4}, Lcom/fb/fluid/ui/ActivityStability;->setStatus(Ljava/lang/String;Ljava/lang/String;)V
@@ -112,12 +112,12 @@
 
     if-eqz v5, :cond_summary_warning
 
-    const-string v4, "核心服务当前正常。若侧边手势仍无响应，请重新打开无障碍设置并关闭、开启“流体手势导航”，返回本页后再检查。"
+    const-string v4, "核心服务正常"
 
     goto :after_summary
 
     :cond_summary_warning
-    const-string v4, "核心服务未完整连接。打开无障碍设置，重新开启“流体手势导航”，再回到此页检查状态。"
+    const-string v4, "核心服务未连接，请检查无障碍"
 
     :after_summary
     invoke-direct {p0, v3, v4}, Lcom/fb/fluid/ui/ActivityStability;->setStatus(Ljava/lang/String;Ljava/lang/String;)V
@@ -146,12 +146,12 @@
     :after_navbar_check
     if-eqz v6, :cond_navbar_text_off
 
-    const-string v4, "全局隐藏导航栏：策略已应用"
+    const-string v4, "导航栏：已隐藏"
 
     goto :after_navbar_text
 
     :cond_navbar_text_off
-    const-string v4, "全局隐藏导航栏：未读到隐藏策略"
+    const-string v4, "导航栏：未隐藏"
 
     :after_navbar_text
     invoke-direct {p0, v3, v4}, Lcom/fb/fluid/ui/ActivityStability;->setStatus(Ljava/lang/String;Ljava/lang/String;)V
@@ -176,12 +176,12 @@
 
     if-eqz v7, :cond_overlay_text_off
 
-    const-string v4, "悬浮层权限：已允许（部分提示层会用到）"
+    const-string v4, "悬浮窗：已允许"
 
     goto :after_overlay_text
 
     :cond_overlay_text_off
-    const-string v4, "悬浮层权限：未允许"
+    const-string v4, "悬浮窗：未允许"
 
     :after_overlay_text
     invoke-direct {p0, v3, v4}, Lcom/fb/fluid/ui/ActivityStability;->setStatus(Ljava/lang/String;Ljava/lang/String;)V
@@ -212,17 +212,17 @@
 
     if-eqz v8, :cond_battery_restricted
 
-    const-string v4, "Android 省电优化：已加入豁免名单"
+    const-string v4, "后台省电：已豁免"
 
     goto :after_battery_text
 
     :cond_battery_restricted
-    const-string v4, "Android 省电优化：仍受限制"
+    const-string v4, "后台省电：受限制"
 
     goto :after_battery_text
 
     :cond_battery_old
-    const-string v4, "Android 省电优化：本系统无需此项"
+    const-string v4, "后台省电：无需设置"
 
     :after_battery_text
     invoke-direct {p0, v3, v4}, Lcom/fb/fluid/ui/ActivityStability;->setStatus(Ljava/lang/String;Ljava/lang/String;)V
@@ -259,7 +259,7 @@
     goto :after_notification_text
 
     :cond_notification_old
-    const-string v4, "通知：系统未提供状态读取"
+    const-string v4, "通知：系统未提供状态"
 
     :after_notification_text
     invoke-direct {p0, v3, v4}, Lcom/fb/fluid/ui/ActivityStability;->setStatus(Ljava/lang/String;Ljava/lang/String;)V
@@ -290,12 +290,12 @@
 
     if-nez v11, :cond_usage_off
 
-    const-string v4, "使用情况访问：已允许（用于识别上一个应用）"
+    const-string v4, "使用情况：已允许"
 
     goto :after_usage_text
 
     :cond_usage_off
-    const-string v4, "使用情况访问：未允许（上一个应用识别会受限）"
+    const-string v4, "使用情况：未允许"
 
     :after_usage_text
     invoke-direct {p0, v3, v4}, Lcom/fb/fluid/ui/ActivityStability;->setStatus(Ljava/lang/String;Ljava/lang/String;)V
@@ -310,12 +310,12 @@
 
     if-nez v12, :cond_phone_off
 
-    const-string v4, "电话权限：已允许（仅用于直接拨号动作）"
+    const-string v4, "电话：已允许"
 
     goto :after_phone_text
 
     :cond_phone_off
-    const-string v4, "电话权限：未允许（仅直接拨号动作会受影响）"
+    const-string v4, "电话：未允许"
 
     :after_phone_text
     invoke-direct {p0, v3, v4}, Lcom/fb/fluid/ui/ActivityStability;->setStatus(Ljava/lang/String;Ljava/lang/String;)V
@@ -330,12 +330,12 @@
 
     if-nez v10, :cond_adb_off
 
-    const-string v4, "ADB 系统设置授权：已授予，可控制沉浸式导航"
+    const-string v4, "系统设置授权：已授予"
 
     goto :after_adb_text
 
     :cond_adb_off
-    const-string v4, "ADB 系统设置授权：未授予，导航栏控制会受限"
+    const-string v4, "系统设置授权：未授予"
 
     :after_adb_text
     invoke-direct {p0, v3, v4}, Lcom/fb/fluid/ui/ActivityStability;->setStatus(Ljava/lang/String;Ljava/lang/String;)V

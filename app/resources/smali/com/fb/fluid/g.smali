@@ -140,6 +140,8 @@
 
 .field public static final action_permissions:I = 0x7f0a0043
 
+.field public static final action_stability:I = 0x7f0a0197
+
 .field public static final action_text:I = 0x7f0a0044
 
 .field public static final actions:I = 0x7f0a0045

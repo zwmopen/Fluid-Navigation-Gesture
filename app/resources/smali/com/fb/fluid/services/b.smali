@@ -4048,11 +4048,11 @@
 .method protected onServiceConnected()V
     .locals 2
 
-    invoke-virtual {p0}, Lcom/fb/fluid/services/b;->C()Lcom/fb/fluid/services/e/b;
+    invoke-direct {p0}, Lcom/fb/fluid/services/b;->C()Lcom/fb/fluid/services/e/b;
 
     move-result-object v0
 
-    invoke-virtual {p0}, Lcom/fb/fluid/services/b;->z()Lcom/fb/fluid/utils/preferences/h;
+    invoke-direct {p0}, Lcom/fb/fluid/services/b;->z()Lcom/fb/fluid/utils/preferences/h;
 
     move-result-object v1
 

@@ -46,6 +46,7 @@
                 <action android:name="android.service.quicksettings.action.QS_TILE_PREFERENCES"/>
             </intent-filter>
         </activity>
+        <activity android:hardwareAccelerated="true" android:name="com.fb.fluid.ui.ActivityStability" />
         <receiver android:name="com.fb.fluid.BootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>

@@ -33,13 +33,13 @@
             android:textColor="?android:attr/textColorSecondary"
             android:textSize="14sp" />
 
-        <com.google.android.material.card.MaterialCardView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="1dp"
-            app:cardUseCompatPadding="true">
+            android:background="@drawable/stability_card_background"
+            android:elevation="1dp"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -67,15 +67,15 @@
                     android:tag="accessibility"
                     android:text="打开无障碍设置" />
             </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
 
-        <com.google.android.material.card.MaterialCardView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="1dp"
-            app:cardUseCompatPadding="true">
+            android:background="@drawable/stability_card_background"
+            android:elevation="1dp"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -121,15 +121,15 @@
                     android:tag="notification"
                     android:text="通知设置" />
             </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
 
-        <com.google.android.material.card.MaterialCardView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="1dp"
-            app:cardUseCompatPadding="true">
+            android:background="@drawable/stability_card_background"
+            android:elevation="1dp"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -166,7 +166,7 @@
                     android:tag="lock"
                     android:text="查看后台加锁步骤" />
             </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"

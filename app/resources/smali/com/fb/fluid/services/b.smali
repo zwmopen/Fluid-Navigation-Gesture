@@ -3187,7 +3187,35 @@
 .end method
 
 .method public onAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
-    .locals 1
+    .locals 2
+
+    if-eqz p1, :cond_skip_window_reconcile
+
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getEventType()I
+
+    move-result v0
+
+    const/16 v1, 0x20
+
+    if-ne v0, v1, :cond_skip_window_reconcile
+
+    invoke-static {p0}, Lcom/fb/fluid/l/p/f;->a(Landroid/app/Service;)Lcom/fb/fluid/App;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/fb/fluid/App;->g()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_skip_window_reconcile
+
+    invoke-direct {p0}, Lcom/fb/fluid/services/b;->C()Lcom/fb/fluid/services/e/b;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/fb/fluid/services/e/a;->c()V
+
+    :cond_skip_window_reconcile
 
     invoke-direct {p0}, Lcom/fb/fluid/services/b;->J()Lcom/fb/fluid/l/t/b;
 
@@ -4046,7 +4074,7 @@
 .end method
 
 .method protected onServiceConnected()V
-    .locals 2
+    .locals 3
 
     invoke-direct {p0}, Lcom/fb/fluid/services/b;->C()Lcom/fb/fluid/services/e/b;
 
@@ -4056,9 +4084,27 @@
 
     move-result-object v1
 
-    const/4 p0, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {v0, v1, p0}, Lcom/fb/fluid/services/e/b;->a(Lcom/fb/fluid/utils/preferences/h;Z)V
+    invoke-virtual {v0, v1, v2}, Lcom/fb/fluid/services/e/b;->a(Lcom/fb/fluid/utils/preferences/h;Z)V
+
+    invoke-static {p0}, Lcom/fb/fluid/l/p/f;->a(Landroid/app/Service;)Lcom/fb/fluid/App;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/fb/fluid/App;->g()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_service_connected_done
+
+    invoke-direct {p0}, Lcom/fb/fluid/services/b;->C()Lcom/fb/fluid/services/e/b;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/fb/fluid/services/e/a;->c()V
+
+    :cond_service_connected_done
 
     return-void
 .end method

@@ -11,3 +11,6 @@ tools/
 .gradle/
 *.log
 *.tmp
+scratch/
+__pycache__/
+

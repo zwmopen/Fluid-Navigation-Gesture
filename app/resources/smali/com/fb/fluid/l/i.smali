@@ -495,11 +495,23 @@
 
     invoke-static {v2, v1}, Lkotlin/x/d/k;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
+    :try_start_1
     invoke-interface {v0, v2}, Lkotlin/x/c/b;->a(Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+
+    invoke-virtual {v2}, Landroid/view/MotionEvent;->recycle()V
 
     invoke-direct {p0}, Lcom/fb/fluid/l/i;->e()V
 
     goto :goto_1
+
+    :catchall_1
+    move-exception v0
+
+    invoke-virtual {v2}, Landroid/view/MotionEvent;->recycle()V
+
+    throw v0
 
     :cond_2
     iget-object v0, p0, Lcom/fb/fluid/l/i;->g:Lkotlin/x/c/b;
@@ -510,7 +522,21 @@
 
     invoke-static {v2, v1}, Lkotlin/x/d/k;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
+    :try_start_2
     invoke-interface {v0, v2}, Lkotlin/x/c/b;->a(Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+
+    invoke-virtual {v2}, Landroid/view/MotionEvent;->recycle()V
+
+    goto :goto_1
+
+    :catchall_2
+    move-exception v0
+
+    invoke-virtual {v2}, Landroid/view/MotionEvent;->recycle()V
+
+    throw v0
 
     :goto_1
     :try_start_0

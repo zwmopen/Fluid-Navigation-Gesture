@@ -1847,6 +1847,8 @@
 .method public final j()V
     .locals 7
 
+    invoke-virtual {p0}, Lcom/fb/fluid/services/d/b;->k()V
+
     iget-object v0, p0, Lcom/fb/fluid/services/d/b;->d:Lcom/fb/fluid/l/t/b;
 
     invoke-virtual {v0}, Lcom/fb/fluid/l/t/b;->a()Ld/a/w/a;

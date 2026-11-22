@@ -214,9 +214,13 @@
 
 # virtual methods
 .method public final a()Lkotlin/Unit;
-    .locals 1
+    .locals 2
 
     iget-object v0, p0, Lcom/fb/fluid/services/d/a;->d:Ld/a/o/b;
+
+    const/4 v1, 0x0
+
+    iput-object v1, p0, Lcom/fb/fluid/services/d/a;->d:Ld/a/o/b;
 
     if-eqz v0, :cond_0
 
@@ -259,6 +263,8 @@
 
 .method public final c()V
     .locals 4
+
+    invoke-virtual {p0}, Lcom/fb/fluid/services/d/a;->a()Lkotlin/Unit;
 
     iget-boolean v0, p0, Lcom/fb/fluid/services/d/a;->a:Z
 

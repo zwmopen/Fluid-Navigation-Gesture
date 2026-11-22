@@ -144,6 +144,23 @@
     const/4 v6, 0x0
 
     :after_navbar_check
+    if-nez v6, :cond_navbar_ready
+
+    const-string v4, "force_fsg_nav_bar"
+
+    const/4 v6, 0x0
+
+    invoke-static {v0, v4, v6}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v4
+
+    const/4 v6, 0x1
+
+    if-eq v4, v6, :cond_navbar_ready
+
+    const/4 v6, 0x0
+
+    :cond_navbar_ready
     if-eqz v6, :cond_navbar_text_off
 
     const-string v4, "导航栏：已隐藏"

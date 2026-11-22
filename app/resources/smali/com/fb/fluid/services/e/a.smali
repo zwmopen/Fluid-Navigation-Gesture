@@ -6,11 +6,13 @@
 # instance fields
 .field private a:Landroid/view/WindowManager$LayoutParams;
 
-.field private final b:Landroid/view/WindowManager;
+.field private b:Landroid/view/WindowManager;
 
 .field private c:Landroid/os/Handler;
 
 .field private d:I
+
+.field private fngDesiredAttached:Z
 
 .field private final e:Lcom/fb/fluid/ui/views/b;
 
@@ -159,8 +161,33 @@
     return-void
 .end method
 
+.method private final fngRefreshWindowManager()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/fb/fluid/services/e/a;->j:Landroid/content/Context;
+
+    const-string v1, "window"
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    instance-of v1, v0, Landroid/view/WindowManager;
+
+    if-eqz v1, :cond_done
+
+    check-cast v0, Landroid/view/WindowManager;
+
+    iput-object v0, p0, Lcom/fb/fluid/services/e/a;->b:Landroid/view/WindowManager;
+
+    :cond_done
+    return-void
+.end method
+
 .method private final o()V
     .locals 5
+
+    invoke-direct {p0}, Lcom/fb/fluid/services/e/a;->fngRefreshWindowManager()V
 
     const/4 v0, 0x0
 
@@ -448,12 +475,97 @@
 .method public l()V
     .locals 1
 
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/fb/fluid/services/e/a;->fngDesiredAttached:Z
+
+    iget-object v0, p0, Lcom/fb/fluid/services/e/a;->c:Landroid/os/Handler;
+
+    invoke-static {v0}, Lcom/fb/fluid/l/p/i;->a(Landroid/os/Handler;)V
+
     invoke-virtual {p0}, Lcom/fb/fluid/services/e/a;->m()V
 
     iget-object v0, p0, Lcom/fb/fluid/services/e/a;->f:Ld/a/o/a;
 
     invoke-virtual {v0}, Ld/a/o/a;->c()V
 
+    return-void
+.end method
+
+.method public final fngSetDesiredAttached(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/fb/fluid/services/e/a;->fngDesiredAttached:Z
+
+    return-void
+.end method
+
+.method public final fngForceReattach()V
+    .locals 2
+
+    iget-boolean v0, p0, Lcom/fb/fluid/services/e/a;->fngDesiredAttached:Z
+
+    if-nez v0, :cond_should_attach
+
+    return-void
+
+    :cond_should_attach
+    iget-object v0, p0, Lcom/fb/fluid/services/e/a;->c:Landroid/os/Handler;
+
+    invoke-static {v0}, Lcom/fb/fluid/l/p/i;->a(Landroid/os/Handler;)V
+
+    const/4 v0, 0x0
+
+    iput v0, p0, Lcom/fb/fluid/services/e/a;->d:I
+
+    :try_start_0
+    iget-object v0, p0, Lcom/fb/fluid/services/e/a;->b:Landroid/view/WindowManager;
+
+    iget-object v1, p0, Lcom/fb/fluid/services/e/a;->e:Lcom/fb/fluid/ui/views/b;
+
+    invoke-interface {v0, v1}, Landroid/view/WindowManager;->removeViewImmediate(Landroid/view/View;)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :catch_0
+    iget-object v0, p0, Lcom/fb/fluid/services/e/a;->h:Lcom/fb/fluid/l/t/b;
+
+    const/4 v1, 0x0
+
+    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/fb/fluid/l/t/b;->a(Ljava/lang/Object;)V
+
+    invoke-direct {p0}, Lcom/fb/fluid/services/e/a;->fngRefreshWindowManager()V
+
+    invoke-direct {p0}, Lcom/fb/fluid/services/e/a;->o()V
+
+    return-void
+.end method
+
+.method public final fngEnsureAttached()V
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/fb/fluid/services/e/a;->fngDesiredAttached:Z
+
+    if-nez v0, :cond_check
+
+    return-void
+
+    :cond_check
+    iget-object v0, p0, Lcom/fb/fluid/services/e/a;->e:Lcom/fb/fluid/ui/views/b;
+
+    invoke-virtual {v0}, Landroid/view/View;->isAttachedToWindow()Z
+
+    move-result v0
+
+    if-nez v0, :cond_done
+
+    invoke-virtual {p0}, Lcom/fb/fluid/services/e/a;->fngForceReattach()V
+
+    :cond_done
     return-void
 .end method
 
@@ -466,7 +578,10 @@
     iget-object v1, p0, Lcom/fb/fluid/services/e/a;->e:Lcom/fb/fluid/ui/views/b;
 
     invoke-interface {v0, v1}, Landroid/view/WindowManager;->removeView(Landroid/view/View;)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    :catch_0
     iget-object v0, p0, Lcom/fb/fluid/services/e/a;->h:Lcom/fb/fluid/l/t/b;
 
     const/4 v1, 0x0
@@ -476,10 +591,7 @@
     move-result-object v1
 
     invoke-virtual {v0, v1}, Lcom/fb/fluid/l/t/b;->a(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    :catch_0
     return-void
 .end method
 
@@ -505,8 +617,25 @@
 
     move-result v0
 
+    if-eqz v0, :cond_check_desired
+
+    iget-object v0, p0, Lcom/fb/fluid/services/e/a;->e:Lcom/fb/fluid/ui/views/b;
+
+    invoke-virtual {v0}, Landroid/view/View;->isAttachedToWindow()Z
+
+    move-result v0
+
+    if-nez v0, :cond_do_update
+
+    iget-boolean v0, p0, Lcom/fb/fluid/services/e/a;->fngDesiredAttached:Z
+
     if-eqz v0, :cond_0
 
+    invoke-virtual {p0}, Lcom/fb/fluid/services/e/a;->fngForceReattach()V
+
+    goto :goto_0
+
+    :cond_do_update
     iget-object v0, p0, Lcom/fb/fluid/services/e/a;->b:Landroid/view/WindowManager;
 
     iget-object v1, p0, Lcom/fb/fluid/services/e/a;->e:Lcom/fb/fluid/ui/views/b;
@@ -514,6 +643,15 @@
     iget-object v2, p0, Lcom/fb/fluid/services/e/a;->a:Landroid/view/WindowManager$LayoutParams;
 
     invoke-interface {v0, v1, v2}, Landroid/view/WindowManager;->updateViewLayout(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+
+    goto :goto_0
+
+    :cond_check_desired
+    iget-boolean v0, p0, Lcom/fb/fluid/services/e/a;->fngDesiredAttached:Z
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/fb/fluid/services/e/a;->fngEnsureAttached()V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -545,6 +683,12 @@
     const/4 v2, 0x0
 
     invoke-static {v0, v2, v1, v2}, Lcom/fb/fluid/l/p/l;->a(Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)V
+
+    iget-boolean v0, p0, Lcom/fb/fluid/services/e/a;->fngDesiredAttached:Z
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/fb/fluid/services/e/a;->fngForceReattach()V
 
     :cond_0
     :goto_0

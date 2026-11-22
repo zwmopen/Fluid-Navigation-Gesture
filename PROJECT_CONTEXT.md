@@ -4,7 +4,7 @@
 - **项目目标**：单机离线、0 联网物理断网、手感高度 DIY、完全兼容现代 Android 14/15 (HyperOS 2.0/3.0 / AOSP 15) 的流体手势导航增强工具。
 - **真源基线**：基于官方原版权威无损资源与字节码（Fluid Navigation Gestures 2.0-beta11 逆向工程深度重构），彻底剔除网络广告与残次魔改源。
 - **已验证目标设备**：
-  - Xiaomi 15 Pro (`dada` / Android 15 / HyperOS 2.0，设备 ID `b78fc473`，已部署生效并无损导入手势预设)
+  - Xiaomi 15 Pro (`dada` / Android 16 / HyperOS 3.0 `OS3.0.307.0.WOCCNXM`，设备 ID `b78fc473`，已部署 `v2.0-beta21-v76-actions` 生效并无损保留手势预设)
   - Redmi K60 (`mondrian` / Android 15 / HyperOS 3.0，设备 ID `e3b58850`，已部署验证通过)
 
 ---
@@ -65,15 +65,30 @@
       1. 原版 FNG 在 `b$v0.smali` 的 Home 手势处理（Action 1 / `:pswitch_25`）中，针对小米和 EMUI 机型通过 `startActivity(Intent(ACTION_MAIN, CATEGORY_HOME))` 启动桌面并广播 `CLOSE_SYSTEM_DIALOGS`，在 Android 15 / HyperOS 上导致 Nova Launcher 判定启动器调用异常，触发【默认启动器重置】误报弹窗；
       2. 将 `:pswitch_25` 统一路由至官方标准的无障碍全局动作 `performGlobalAction(GLOBAL_ACTION_HOME = 2)`，彻底拔除外部 Intent 调度与系统广播干扰；
       3. 实机验证：从各大应用（番茄小说、微信等）手势返回 Nova 桌面 100% 顺畅丝滑，彻底告别误报弹窗。
+18. **澎湃系统 (HyperOS 3.0) 墓碑冻结 (`GreezeManager` / `LM FZ`) 免疫保活、无障碍重绑恢复与全局稳定性性能优化 (v2.0-beta21-v76-actions)**：
+    - **为什么给了“自启动”+“省电策略无限制”仍会被澎湃墓碑冻结**：
+      - 澎湃系统的常规后台冻结器 `PolicyMaker` 确实识别 `NO_RESTRICT_APP`（省电无限制），但 HyperOS 3.0 还有第二套更激进的瞬态冻结引擎 **`AurogonImmobulusMode` (`LM FZ`, Launch Mode Freeze)**；
+      - 当应用悬浮窗数量短暂归零（如锁屏、全屏游戏/黑名单应用隐藏手势窗、或系统 `UiTestAutomationService` 触发无障碍短暂解绑重绑）时，只要该进程没有活跃的前台服务（`startForegroundCount == 0`），`LM FZ` 就会强行将其打入墓碑冻结；且澎湃 3.0 的 `LM timeout THAW`（3秒超时解冻）对无前台服务的无障碍进程存在漏解冻 Bug，导致其永久卡死在墓碑中，`SCREEN_ON` 与 `USER_PRESENT` 广播被 `BroadcastQueue: Greezer Denial` 拦截，边缘手势彻底失灵；
+      - **根治方案**：在 `AndroidManifest.xml` 声明 `FOREGROUND_SERVICE` 权限，在 `MainAccessibilityService` (`services/b.smali`) 连接时启动 `IMPORTANCE_MIN` 级静默前台保活服务（渠道 `fng_keep_alive`，无状态栏图标、无弹窗打扰），使澎湃 `SmartPower` 标记 `HasForegroundService (reason=fgservice)` 并将其 UID 列入系统核心白名单 `mCore uids`（`showCoreUids`），彻底免疫 `LM FZ` 墓碑冻结（`frozenTime: 0, count: 0`）。
+    - **无障碍解绑/重绑边缘触发窗僵尸化自愈 (`v75`~`v76`)**：
+      - 修复 `onStartCommand` 常驻 `startRequested=true` 导致系统 `unbindService` 时服务不销毁、旧 `WindowManager` Token 失效产生 4 个僵尸 `ViewRootImpl` 的顽疾；
+      - 新增 `onUnbind()` 主动卸载悬浮窗并 `stopSelf()`；重写 `onServiceConnected()`、`onAccessibilityEvent` 与 `e/a.smali` 的 `n()` (`updateViewLayout`)，基于真实主开关 `!F()` 自动检测脱离状态并调用 `fngForceReattach()` 重刷 `WindowManager` 挂载。
+    - **全链路 Bug 清零与丝滑性能加固 (`v76`)**：
+      - **修复小米解锁/配置刷新把隐藏导航栏重置回三键 (`b$x.smali`)**：修复 `:cond_9` 分支在小米机型开启隐藏导航栏时误传 `false` 导致 `force_fsg_nav_bar` 被写回 `0` 的 Bug，锁定传入 `true`；同时在 `ActivityStability` 权限页补齐小米 `force_fsg_nav_bar == 1` 状态识别；
+      - **彻底拔除 Google Play Billing 死连接与广播泄漏 (`BillingHelperImpl.smali`)**：移除 `BillingClient` 初始化、跨进程 `InAppBillingService` 死绑与 `PURCHASES_UPDATED` 广播接收器，实现 100% 纯净零外连；
+      - **修复 AOD/多虚拟屏下 `isScreenOn` 误判 (`b.smali#o()`)**：改为仅检查主屏幕 `getDisplay(0).getState() == Display.STATE_ON (2)`，防止副屏/投屏虚拟 Display 非 ON 导致手势在亮屏下误暂停；
+      - **消除触摸帧 `MotionEvent` 原生内存泄漏 (`l/i.smali`)**：在 `ACTION_DOWN`、`ACTION_UP`、`ACTION_CANCEL` 的 `MotionEvent.obtain()` 路径补齐 `try/finally` `recycle()`；
+      - **旋转防抖提速与高频对象复用 (`e$k.smali`, `b.smali`)**：屏幕旋转窗口布局恢复延迟从 700ms 降至 300ms 并复用单一 `Handler`/`Runnable` 防抖；复用 `fngOnDrawCb` 与 `fngOnDismissCb` 回调实例，消除每次手势滑动的重复分配。
 
 ---
 
 ## 3. 构建与产物
 - **本地一键构建脚本**：[`D:\AICode\工具开发\projects\Fluid-Navigation-Gesture\build_apk.ps1`](file:///D:/AICode/工具开发/projects/Fluid-Navigation-Gesture/build_apk.ps1)
 - **正式构建输出**：
-  - `D:\AICode\工具开发\projects\Fluid-Navigation-Gesture\output\FluidNavigationGesture.apk` (通用 ARM 版)
-  - `D:\AICode\工具开发\projects\Fluid-Navigation-Gesture\output\FluidNavigationGesture-arm64.apk` (纯 64 位极速版)
+  - `D:\AICode\工具开发\projects\Fluid-Navigation-Gesture\output\FluidNavigationGesture.apk` / `FluidNavigationGesture-v76.apk` (通用 ARM 基线版，当前同步为 `v2.0-beta21-v76` code 264，SHA-256 `AD58A3A0140DE4AB9B77B327557FF2BA6310ED6B0936140EBE292FA56059C4E7`)
+  - `D:\AICode\工具开发\projects\Fluid-Navigation-Gesture\output\FluidNavigationGesture-v76-actions.apk` (含扩展动作最新实机验收发布版，`v2.0-beta21-v76-actions` code 265，SHA-256 `C8A8355CB72B64D963CA8B47948C24F8CBAF0FE22B9DCB66559A098BD9C2D11A`，已部署验证于 Xiaomi 15 Pro HyperOS 3.0 / Android 16)
+  - `D:\AICode\工具开发\projects\Fluid-Navigation-Gesture\output\FluidNavigationGesture-arm64.apk` (历史纯 64 位版)
 - **GitHub 托管与发布**：
   - 仓库：`https://github.com/zwmopen/Fluid-Navigation-Gesture`
-  - 最新发布版本：[`v2.0-beta17-diy`](https://github.com/zwmopen/Fluid-Navigation-Gesture/releases/tag/v2.0-beta17-diy)
+  - 最新正式 Release：`v2.0-beta21-v76-actions`
 - **云端 CI/CD**：[`.github/workflows/build-apk.yml`](file:///D:/AICode/工具开发/projects/Fluid-Navigation-Gesture/.github/workflows/build-apk.yml)

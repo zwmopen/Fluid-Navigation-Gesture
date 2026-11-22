@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public final a(Ljava/lang/Boolean;)V
-    .locals 0
+    .locals 2
 
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
@@ -55,16 +55,24 @@
 
     if-nez p1, :cond_0
 
-    iget-object p1, p0, Lcom/fb/fluid/services/e/a$b;->a:Lcom/fb/fluid/services/e/a;
+    iget-object v0, p0, Lcom/fb/fluid/services/e/a$b;->a:Lcom/fb/fluid/services/e/a;
 
-    invoke-virtual {p1}, Lcom/fb/fluid/services/e/a;->c()V
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/fb/fluid/services/e/a;->fngSetDesiredAttached(Z)V
+
+    invoke-virtual {v0}, Lcom/fb/fluid/services/e/a;->c()V
 
     goto :goto_0
 
     :cond_0
-    iget-object p1, p0, Lcom/fb/fluid/services/e/a$b;->a:Lcom/fb/fluid/services/e/a;
+    iget-object v0, p0, Lcom/fb/fluid/services/e/a$b;->a:Lcom/fb/fluid/services/e/a;
 
-    invoke-virtual {p1}, Lcom/fb/fluid/services/e/a;->m()V
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/fb/fluid/services/e/a;->fngSetDesiredAttached(Z)V
+
+    invoke-virtual {v0}, Lcom/fb/fluid/services/e/a;->m()V
 
     :goto_0
     return-void

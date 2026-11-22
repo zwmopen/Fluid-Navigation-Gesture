@@ -229,3 +229,40 @@
 - 测试期间旋转开关已恢复为 `accelerometer_rotation=1`、`user_rotation=0`，系统动态覆盖项仍为启用，悬浮窗授权未改。K60 随后进入省电状态并掉线；掉线前右侧向上绑定被误选成「安居客」，原来的「记录闪念」尚未写回，故本批不能宣称设置恢复完成。需要 K60 重新解锁并保持无线调试在线后，先把该槽恢复，再做 `assetsPaths` 页面重建测试和最终红白复测。
 - 可回退产物已保留：`output/FluidNavigationGesture-v72-recovery-260.apk`（SHA-256 `BA2657906E7D7DC1200D757F25B2284BB366313ACD634AF66AACE0DE4D70F3BA`）和 `output/FluidNavigationGesture-v74-recovery-261.apk`（SHA-256 `025A60BD11C952710505EC359F13A35BFC8BC8508B911266DAA5BD7DD66F7908`）。两者均为同证书、保数据覆盖用包；低版本 v72 回退包的 versionCode 已抬高，后续重新安装 v74 时应使用更高的 v74 recovery code 261。
 - 结论：v74 的构建身份、安装保护、普通动作保存回读和服务稳定性证据通过；K60 的原始向上绑定恢复、动态页面重建和最终真实滑动红白仍待设备重新在线后完成。未调用 GitHub Actions。
+
+### 2026-11-22 Xiaomi 15 Pro (HyperOS 3.0 / Android 16) v75 边缘触发窗失活根因定位与实机修复验收
+
+- **故障现场铁证（`b78fc473` / `24129PN74C` / `OS3.0.307.0.WOCCNXM` / `v74-actions`）**：
+  - `com.fb.fluid` 进程（PID `16351`）存活、无障碍服务显示 Bound 且无崩溃，但 `dumpsys window windows` 与 `dumpsys input` 中 Fluid 边缘 `TYPE_ACCESSIBILITY_OVERLAY` 窗口数为 `0`；而 `dumpsys gfxinfo` 显示进程内仍残留 4 个僵尸 `ViewRootImpl`（左 `21x2310`、右 `23x2216`、底 `887x24`、探测窗 `3x3`）。
+  - 根因 1：`MainAccessibilityService` 因 `startService()` 长期处于 `startRequested=true`（`createTime=-1d6h28m`）；在 `15:43:24.295` 系统触发无障碍统一 `unbindService`（`UiTestAutomationService flags=0x0`）并在 1 秒后重绑时，同机纯绑定型无障碍服务（`GKD`、`FV悬浮球`、`SearchEVO`）均触发 `onDestroy`→`onCreate` 自动重建悬浮窗，而 `com.fb.fluid` 未销毁也未重写 `onUnbind`，导致服务端吊销旧 Token 删除全部 4 个边缘窗口后，客户端 4 个 `ViewRootImpl` 永久僵尸化。
+  - 根因 2：此前 `v63`/`v70`/`v71`/`v72`/`v74` 的恢复补丁存在三重失效：① `b.smali` 与 `b$u.smali` 用 `App.g()` 当“开关启用判断”，实际 `App.g()` 是已硬编码返回 `false` 的试用期过期检查，整个恢复分支为死代码；② 补丁调用的 `C().c()` 目标是全屏水滴动画画布 `services/e/b`，而非左/右/底边缘触发条 `this.x`（`List<services/e/e>`）和探测窗 `E()`（`services/e/d`）；③ `e/a.c()` 依赖 `isAttachedToWindow()`，僵尸 `ViewRootImpl` 下仍返回 `true` 不会重新挂载。
+  - 根因 3（澎湃墓碑叠加）：`dumpsys greezer` 显示 `com.fb.fluid` 当天被 `LM FZ` 冻结 4 次（累计 2612 秒，仅靠手动打开 App `Activity Start` 解冻），冻结期间 `BroadcastQueue: Greezer Denial` 拦截 `SCREEN_ON`/`USER_PRESENT`；`PolicyMaker` 日志显示同机 `SearchEVO`、`FV悬浮球`、`Bitwarden` 均为 `reason=NO_RESTRICT_APP`（小米省电策略“无限制”，冻结 0 次），而 `com.fb.fluid` 仅有 AOSP `deviceidle` 白名单、尚未在小米省电策略中设为 `NO_RESTRICT_APP`。
+- **代码修复（`v75` base code 262 / `v75-actions` code 263）**：
+  - `app/resources/smali/com/fb/fluid/services/e/a.smali` & `a$b.smali`：记录 `fngDesiredAttached`，移除 `WindowManager` 字段 `final` 并在 `o()`/`fngForceReattach()` 前刷新 `getSystemService("window")`；`m()` 无条件重置 `isInWindowManager=false`；新增 `fngForceReattach()`（先 `removeViewImmediate` 清僵尸、刷新 `WindowManager` 再 `o()`）与 `fngEnsureAttached()`。
+  - `app/resources/smali/com/fb/fluid/services/b.smali`：`onStartCommand` 处理完 extra 后调用 `stopSelf(startId)` 并返回 `START_NOT_STICKY (2)`，消除常驻 `startRequested=true`；新增 `onUnbind()` 主动卸载全部悬浮窗并 `stopSelf()`；重写 `onServiceConnected()` 与 `onAccessibilityEvent(TYPE_WINDOW_STATE_CHANGED)`，移除 `App.g()` 死代码和错误的 `C().c()`，改为基于真实主开关 `!F()`（`!isAppDisabled`）对 `E()` 与 `this.x` 执行恢复。
+  - `app/resources/smali/com/fb/fluid/services/b$u.smali`：回退 `77bba73` 对水滴动画层 `e/b` 误加的 `:cond_rebind` `a.c()` 调用。
+- **产物与 Xiaomi 15 Pro 实机验收（全部通过）**：
+  - 构建产物：`output/FluidNavigationGesture-v75.apk`（SHA-256 `2AB711644E364BAEE6D0691528EACA574E6B60063626F76E3D8CAE7E2262A3E6`）、`output/FluidNavigationGesture-v75-actions.apk`（code `263`，SHA-256 `564DE93EFAFBCD2D42FCF37D4FC5EA2C180B9FED439FAEF85027323E427F48A2`，同证书 `7f346f73df16b1fb78bc3f7e9ba9d70a4d01bc40465767650123153736b8501a`）。
+  - 保数据覆盖安装至 Xiaomi 15 Pro（`b78fc473`），回读设备安装包哈希一致，原 5 项无障碍服务与 ChatGPT 默认助手均保留，`Crashed services:{}`，无 `VerifyError` / `AndroidRuntime` 异常。
+  - 连续 3 轮 `uiautomator dump` 模拟 `UiTestAutomationService` 无障碍强制解绑/重绑（含打开 `ActivitySettings` 触发内部 `startService` 后再测）：`service_start_requested=false`，每轮均自动销毁重建服务并在 2 秒内恢复全部 4 个 `CREATE_ACCESSIBILITY_OVERLAY` 窗口，`gfxinfo` 零僵尸 `ViewRootImpl` 泄漏；`force_fsg_nav_bar=1` 正常生效。
+  - 真实侧边滑动红测通过：左侧边缘内滑（`5→320`）与重绑后右侧边缘内滑（`1195→880`）均成功关闭前台 `ActivitySettings` 并回读 `FluidActions: Gesture back accepted=true`（`16:28:00.777`、`16:28:43.876`）。安装前后快照保存于 `scratch/v75-xiaomi15/pre-install-v75.json` 与 `post-install-v75.json`。
+  - 仅剩一项系统侧手动建议项（不阻塞当前可用）：在手机「设置 → 应用设置 → 应用管理 → 流体手势导航 → 省电策略」中确认切到「无限制」（使澎湃 `PolicyMaker` 标记为 `NO_RESTRICT_APP`），避免锁屏期间被 `GreezeManager` `LM FZ` 冻结拦截解锁广播。
+
+### 2026-11-22 Xiaomi 15 Pro (HyperOS 3.0 / Android 16) v76 澎湃墓碑 LM FZ 根治、后台保活与全量 Bug 清零验收
+
+- **为什么已授权“自启动 + 省电无限制”仍被澎湃墓碑冻结（根因取证）**：
+  - 澎湃 OS 3.0 除了常规 `PolicyMaker`（检查 `NO_RESTRICT_APP`）外，还运行了 **`AurogonImmobulusMode` (`LM FZ`, Launch Mode Freeze)**；
+  - 当应用窗口数短暂变为 0（锁屏、全屏应用/黑名单隐藏悬浮窗、无障碍短暂解绑重绑）且进程无前台服务（`startForegroundCount=0`）时，`LM FZ` 仍会强制冻结该进程；而澎湃 3.0 的 `LM timeout THAW`（3秒超时解冻）对无 FGS 的无障碍服务存在漏解冻缺陷，导致进程永久滞留墓碑，`SCREEN_ON` / `USER_PRESENT` 广播被 `BroadcastQueue: Greezer Denial` 丢弃。
+- **v76 全量修复项（base code 264 / actions code 265）**：
+  1. **静默前台服务进入澎湃核心白名单 (`mCore uids`)**：`AndroidManifest.xml` 新增 `FOREGROUND_SERVICE` 权限并移除残余 Google Billing 组件；`services/b.smali` 在 `onServiceConnected()` 启动 `IMPORTANCE_MIN` 静默前台通知（渠道 `fng_keep_alive`，ID `0x464e47`，状态栏零图标），在 `onUnbind()`/`onDestroy()` 自动停止。
+  2. **修复小米解锁/刷新重置导航栏隐藏 (`services/b$x.smali`, `ui/ActivityStability.smali`)**：修复 `b$x.smali` `:cond_9` 分支误传 `0x0` 导致解锁或刷新设置时把 `force_fsg_nav_bar` 写回 `0` 的 Bug，改为传入 `0x1`；`ActivityStability` 补齐小米 `force_fsg_nav_bar == 1` 状态检查。
+  3. **拔除 Google Play Billing 死绑与广播泄漏 (`ui/billing/BillingHelperImpl.smali`)**：彻底清空 `BillingClient` 初始化、`InAppBillingService` 跨进程连接与 `PURCHASES_UPDATED` 广播注册。
+  4. **修复多显示屏/AOD 下亮屏误判 (`services/b.smali#o()`)**：改为直接校验主屏幕 `getDisplay(0).getState() == Display.STATE_ON (2)`。
+  5. **修复 `updateViewLayout` 脱离未重挂 (`services/e/a.smali#n()`)**：检查 `isAttachedToWindow()` 并捕获异常，若 `fngDesiredAttached == true` 则立即触发 `fngForceReattach()`。
+  6. **触摸帧 `MotionEvent` 零泄漏与旋转防抖加速 (`l/i.smali`, `services/e/e$k.smali`, `services/b.smali`)**：`MotionEvent.obtain()` 全部补齐 `try/finally` `recycle()`；旋转监听器复用单一 `Handler`/`Runnable` 防抖并将延迟从 700ms 降至 300ms；复用 `fngOnDrawCb` 与 `fngOnDismissCb` 回调字段。
+- **产物与 Xiaomi 15 Pro (`b78fc473`) 真机验收证据**：
+  - 构建产物：`output/FluidNavigationGesture-v76.apk`（code `264`，SHA-256 `AD58A3A0140DE4AB9B77B327557FF2BA6310ED6B0936140EBE292FA56059C4E7`）、`output/FluidNavigationGesture-v76-actions.apk`（code `265`，SHA-256 `C8A8355CB72B64D963CA8B47948C24F8CBAF0FE22B9DCB66559A098BD9C2D11A`）。
+  - 保数据覆盖安装与基线核验：`verify_usb_release.py` 退出码 `0`，设备 APK 哈希匹配，`settings_differences=[]`，5 项无障碍服务、Nova 默认桌面、ChatGPT 默认助手全部无损保留。
+  - 澎湃墓碑免疫核验：`dumpsys activity services com.fb.fluid` 确认 `isForeground=true foregroundId=4607559`（渠道 `fng_keep_alive`），`startRequested=false`；`dumpsys smartpower -a` 确认 `state=foreground workingState is 0 (HasForegroundService)`；`dumpsys greezer` 确认 `com.fb.fluid` 的 UID `10501` 已正式进入系统级核心免冻结白名单 `showCoreUids mCore uids={..., 10501, ...}`，`frozenTime: 0, count: 0`。
+  - 零泄漏核验：`dumpsys activity processes com.fb.fluid` 确认 `InAppBillingService` 连接数为 `0`；`dumpsys activity broadcasts` 确认 `PURCHASES_UPDATED` 接收器为 `0`；`dumpsys gfxinfo com.fb.fluid` 确认 `Total ViewRootImpl: 4`（零僵尸视图）。
+  - 压力与手势红测：连续 2 轮 `uiautomator dump` 强制无障碍解绑/重绑后，4 个 `TYPE_ACCESSIBILITY_OVERLAY` 窗口（左、右、底、探测窗）秒级恢复；左侧边缘滑动（`5,1400→320,1400`）与右侧边缘滑动（`1195,1400→880,1400`）均实测返回成功并记录 `FluidActions: Gesture back accepted=true`；`force_fsg_nav_bar=1` 稳定保持。

@@ -125,7 +125,7 @@
 
     move-result p1
 
-    if-nez p1, :cond_rebind
+    if-nez p1, :cond_2
 
     iget-object p1, p0, Lcom/fb/fluid/services/b$u;->a:Lcom/fb/fluid/services/e/b;
 
@@ -138,14 +138,6 @@
     const/4 v1, 0x1
 
     invoke-virtual {p1, v0, v1}, Lcom/fb/fluid/services/e/b;->a(Lcom/fb/fluid/utils/preferences/h;Z)V
-
-    :cond_rebind
-    # Re-attach the edge window after the accessibility service reports that
-    # it is no longer attached. The old recovery path only rebuilt the
-    # gesture configuration, leaving the service bound with no touch window.
-    iget-object p1, p0, Lcom/fb/fluid/services/b$u;->a:Lcom/fb/fluid/services/e/b;
-
-    invoke-virtual {p1}, Lcom/fb/fluid/services/e/a;->c()V
 
     :cond_2
     return-void

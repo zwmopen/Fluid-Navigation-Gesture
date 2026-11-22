@@ -251,21 +251,7 @@
 
     invoke-static {v1, v0}, Lkotlin/x/d/k;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    iget-object v0, p0, Lcom/fb/fluid/services/b$x;->a:Lcom/fb/fluid/services/b;
-
-    invoke-static {v0}, Lcom/fb/fluid/services/b;->H(Lcom/fb/fluid/services/b;)Lcom/fb/fluid/l/t/b;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/fb/fluid/l/t/b;->b()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/Boolean;
-
-    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v0
+    const/4 v0, 0x1
 
     invoke-virtual {p1, v1, v0}, Lcom/fb/fluid/l/q/d$a;->a(Landroid/content/Context;Z)Z
 

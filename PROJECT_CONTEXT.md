@@ -5,7 +5,7 @@
 - **真源基线**：基于官方原版权威无损资源与字节码（Fluid Navigation Gestures 2.0-beta11 逆向工程深度重构），彻底剔除网络广告与残次魔改源。
 - **已验证目标设备**：
   - Xiaomi 15 Pro (`dada` / Android 16 / HyperOS 3.0 `OS3.0.307.0.WOCCNXM`，设备 ID `b78fc473`，已部署 `v2.0-beta21-v76-actions` 生效并无损保留手势预设)
-  - Redmi K60 (`mondrian` / Android 15 / HyperOS 3.0，设备 ID `e3b58850`，已部署验证通过)
+  - Redmi K60 (`mondrian` / Android 15 / HyperOS 3.0，设备 ID `e3b58850`，已部署 `v2.0-beta21-v76-actions` 实机验收通过)
 
 ---
 
